@@ -28,6 +28,9 @@ const config = require("./config.json"); //Defining the place where we will stor
 
 client.once("ready", () => {
   console.log('Filter Bot Online! Created by CustomNate#0494')
+  client.user.setActivity(`christ help`, {
+    type: "PLAYING"
+  })
 });
 
 client.on('message', message => {
