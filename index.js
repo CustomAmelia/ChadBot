@@ -34,7 +34,7 @@ client.on('message', message => {
     if(config.FILTER_LIST.some(word => message.content.toLowerCase().includes(word))){ //Detecting if the message includes any of the words from the swears table
       message.channel.send(`${message.author}, Don't say that word!`)
       message.delete()
-    }
+    };
 })
 
 client.login(process.env.token);
