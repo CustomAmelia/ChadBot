@@ -24,7 +24,6 @@
 
 const Discord = require('discord.js')
 const client = new Discord.Client();
-const token = 'NzQ4MjY1MzQwNzkzNzgyNDA0.X0a6Zw.utZTcq52XAHQ_fqGOJAAz0LMUSM' //Defining bot token
 const config = require("./config.json"); //Defining the place where we will store our swears
 
 client.once("ready", () => {
@@ -38,4 +37,4 @@ client.on('message', message => {
     }
 })
 
-client.login(token);
+client.login(process.env.token);
