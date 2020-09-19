@@ -39,7 +39,7 @@ client.on('message', message => {
 
 client.on('message', message => {
   if (message.content.toLowerCase() === "zed list") {
-    message.channel.send('https://github.com/CustomNate/FilterBot/blob/master/config.json')
+    message.author.send('https://github.com/CustomNate/FilterBot/blob/master/config.json')
   }
 })
 
