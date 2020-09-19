@@ -43,4 +43,14 @@ client.on('message', message => {
   }
 })
 
+client.on('message', message => {
+  if (message.content.toLowerCase() === "christ help") {
+    const embed = new Discord.MessageEmbed()
+    .setTitle('Commands')
+    .setColor("#1261d1")
+    .addField('christ help', 'shows a list of commands', true)
+    .addField('christ list', 'gives you a list of the filtered words', true)
+  }
+})
+
 client.login(process.env.token);
