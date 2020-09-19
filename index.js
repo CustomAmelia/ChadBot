@@ -39,7 +39,7 @@ client.on('message', message => {
 
 client.on('message', message => {
   if (message.content.toLowerCase() === "christ list") {
-    message.author.send('http://www.mediafire.com/file/8zt6uu2bpmefg3a/list.txt/file')
+    message.channel.send(`${message.author}, http://www.mediafire.com/file/8zt6uu2bpmefg3a/list.txt/file`)
   }
 })
 
