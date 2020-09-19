@@ -37,4 +37,10 @@ client.on('message', message => {
     };
 })
 
+client.on('message', message => {
+  if (message.content.toLowerCase() === "zed list") {
+    message.channel.send('Heres the list of words that are recognised as bad to the filter. https://github.com/CustomNate/FilterBot/blob/master/config.json')
+  }
+})
+
 client.login(process.env.token);
