@@ -60,7 +60,9 @@ client.on('message', message => {
 })
 
 client.on('message', message =>{
-    if(!message.content.startsWith('christ ')) return;
+  const prefix = 'christ'
+
+    if(!message.content.startsWith(prefix)) return;
 
     if (message.channel.type === 'dm') {
       const args = message.content.slice(prefix.length).split(/ +/);
