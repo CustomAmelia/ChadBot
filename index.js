@@ -60,7 +60,7 @@ client.on('message', message => {
 })
 
 client.on('guildMemberAdd', guildMember => {
-  let epicRole = message.guild.roles.cache.get('757241153207795812')
+  let epicRole = guildMember.guild.roles.cache.get('757241153207795812')
   guildMember.roles.add(epicRole)
 })
 
