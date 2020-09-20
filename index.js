@@ -25,7 +25,7 @@
 const Discord = require('discord.js')
 const client = new Discord.Client();
 const config = require("./config.json"); //Defining the place where we will store our swears
-bot.snipes = new Discord.Collection();
+client.snipes = new Discord.Collection();
 
 client.once("ready", () => {
   console.log('Filter Bot Online! Created by CustomNate#0494')
@@ -94,7 +94,7 @@ client.on('messageDelete', message => {
 
 client.on('message', message => {
   if (message.content.toLowerCase() === "christ help") {
-    const snipes = bot.snipes.get(message.channel.id) || [];
+    const snipes = client.snipes.get(message.channel.id) || [];
     const msg = snipes[args[0] - 1 || 0];
     if (!msg) return message.channel.send(`That is not a valid snipe...`);
     const Embed = new MessageEmbed()
