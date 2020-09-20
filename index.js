@@ -60,6 +60,7 @@ client.on('message', message => {
 })
 
 client.on('messageDelete', message => {
+  try {
     if (message.author.bot) return;
     const snipes = message.client.snipes.get(message.channel.id) || [];
     snipes.unshift({
@@ -86,8 +87,10 @@ client.on('messageDelete', message => {
       (ch) => ch.name === "bot-log"
     );
     if (!channel) return;
-    channel.send(embed)
+    channel.send(embed);
+  } catch (e) {}
 })
+
 client.on('message', message => {
   if (message.content.toLowerCase() === "christ help") {
     const snipes = client.snipes.get(message.channel.id) || [];
