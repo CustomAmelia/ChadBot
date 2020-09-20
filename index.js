@@ -53,7 +53,7 @@ client.on('message', message => {
     .setColor("#1261d1")
     .addField('christ help', 'shows a list of commands', true)
     .addField('christ list', 'gives you a list of the filtered words', true)
-    .setAuthor(message.author.username, message.user.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
+    .setAuthor(message.author.username, message.author.displayAvatarURL({ format: 'png', dynamic: true, size: 1024 }))
 
     message.channel.send(embed)
   }
