@@ -53,6 +53,8 @@ client.on('message', message => {
     .setColor("#1261d1")
     .addField('christ help', 'shows a list of commands', true)
     .addField('christ list', 'gives you a list of the filtered words', true)
+
+    message.channel.send(embed)
   }
 })
 
