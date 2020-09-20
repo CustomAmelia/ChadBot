@@ -59,19 +59,4 @@ client.on('message', message => {
   }
 })
 
-client.on('message', message =>{
-  const prefix = 'christ'
-
-    if(!message.content.startsWith(prefix)) return;
-
-    if (message.channel.type === 'dm') {
-      const args = message.content.slice(prefix.length).split(/ +/);
-      const command = args.shift().toLowerCase();
-  
-      if(command === 'ping'){
-          message.channel.send('pong');
-      }
-    }
-});
-
 client.login(process.env.token);
