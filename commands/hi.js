@@ -1,14 +1,14 @@
 const Discord = require("discord.js")
-const config = require("../botsettings.json");
+const botconfig = require("../botsettings.json");
 
 module.exports.run = async (bot, message, args) => {
-    message.channel.send("Hello")
+    return message.channel.send("Hello")
 }
 
 module.exports.config = {
-    name: "ping",
+    name: "hi",
     description: "",
-    usage: "++ping",
+    usage: "?hi",
     accessableby: "Members",
-    aliases: ['']
+    aliases: ['h']
 }
