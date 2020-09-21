@@ -20,7 +20,7 @@ module.exports.run = (bot, message, args) => {
         embed.setURL(`${memeUrl}`)
         embed.setImage(memeImage)
         embed.setColor('RANDOM')
-        embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments}   || From ${subredditsrandom}`)
+        embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments}   || From r/${subredditsrandom}`)
         message.channel.send(embed);
     })
 }
