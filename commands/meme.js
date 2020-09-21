@@ -14,13 +14,12 @@ module.exports.run = (bot, message, args) => {
         let memeImage = content[0].data.children[0].data.url;
         let memeTitle = content[0].data.children[0].data.title;
         let memeUpvotes = content[0].data.children[0].data.ups;
-        let memeDownvotes = content[0].data.children[0].data.downs;
         let memeNumComments = content[0].data.children[0].data.num_comments;
         embed.setTitle(`${memeTitle}`)
         embed.setURL(`${memeUrl}`)
         embed.setImage(memeImage)
         embed.setColor('RANDOM')
-        embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments}  ||  From r/${subredditsrandom}`)
+        embed.setFooter(`👍 ${memeUpvotes} 💬 ${memeNumComments}  ||  From r/${subredditsrandom}`)
         message.channel.send(embed);
     })
 }
