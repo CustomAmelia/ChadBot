@@ -1,17 +1,17 @@
 const Discord = require("discord.js")
 const botconfig = require("../botsettings.json");
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = (bot, message, args) => {
     const embed = new Discord.MessageEmbed()
-    .setTitle('Chad Bot || Help')
-    .setDescription('Here you can find a full list of the commands you can use along with some cool tips!')
-    .addFields(
+    embed.setTitle('Chad Bot || Help')
+    embed.setDescription('Here you can find a full list of the commands you can use along with some cool tips!')
+    embed.addFields(
 		{ name: 'help', value: 'Gives you a list of commands.', inline: true },
 		{ name: 'test', value: 'test', inline: true },
-	)
+    )
+    
+    message.channel.send(embed)
 }
-
-message.channel.send(embed)
 
 module.exports.config = {
     name: "help",
