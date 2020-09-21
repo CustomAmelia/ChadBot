@@ -3,7 +3,10 @@ const botsettings = require('./botsettings.json');
 
 const bot = new Discord.Client({disableEveryone: true});
 
-require("./util/eventHandler")(bot)
+bot.on("ready", () => {
+  console.log(`${bot.user.username} is online`)
+  bot.user.setActivity("PLACEHOLDER", {type: 'PLAYING'});
+})
 
 const fs = require("fs");
 bot.commands = new Discord.Collection();
