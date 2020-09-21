@@ -9,6 +9,7 @@ module.exports.run = (bot, message, args) => {
 		{ name: 'help', value: 'Gives you a list of commands.', inline: true },
 		{ name: 'test', value: 'test', inline: true },
     )
+    embed.setColor('#0099ff')
     
     message.channel.send(embed)
 }
