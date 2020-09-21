@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
     return message.channel.send("Hello")
 }
 
-module.exports.config = {
+module.exports.botconfig = {
     name: "ping",
     description: "",
     usage: "++ping",
