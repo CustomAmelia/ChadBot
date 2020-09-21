@@ -20,14 +20,14 @@ module.exports.run = (bot, message, args) => {
         embed.setURL(`${memeUrl}`)
         embed.setImage(memeImage)
         embed.setColor('RANDOM')
-        embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments}`)
+        embed.setFooter(`👍 ${memeUpvotes} 👎 ${memeDownvotes} 💬 ${memeNumComments} From ${subredditsrandom}`)
         message.channel.send(embed);
     })
 }
 
 module.exports.config = {
-    name: "help",
-    description: "Here you can find a full list of the commands you can use along with some cool tips!",
-    usage: "++help",
-    aliases: ['cmds']
+    name: "meme",
+    description: "Posts a random meme from any of these three subreddits. r/meme, r/me_irl, r/dankmeme",
+    usage: "++meme",
+    aliases: []
 }
