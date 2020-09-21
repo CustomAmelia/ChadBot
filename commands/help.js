@@ -11,6 +11,8 @@ module.exports.run = async (bot, message, args) => {
 	)
 }
 
+message.channel.send(embed)
+
 module.exports.config = {
     name: "help",
     description: "Here you can find a full list of the commands you can use along with some cool tips!",
