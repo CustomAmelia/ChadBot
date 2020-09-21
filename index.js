@@ -26,16 +26,8 @@ const Discord = require('discord.js')
 const client = new Discord.Client();
 const config = require("./config.json"); //Defining the place where we will store our swears
 
-var person = {
-  firstName:"John",
-  lastName:"Doe",
-  age:20,
-  nationality:"German"
-};
-
 client.once("ready", () => {
   console.log('Filter Bot Online! Created by CustomNate#0494')
-  console.log(person)
   client.user.setActivity(`christ help`, {
     type: "PLAYING"
   })
