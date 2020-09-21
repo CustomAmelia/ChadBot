@@ -4,7 +4,7 @@ const botconfig = require("../botsettings.json");
 
 module.exports.run = (bot, message, args) => {
     const embed = new Discord.MessageEmbed()
-    const subreddits = ["meme", "me_irl", "dankmeme"]
+    const subreddits = ["meme", "me_irl", "dankmeme", "nocontextxboxmessages"]
     const subredditsrandom = subreddits[Math.floor(Math.random() * subreddits.length)];
 
     got(`https://www.reddit.com/r/${subredditsrandom}/random/.json`).then(response => {
@@ -27,7 +27,7 @@ module.exports.run = (bot, message, args) => {
 
 module.exports.config = {
     name: "meme",
-    description: "Posts a random meme from any of these three subreddits. r/meme, r/me_irl, r/dankmeme",
+    description: "Posts a random meme from any of the following subreddits. r/meme, r/me_irl, r/dankmeme, r/nocontextxboxmessages",
     usage: "++meme",
     aliases: []
 }
