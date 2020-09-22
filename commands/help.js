@@ -5,7 +5,7 @@ module.exports.run = (bot, message, args) => {
 
   if (args[0] === 'fun') {
     const embed = new Discord.MessageEmbed()
-    embed.setTitle('Chad Bot || Fun Commands')
+    embed.setTitle('**Chad Bot || Fun Commands**')
     embed.setDescription('``hack <@person>``, ``meme``')
     embed.setColor('#0099ff')
     embed.setFooter('use ++ before each command!')
@@ -15,7 +15,7 @@ module.exports.run = (bot, message, args) => {
 
   if (args[0] === 'info') {
     const embed = new Discord.MessageEmbed()
-    embed.setTitle('Chad Bot || Fun Commands')
+    embed.setTitle('**Chad Bot || Fun Commands**')
     embed.setDescription('``hack <@person>``, ``meme``')
     embed.setColor('#0099ff')
     embed.setFooter('use ++ before each command!')
