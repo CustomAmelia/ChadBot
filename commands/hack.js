@@ -9,8 +9,9 @@ module.exports.run = async (bot, message, args) => {
     const hacked = message.mentions.users.first();
     
       if (!hacked) return message.channel.send("Please specify a person you would like me to hack! 😎")
+      if (hacked.id === message.author.id)
 
-      message.channel.send(`Hacking ${hacked.username}! 😎`).then(async msg => {
+      message.channel.send(`Hacking ${hacked.username}! 🐱‍💻🐱‍💻🐱‍💻`).then(async msg => {
           await wait(1)
           msg.edit('Stealing Passwords! 🔑')
           await wait(1)
@@ -26,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.config = {
     name: "hack",
-    description: "Posts a random meme from r/Chadtopia",
+    description: "Does a fake hack on the person you mention.",
     usage: "++hack <mention person>",
     aliases: []
 }
