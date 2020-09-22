@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const botsettings = require('./botsettings.json');
 const bot = new Discord.Client({disableEveryone: true});
 const mongoose = require('mongoose')
-const prefix = require('../models/prefix')
+const prefix = require('./models/prefix')
 
 bot.on("ready", () => {
   console.log(`${bot.user.username} is online`)
