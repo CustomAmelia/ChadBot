@@ -38,7 +38,7 @@ bot.on("message", async message => {
 
     const data = await prefix.findOne({
         GuildID: message.guild.id
-    })
+    });
 
     let messageArray = message.content.split(" ");
     let cmd = messageArray[0].toLowerCase()
