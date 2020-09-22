@@ -33,7 +33,7 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 
-client.on('message', async (message) => {
+bot.on('message', async (message) => {
     if (message.author.bot) return;
 
     const data = await prefix.findOne({
@@ -48,14 +48,14 @@ client.on('message', async (message) => {
         const prefix = data.Prefix;
 
         if (!message.content.startsWith(prefix)) return;
-        const commandfile = client.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
-        commandfile.run(client, message, args);
+        const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
+        commandfile.run(bot, message, args);
     } else if (!data) {
         const prefix = "++";
         
         if (!message.content.startsWith(prefix)) return;
-        const commandfile = client.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
-        commandfile.run(client, message, args);
+        const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
+        commandfile.run(bot, message, args);
     }
 })
 
