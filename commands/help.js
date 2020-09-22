@@ -2,17 +2,39 @@ const Discord = require("discord.js")
 const botconfig = require("../botsettings.json");
 
 module.exports.run = (bot, message, args) => {
+
+  if (args[0] === 'fun') {
+    const embed = new Discord.MessageEmbed()
+    embed.setTitle('Chad Bot || Fun Commands')
+    embed.setDescription('``hack <@person>``, ``meme``')
+    embed.setColor('#0099ff')
+    embed.setFooter('use ++ before each command!')
+    
+    message.channel.send(embed)
+  }
+
+  if (args[0] === 'info') {
+    const embed = new Discord.MessageEmbed()
+    embed.setTitle('Chad Bot || Fun Commands')
+    embed.setDescription('``hack <@person>``, ``meme``')
+    embed.setColor('#0099ff')
+    embed.setFooter('use ++ before each command!')
+    
+    message.channel.send(embed)
+  }
+
+  if (!args) {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('Chad Bot || Help')
     embed.setDescription('Here you can find a full list of the commands you can use along with some cool tips!')
     embed.addFields(
-		{ name: 'help', value: 'Gives you a list of commands.', inline: true },
-    { name: 'hack <person>', value: 'Does a fake hack on the person you mention.', inline: true },
-    { name: 'meme', value: 'Posts a meme from reddit.', inline: true },
+    { name: 'Fun 😄', value: '``++help fun``', inline: true },
+    { name: 'Info ❓', value: '``++help info``', inline: true },
     )
     embed.setColor('#0099ff')
     
     message.channel.send(embed)
+  }
 }
 
 module.exports.config = {
