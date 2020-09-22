@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
           await wait(1)
           msg.edit('Leaking IP! IP is 69.69.69.69.12')
           await wait(1)
-          msg.edit(`${hacked.username} has been hacked! 😎`)
+          msg.edit(`${hacked} has been hacked! 😎`)
       })
 }
 
