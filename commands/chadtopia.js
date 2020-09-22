@@ -1,30 +1,32 @@
 const Discord = require("discord.js")
-const got = require('got')
 const botconfig = require("../botsettings.json");
 
-module.exports.run = (bot, message, args) => {
-    const embed = new Discord.MessageEmbed()
+module.exports.run = async (bot, message, args) => {
+    function wait (time) {
+        return new Promise(resolve => setTimeout(resolve, time * 1000));
+      }
 
-    got(`https://www.reddit.com/r/Chadtopia/random/.json`).then(response => {
-        let content = JSON.parse(response.body);
-        let permalink = content[0].data.children[0].data.permalink;
-        let memeUrl = `https://reddit.com${permalink}`;
-        let memeImage = content[0].data.children[0].data.url;
-        let memeTitle = content[0].data.children[0].data.title;
-        let memeUpvotes = content[0].data.children[0].data.ups;
-        let memeNumComments = content[0].data.children[0].data.num_comments;
-        embed.setTitle(`${memeTitle}`)
-        embed.setURL(`${memeUrl}`)
-        embed.setImage(memeImage)
-        embed.setColor('RANDOM')
-        embed.setFooter(`👍 ${memeUpvotes} 💬 ${memeNumComments}  ||  From r/Chadtopia`)
-        message.channel.send(embed);
-    })
+      const hacked = message.mentions.members.first();
+
+      if (!hacked) return message.channel.send("Please specify a person you would like me to hack! 😎")
+
+      message.channel.send(`Hacking ${hacked.username}! 😎`).then(async msg => {
+          await wait(1)
+          msg.edit('Stealing Passwords! 🔑')
+          await wait(1)
+          msg.edit('Stealing Discord account! 🔒')
+          await wait(1)
+          msg.edit('Stealing Reddit Account! 🔒')
+          await wait(1)
+          msg.edit('Leaking IP! IP is 69.69.69.69.12')
+          await wait(1)
+          msg.edit(`${hacked.username} has been hacked! 😎`)
+      })
 }
 
 module.exports.config = {
-    name: "chadtopia",
+    name: "hack",
     description: "Posts a random meme from r/Chadtopia",
-    usage: "++chadtopia",
+    usage: "++hack <mention person>",
     aliases: []
 }
