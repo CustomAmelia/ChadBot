@@ -36,7 +36,7 @@ fs.readdir("./commands/", (err, files) => {
 bot.on("message", async message => {
     if(message.author.bot || message.channel.type === "dm") return;
 
-    const data = await prefix.findOne({
+    const data = await Prefix.findOne({
         GuildID: message.guild.id
     });
 
