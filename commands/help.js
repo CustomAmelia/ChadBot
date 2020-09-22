@@ -29,12 +29,12 @@ module.exports.run = (bot, message, args) => {
     embed.setDescription('Subreddits bot list of commands.')
     embed.setColor('#FF5700')
     embed.addFields({
-      name: "Fun 😂",
+      name: "**Fun** 😂",
       value: "``++help fun``",
       inline: true
     },
     {
-      name: "Information ❓",
+      name: "**Information** ❓",
       value: "``++help info``",
       inline: true
     },
