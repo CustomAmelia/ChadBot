@@ -1,3 +1,4 @@
+const prefix = require("../models/prefix");
 const prefixModel = require("../models/prefix")
 
 module.exports.run = async (bot, message, args) => {
@@ -23,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send(`The new prefix is now **\`${args[0]}\`**`);
 
         let newData = new prefixModel({
-            Prefix: message.content.split(' '),
+            Prefix: args.join(" "),
             GuildID: message.guild.id
         })
         newData.save();
