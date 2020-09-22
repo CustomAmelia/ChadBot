@@ -7,7 +7,7 @@ module.exports.run = (bot, message, args) => {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**Chad Bot || Fun Commands**')
     embed.setDescription('``hack <@person>``, ``meme``')
-    embed.setColor('#0099ff')
+    embed.setColor('RANDOM')
     embed.setFooter('use ++ before each command!')
     
     message.channel.send(embed)
@@ -17,7 +17,7 @@ module.exports.run = (bot, message, args) => {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**Chad Bot || Fun Commands**')
     embed.setDescription('``hack <@person>``, ``meme``')
-    embed.setColor('#0099ff')
+    embed.setColor('RANDOM')
     embed.setFooter('use ++ before each command!')
     
     message.channel.send(embed)
@@ -26,7 +26,7 @@ module.exports.run = (bot, message, args) => {
   if (!args.length) {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**Chad Bot || Help**')
-    embed.setColor('#FF5700')
+    embed.setColor('RANDOM')
     embed.addFields({
       name: "**Fun** 😂",
       value: "``++help fun``",
