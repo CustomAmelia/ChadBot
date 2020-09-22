@@ -8,7 +8,7 @@ module.exports.run = (bot, message, args) => {
     embed.addFields(
 		{ name: 'help', value: 'Gives you a list of commands.', inline: true },
     { name: 'hack <person>', value: 'Does a fake hack on the person you mention.', inline: true },
-    { name: 'meme', value: 'Posts a random meme from any of the following subreddits: r/meme, r/me_irl, r/dankmeme, r/nocontextxboxmessages', inline: true },
+    { name: 'meme', value: 'Posts a meme from reddit.', inline: true },
     )
     embed.setColor('#0099ff')
     
