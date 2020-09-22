@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const botsettings = require('./botsettings.json');
 const bot = new Discord.Client({disableEveryone: true});
 const mongoose = require('mongoose')
-var Prefix = '../models/prefix'
+const prefix = '../models/prefix'
 
 bot.on("ready", () => {
   console.log(`${bot.user.username} is online`)
@@ -33,32 +33,29 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 
-bot.on("message", async message => {
-    if(message.author.bot || message.channel.type === "dm") return;
+client.on('message', async (message) => {
+    if (message.author.bot) return;
 
-    const data = await Prefix.findOne({
+    const data = await prefix.findOne({
         GuildID: message.guild.id
     });
 
-    let messageArray = message.content.split(" ");
-    let cmd = messageArray[0].toLowerCase()
-    let args = messageArray.slice(1);
+    const messageArray = message.content.split(' ');
+    const cmd = messageArray[0];
+    const args = messageArray.slice(1);
 
-    if (data) {
+    if(data) {
+        const prefix = data.Prefix;
 
-    const prefix = data.Prefix
-
-    if(!message.content.startsWith(prefix)) return;
-    let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
-    if(commandfile) commandfile.run(bot,message,args)
-    }
-    else if (!data) {
-
-        const prefix = '++'
-
-        if(!message.content.startsWith(prefix)) return;
-        let commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)))
-        if(commandfile) commandfile.run(bot,message,args)
+        if (!message.content.startsWith(prefix)) return;
+        const commandfile = client.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
+        commandfile.run(client, message, args);
+    } else if (!data) {
+        const prefix = "++";
+        
+        if (!message.content.startsWith(prefix)) return;
+        const commandfile = client.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
+        commandfile.run(client, message, args);
     }
 })
 
