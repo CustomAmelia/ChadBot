@@ -5,9 +5,10 @@ module.exports.run = async (bot, message, args) => {
     function wait (time) {
         return new Promise(resolve => setTimeout(resolve, time * 1000));
     }
-      if (!hacked) return message.channel.send("Please specify a person you would like me to hack! 😎")
 
-      const hacked = message.mentions.users.first();
+    const hacked = message.mentions.users.first();
+    
+      if (!hacked) return message.channel.send("Please specify a person you would like me to hack! 😎")
 
       message.channel.send(`Hacking ${hacked.username}! 😎`).then(async msg => {
           await wait(1)
