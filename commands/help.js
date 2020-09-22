@@ -28,8 +28,8 @@ module.exports.run = (bot, message, args) => {
     embed.setTitle('Chad Bot || Help')
     embed.setDescription('Here you can find a full list of the commands you can use along with some cool tips!')
     embed.addFields(
-    { name: 'Fun 😄', value: '``++help fun``', inline: true },
-    { name: 'Info ❓', value: '``++help info``', inline: true },
+    { name: 'Fun 😄', value: '``++help fun``', inline: false },
+    { name: 'Info ❓', value: '``++help info``', inline: false },
     )
     embed.setColor('#0099ff')
     
