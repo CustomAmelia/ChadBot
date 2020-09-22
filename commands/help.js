@@ -23,7 +23,7 @@ module.exports.run = (bot, message, args) => {
     message.channel.send(embed)
   }
 
-  if (!args) {
+  if (!args.length) {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('Chad Bot || Help')
     embed.setDescription('Here you can find a full list of the commands you can use along with some cool tips!')
