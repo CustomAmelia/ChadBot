@@ -25,14 +25,21 @@ module.exports.run = (bot, message, args) => {
 
   if (!args.length) {
     const embed = new Discord.MessageEmbed()
-    embed.setTitle('Chad Bot || Help')
-    embed.setDescription('Here you can find a full list of the commands you can use along with some cool tips!')
-    embed.addFields(
-    { name: 'Fun 😄', value: '``++help fun``', inline: false },
-    { name: 'Info ❓', value: '``++help info``', inline: false },
+    embed.setTitle('List of Commands:')
+    embed.setDescription('Subreddits bot list of commands.')
+    embed.setColor('#FF5700')
+    embed.addFields({
+      name: "Fun 😂",
+      value: "``++help fun``",
+      inline: true
+    },
+    {
+      name: "Information ❓",
+      value: "``++help info``",
+      inline: true
+    },
     )
-    embed.setColor('#0099ff')
-    
+
     message.channel.send(embed)
   }
 }
