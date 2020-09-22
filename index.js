@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const botsettings = require('./botsettings.json');
 const bot = new Discord.Client({disableEveryone: true});
 const mongoose = require('mongoose')
-const prefix = '../models/prefix'
+const Prefix = '../models/prefix'
 
 bot.on("ready", () => {
   console.log(`${bot.user.username} is online`)
@@ -15,7 +15,7 @@ const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 
-fs.readdir("./commands/", (err, files) => {
+fs.readdir("./commands/", (err, files) => { 
 
     if(err) console.log(err)
 
