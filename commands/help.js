@@ -25,8 +25,7 @@ module.exports.run = (bot, message, args) => {
 
   if (!args.length) {
     const embed = new Discord.MessageEmbed()
-    embed.setTitle('List of Commands:')
-    embed.setDescription('Subreddits bot list of commands.')
+    embed.setTitle('**Chad Bot || Help**')
     embed.setColor('#FF5700')
     embed.addFields({
       name: "**Fun** 😂",
