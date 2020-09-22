@@ -7,8 +7,6 @@ module.exports.run = async (bot, message, args) => {
 
     if (!args[0]) return message.channel.send('You must provide a **new prefix**!');
 
-    if (args[0].length > 5) return message.channel.send('Your new prefix must be under \`5\` characters!')
-
     if (data) {
         await prefixModel.findOneAndRemove({
             GuildID: message.guild.id
@@ -25,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send(`The new prefix is now **\`${args[0]}\`**`);
 
         let newData = new prefixModel({
-            Prefix: args[0],
+            Prefix: message.content.split(' '),
             GuildID: message.guild.id
         })
         newData.save();
