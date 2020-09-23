@@ -2,7 +2,6 @@ const Discord = require("discord.js")
 const botconfig = require("../botsettings.json");
 
 module.exports.run = (bot, message, args) => {
-
   if (args[0] === 'fun') {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**Chad Bot || Fun Commands**')
