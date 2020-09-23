@@ -41,7 +41,7 @@ bot.on('message', async (message) => {
 
     const data = await prefix.findOne({
         GuildID: message.guild.id
-    });
+    })
 
     const randomXp = Math.floor(math.random() * 9) + 1; //Random amont of XP until the number you want + 1
     const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
@@ -49,7 +49,7 @@ bot.on('message', async (message) => {
         const user = await Levels.fetch(message.author.id, message.guild.id);
         message.channel.send(`You leveled up to ${user.level}! Keep it going!`);
     }
-    
+
     const messageArray = message.content.split(' ');
     const cmd = messageArray[0].toString().toLowerCase();
     const args = messageArray.slice(1);
