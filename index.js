@@ -6,7 +6,7 @@ const Levels = require('discord-xp')
 
 bot.on("ready", () => {
   console.log(`${bot.user.username} is online`)
-  bot.user.setActivity("prefix is ++ or custom prefix", {type: 'PLAYING'});
+  bot.user.setActivity("prefix is ++", {type: 'PLAYING'});
 })
 
 Levels.setURL("mongodb+srv://Brady1290:caniver1234@cluster0.7abfx.mongodb.net/test")
