@@ -23,6 +23,16 @@ module.exports.run = (bot, message, args) => {
     message.channel.send(embed)
   }
 
+  if (args[0] === 'config') {
+    const embed = new Discord.MessageEmbed()
+    embed.setTitle('**Chad Bot || Fun Commands**')
+    embed.setDescription('``setprefix <prefix>``')
+    embed.setColor('RANDOM')
+    embed.setFooter('use ++ before each command!')
+    
+    message.channel.send(embed)
+  }
+
   if (!args.length) {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**Chad Bot || Help**')
@@ -35,6 +45,11 @@ module.exports.run = (bot, message, args) => {
     {
       name: "**Information** ❓",
       value: "``++help info``",
+      inline: true
+    },
+    {
+      name: "**Config** ⚙️",
+      value: "``++help config``",
       inline: true
     },
     )
