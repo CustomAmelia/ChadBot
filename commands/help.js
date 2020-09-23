@@ -7,7 +7,7 @@ module.exports.run = (bot, message, args) => {
     embed.setTitle('**Chad Bot || Fun Commands**')
     embed.setDescription('``hack <@person>``, ``meme``')
     embed.setColor('RANDOM')
-    embed.setFooter('use ++ before each command!')
+    embed.setFooter('use the default prefix ++ or your custom server prefix before each command!')
     
     message.channel.send(embed)
   }
@@ -17,7 +17,7 @@ module.exports.run = (bot, message, args) => {
     embed.setTitle('**Chad Bot || Fun Commands**')
     embed.setDescription('``hack <@person>``, ``meme``')
     embed.setColor('RANDOM')
-    embed.setFooter('use ++ before each command!')
+    embed.setFooter('use the default prefix ++ or your custom server prefix before each command!')
     
     message.channel.send(embed)
   }
@@ -27,7 +27,7 @@ module.exports.run = (bot, message, args) => {
     embed.setTitle('**Chad Bot || Fun Commands**')
     embed.setDescription('``setprefix <prefix>``')
     embed.setColor('RANDOM')
-    embed.setFooter('use ++ before each command!')
+    embed.setFooter('use the default prefix ++ or your custom server prefix before each command!')
     
     message.channel.send(embed)
   }
@@ -38,20 +38,21 @@ module.exports.run = (bot, message, args) => {
     embed.setColor('#57b9ff')
     embed.addFields({
       name: "**Fun** 😂",
-      value: "``++help fun``",
+      value: "``help fun``",
       inline: true
     },
     {
       name: "**Information** ❓",
-      value: "``++help info``",
+      value: "``help info``",
       inline: true
     },
     {
       name: "**Config** ⚙️",
-      value: "``++help config``",
+      value: "``help config``",
       inline: true
     },
     )
+    embed.setFooter('use the default prefix ++help <category> or your custom server prefix before the help <category> command!')
 
     message.channel.send(embed)
   }
