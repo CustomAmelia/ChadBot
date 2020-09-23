@@ -22,6 +22,16 @@ module.exports.run = (bot, message, args) => {
     message.channel.send(embed)
   }
 
+  if (args[0] === 'xp') {
+    const embed = new Discord.MessageEmbed()
+    embed.setTitle('**Chad Bot || Fun Commands**')
+    embed.setDescription('``rank``, ``leaderboard``')
+    embed.setColor('RANDOM')
+    embed.setFooter('use ++ before each command!')
+    
+    message.channel.send(embed)
+  }
+
   if (!args.length) {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**Chad Bot || Help**')
@@ -34,6 +44,11 @@ module.exports.run = (bot, message, args) => {
     {
       name: "**Information** ❓",
       value: "``++help info``",
+      inline: true
+    },
+    {
+      name: "**XP** 🟦",
+      value: "``++help xp``",
       inline: true
     },
     )
