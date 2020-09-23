@@ -36,7 +36,6 @@ module.exports.run = (bot, message, args) => {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**Chad Bot || Help**')
     embed.setColor('#57b9ff')
-    embed.setFooter('++help <category> or custom server prefix before the help <category> cmd!')
     embed.addFields({
       name: "**Fun** 😂",
       value: "``help fun``",
