@@ -8,9 +8,9 @@ module.exports.run = async (bot, message, args) => {
 
     if (!args[0]) return message.channel.send('You must provide a **new prefix**!');
 
-    if (!message.author.hasPermission('KICK_MEMBERS')) return;
+    if (!message.member.hasPermission('KICK_MEMBERS')) return;
 
-    
+
     if (data) {
         await prefixModel.findOneAndRemove({
             GuildID: message.guild.id
