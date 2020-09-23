@@ -3,11 +3,14 @@ const botsettings = require('./botsettings.json');
 const bot = new Discord.Client({disableEveryone: true});
 const mongoose = require('mongoose')
 const prefix = require('./models/prefix')
+const Levels = require('discord-xp')
 
 bot.on("ready", () => {
   console.log(`${bot.user.username} is online`)
   bot.user.setActivity("prefix is ++ or custom prefix", {type: 'PLAYING'});
 })
+
+Levels.setURL("MONGODB_URL")
 
 mongoose.connect('mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true })
 
@@ -40,6 +43,13 @@ bot.on('message', async (message) => {
         GuildID: message.guild.id
     });
 
+    const randomXp = Math.floor(math.random() * 9) + 1; //Random amont of XP until the number you want + 1
+    const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
+    if (hasLeveledUp) {
+        const user = await Levels.fetch(message.author.id, message.guild.id);
+        message.channel.send(`You leveled up to ${user.level}! Keep it going!`);
+    }
+    
     const messageArray = message.content.split(' ');
     const cmd = messageArray[0].toString().toLowerCase();
     const args = messageArray.slice(1);
