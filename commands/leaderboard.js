@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 const Levels = require('discord-xp')
 
-module.exports.run = (bot, message, args) => {
+module.exports.run = async (bot, message, args) => {
     const user = await Levels.fetch(message.author.id, message.guild.id);
     
     const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
