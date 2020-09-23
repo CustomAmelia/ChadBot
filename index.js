@@ -10,7 +10,6 @@ bot.on("ready", () => {
   bot.user.setActivity("prefix is ++ or custom prefix", {type: 'PLAYING'});
 })
 
-mongoose.connect('mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true })
 Levels.setURL("mongodb+srv://Brady1290:caniver1234@cluster0.7abfx.mongodb.net/test")
 
 const fs = require("fs");
@@ -38,10 +37,6 @@ fs.readdir("./commands/", (err, files) => {
 bot.on('message', async (message) => {
     if (message.author.bot) return;
 
-    const data = await prefix.findOne({
-        GuildID: message.guild.id
-    })
-
     const randomXp = Math.floor(math.random() * 9) + 1; //Random amont of XP until the number you want + 1
     const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
     if (hasLeveledUp) {
@@ -53,21 +48,11 @@ bot.on('message', async (message) => {
     const cmd = messageArray[0].toString().toLowerCase();
     const args = messageArray.slice(1);
 
-    if(data) {
-        const prefix = data.Prefix;
-
-        if (!prefix) return;
-        if (!message.content.startsWith(prefix)) return;
-        const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
-        if (!commandfile) return;
-        commandfile.run(bot, message, args);
-    } else if (!data) {
         const prefix = "++";
         
         if (!message.content.startsWith(prefix)) return;
         const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
         commandfile.run(bot, message, args);
-    }
 })
 
 bot.login(process.env.token);
