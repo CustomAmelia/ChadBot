@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const botsettings = require('./botsettings.json');
 const bot = new Discord.Client({disableEveryone: true});
 const mongoose = require('mongoose')
-const prefix = require('./models/prefix')
 const Levels = require('discord-xp')
 
 bot.on("ready", () => {
