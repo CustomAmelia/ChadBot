@@ -26,7 +26,7 @@ module.exports.run = (bot, message, args) => {
   if (!args.length) {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**Chad Bot || Help**')
-    embed.setColor('RANDOM')
+    embed.setColor('#57b9ff')
     embed.addFields({
       name: "**Fun** 😂",
       value: "``++help fun``",
