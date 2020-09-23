@@ -49,14 +49,14 @@ bot.on('message', async (message) => {
 
         if (!prefix) return;
         if (!message.content.startsWith(prefix)) return;
-        const commandfile = bot.commands.get.toLowerCase()(cmd.slice(prefix.length)) || bot.commands.get.toLowerCase()(bot.aliases.get(cmd.slice(prefix.length)));
+        const commandfile = bot.commands.toLowerCase().get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
         if (!commandfile) return;
         commandfile.run(bot, message, args);
     } else if (!data) {
         const prefix = "++";
         
         if (!message.content.startsWith(prefix)) return;
-        const commandfile = bot.commands.get.toLowerCase()(cmd.slice(prefix.length)) || bot.commands.get.toLowerCase()(bot.aliases.get(cmd.slice(prefix.length)));
+        const commandfile = bot.commands.get.toLowerCase()(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
         commandfile.run(bot, message, args);
     }
 })
