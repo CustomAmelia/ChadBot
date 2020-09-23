@@ -10,7 +10,7 @@ bot.on("ready", () => {
   bot.user.setActivity("prefix is ++ or custom prefix", {type: 'PLAYING'});
 })
 
-Levels.setURL("MONGODB_URL")
+Levels.setURL("mongodb+srv://Brady1290:caniver1234@cluster0.7abfx.mongodb.net/test")
 
 mongoose.connect('mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true })
 
