@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!args[0]) return message.channel.send('You must provide a **new prefix**!');
 
-    if (!message.member.hasPermission('KICK_MEMBERS')) return;
+    if (!message.member.hasPermission('KICK_MEMBERS')) return message.channel.send('Uh oh, you are not a chad. You cannot use this command! Only people with the KICK_MEMBERS permission can use this command!')
 
 
     if (data) {
