@@ -4,6 +4,11 @@ const Levels = require('discord-xp')
 module.exports.run = async (bot, message, args) => {
     const user = await Levels.fetch(message.author.id, message.guild.id);
     
+    const embed = new Discord.MessageEmbed()
+    .setTitle(`**${message.author.name}'s Level**`)
+    .addField('Level', user.level)
+    .addField('XP', user.xp)
+    .setColor("#57b9ff")
     message.channel.send(`You are currently chad level **${user.level}**!`)
 }
 
