@@ -3,7 +3,7 @@ const botconfig = require("../botsettings.json");
 
 module.exports.run = async (bot, message, args) => {
     function wait (time) {
-        return new Promise(resolve => setTimeout(resolve, time * 1000));
+        return new Promise(resolve => setTimeout(resolve, time * 100));
     }
 
     const hacked = message.mentions.users.first();
