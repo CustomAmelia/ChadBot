@@ -1,11 +1,10 @@
 const Discord = require('discord.js')
 const Levels = require('discord-xp');
-const { prependOnceListener } = require('discord-xp/models/levels');
 
 module.exports.run = async (bot, message, args) => {
-    let user = await Levels.fetch(message.author.id, message.guild.id);
-    let person = message.mentions.users.first();
-    let personuser = await Levels.fetch(person.author.id, message.guild.id);
+    const user = await Levels.fetch(message.author.id, message.guild.id);
+    const person = message.mentions.users.first();
+    const personuser = await Levels.fetch(person.author.id, message.guild.id);
     
     if (!person || !personuser) {
         const embed = new Discord.MessageEmbed()
@@ -17,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send(embed)
     }
 else
-    const embed = new Discord.MessageEmbed()
+    const embed1 = new Discord.MessageEmbed()
     .setTitle(`**${person.username}'s Level**`)
     .addField('Level', personuser.level)
     .addField('XP', personuser.xp)
