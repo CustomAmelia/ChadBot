@@ -42,7 +42,7 @@ bot.on('message', async (message) => {
         const user = await Levels.fetch(message.author.id, message.guild.id);
         const embed = new Discord.MessageEmbed()
         .setTitle('+1 Chad Level!')
-        .addField("New Level", `${user.username}, Your chad level is now ${user.level}! Keep it going!`)
+        .addField("New Level", `${message.author.username}, Your chad level is now ${user.level}! Keep it going!`)
         .setTimestamp()
         .setColor("#57b9ff")
         message.channel.send(embed);
