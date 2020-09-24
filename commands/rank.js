@@ -3,7 +3,7 @@ const Levels = require('discord-xp')
 
 module.exports.run = async (bot, message, args) => {
     const user = await Levels.fetch(message.author.id, message.guild.id);
-    const person = message.mentions.members.first()
+    const person = message.mentions.users.first();
 
     if (!person) {
         const embed = new Discord.MessageEmbed()
@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
         .setColor("#57b9ff")
         message.channel.send(embed)
     }
-    
+
     if (person) {
         const user1 = await Levels.fetch(person.id, message.guild.id);
 
