@@ -17,8 +17,9 @@ module.exports.run = async (bot, message, args) => {
 
     if (person) {
         const user1 = await Levels.fetch(person.id, message.guild.id);
+        
+        if (person.bot) return;
 
-        console.log(person)
             const embed1 = new Discord.MessageEmbed()
             .setTitle(`**${person.username}'s Level**`)
             .addField('Level', user1.level)
