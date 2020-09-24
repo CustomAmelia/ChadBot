@@ -6,7 +6,6 @@ module.exports.run = async (bot, message, args) => {
     const person = message.mentions.users.first();
 
     if (!person) {
-        console.log(person)
         const embed = new Discord.MessageEmbed()
         .setTitle(`**${message.author.username}'s Level**`)
         .addField('Level', user.level)
@@ -19,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
     if (person) {
         const user1 = await Levels.fetch(person.id, message.guild.id);
 
-        if (person) {
+        console.log(person)
             const embed1 = new Discord.MessageEmbed()
             .setTitle(`**${person.username}'s Level**`)
             .addField('Level', user1.level)
@@ -27,7 +26,6 @@ module.exports.run = async (bot, message, args) => {
             .setTimestamp()
             .setColor("#57b9ff")
             message.channel.send(embed1)
-        }
     }
 }
 
