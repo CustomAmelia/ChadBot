@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
     const user = await Levels.fetch(message.author.id, message.guild.id);
     const person = message.mentions.users.first();
 
-    if (person.id === '748265340793782404') return;
+    if (person.bot) return;
 
     if (!person) {
         const embed = new Discord.MessageEmbed()
