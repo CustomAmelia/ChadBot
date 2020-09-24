@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
     const user = await Levels.fetch(message.author.id, message.guild.id);
     
     const embed = new Discord.MessageEmbed()
-    .setTitle(`**${message.author.name}'s Level**`)
+    .setTitle(`**${message.author.username}'s Level**`)
     .addField('Level', user.level)
     .addField('XP', user.xp)
     .setTimestamp()
