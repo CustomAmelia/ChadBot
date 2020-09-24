@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
     const embed = new Discord.MessageEmbed()
     .setTitle(`**${message.guild.name}'s Leaderboard**`)
     .setDescription(lb.join("\n\n"))
-    .setFooter('ChadBot')
+    .setTimestamp()
     .setColor("#57b9ff")
     message.channel.send(embed)
 }

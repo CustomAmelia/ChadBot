@@ -43,7 +43,7 @@ bot.on('message', async (message) => {
         const embed = new Discord.MessageEmbed()
         .setTitle('+1 Chad Level!')
         .addField("New Level", `Your chad level is now ${user.level}! Keep it going!`)
-        .setFooter('ChadBot')
+        .setTimestamp()
         .setColor("#57b9ff")
         message.channel.send(embed);
     }
