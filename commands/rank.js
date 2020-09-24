@@ -18,9 +18,9 @@ module.exports.run = async (bot, message, args) => {
 
     if (person) {
         const embed1 = new Discord.MessageEmbed()
-        .setTitle(`**${person.username}'s Level**`)
-        .addField('Level', personuser.level)
-        .addField('XP', personuser.xp)
+        .setTitle(`**${person.nickname}'s Level**`)
+        .addField('Level', user1.level)
+        .addField('XP', user1.xp)
         .setTimestamp()
         .setColor("#57b9ff")
         message.channel.send(embed1)
