@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
 
     const leaderboard = Levels.computeLeaderboard(bot, rawLeaderboard); 
 
-    const lb = leaderboard.map(e => ` ``\ ${e.position} • ${e.username}#${e.discriminator}\nChad Level: ${e.level}\nXP: ${e.xp.toLocaleString()}\ ```)
+    const lb = leaderboard.map(e => `${e.position} • ${e.username}#${e.discriminator}\nChad Level: ${e.level}\nXP: ${e.xp.toLocaleString()}`)
     const embed = new Discord.MessageEmbed()
     .setTitle(`**${message.guild.name}'s Leaderboard**`)
     .setDescription(`${lb.join("\n\n")}`)
