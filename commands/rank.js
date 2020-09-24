@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const Levels = require('discord-xp');
+const Levels = require('discord-xp')
 
 module.exports.run = async (bot, message, args) => {
     const user = await Levels.fetch(message.author.id, message.guild.id);
@@ -22,7 +22,7 @@ else
     .addField('XP', personuser.xp)
     .setTimestamp()
     .setColor("#57b9ff")
-    message.channel.send(embed)
+    message.channel.send(embed1)
 }
 
 module.exports.config = {
