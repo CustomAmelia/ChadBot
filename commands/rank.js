@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
         .setColor("#57b9ff")
         message.channel.send(embed)
     }
-else
+
     const embed1 = new Discord.MessageEmbed()
     .setTitle(`**${person.username}'s Level**`)
     .addField('Level', personuser.level)
