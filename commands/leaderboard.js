@@ -9,9 +9,11 @@ module.exports.run = async (bot, message, args) => {
 
     const leaderboard = Levels.computeLeaderboard(bot, rawLeaderboard); 
 
-    const lb = leaderboard.map(person => `${person.position}. ${person.username}#${person.discriminator}\nChad Level: ${person.level}\nXP: ${person.xp.toLocaleString()}`);
-
-    message.channel.send(`${lb.join("\n\n")}`)
+    const lb = leaderboard.map(person => ```${person.position}•${person.username}#${person.discriminator} \nChad Level: ${person.level}\nXP: ${person.xp.toLocaleString()}```);
+    const embed = new Discord.MessageEmbed()
+    .setTitle(`**${message.guild.name}'s Leaderboard**`)
+    .setDescription(lb)
+    message.channel.send(embed)
 }
 
 module.exports.config = {

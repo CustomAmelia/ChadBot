@@ -40,7 +40,12 @@ bot.on('message', async (message) => {
     const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
     if (hasLeveledUp) {
         const user = await Levels.fetch(message.author.id, message.guild.id);
-        message.channel.send(`Your chad level is now ${user.level}! Keep it going!`);
+        const embed = new Discord.MessageEmbed()
+        .setTitle('+1 Chad Level!')
+        .addField("New Level", `Your chad level is now ${user.level}! Keep it going!`)
+        .setFooter('ChadBot')
+        .setColor("#57b9ff")
+        message.channel.send(embed);
     }
 
     const messageArray = message.content.split(' ');
