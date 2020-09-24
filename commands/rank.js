@@ -4,9 +4,8 @@ const Levels = require('discord-xp')
 module.exports.run = async (bot, message, args) => {
     const user = await Levels.fetch(message.author.id, message.guild.id);
     const person = message.mentions.members.first()
-    const user1 = await Levels.fetch(person.id, message.guild.id);
-    
-    if (!person || !user1) {
+
+    if (!person) {
         const embed = new Discord.MessageEmbed()
         .setTitle(`**${message.author.username}'s Level**`)
         .addField('Level', user.level)
@@ -15,15 +14,19 @@ module.exports.run = async (bot, message, args) => {
         .setColor("#57b9ff")
         message.channel.send(embed)
     }
-
+    
     if (person) {
-        const embed1 = new Discord.MessageEmbed()
-        .setTitle(`**${person.nickname}'s Level**`)
-        .addField('Level', user1.level)
-        .addField('XP', user1.xp)
-        .setTimestamp()
-        .setColor("#57b9ff")
-        message.channel.send(embed1)
+        const user1 = await Levels.fetch(person.id, message.guild.id);
+
+        if (person) {
+            const embed1 = new Discord.MessageEmbed()
+            .setTitle(`**${person.username}'s Level**`)
+            .addField('Level', user1.level)
+            .addField('XP', user1.xp)
+            .setTimestamp()
+            .setColor("#57b9ff")
+            message.channel.send(embed1)
+        }
     }
 }
 
