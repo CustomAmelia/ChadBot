@@ -8,8 +8,9 @@ module.exports.run = async (bot, message, args) => {
     .setTitle(`**${message.author.name}'s Level**`)
     .addField('Level', user.level)
     .addField('XP', user.xp)
+    .setTimestamp()
     .setColor("#57b9ff")
-    message.channel.send(`You are currently chad level **${user.level}**!`)
+    message.channel.send(embed)
 }
 
 module.exports.config = {
