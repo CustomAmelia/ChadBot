@@ -3,7 +3,7 @@ const Levels = require('discord-xp')
 
 module.exports.run = async (bot, message, args) => {
     const user = await Levels.fetch(message.author.id, message.guild.id);
-    const person = message.mentions.users.first();
+    const person = message.mentions.members.first()
     const user1 = await Levels.fetch(person.id, message.guild.id);
     
     if (!person || !user1) {
