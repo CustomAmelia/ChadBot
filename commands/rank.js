@@ -5,8 +5,6 @@ module.exports.run = async (bot, message, args) => {
     const user = await Levels.fetch(message.author.id, message.guild.id);
     const person = message.mentions.users.first();
 
-    if (person.bot) return;
-
     if (!person) {
         const embed = new Discord.MessageEmbed()
         .setTitle(`**${message.author.username}'s Level**`)
