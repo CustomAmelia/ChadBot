@@ -2,14 +2,14 @@ const Discord = require('discord.js');
 const botsettings = require('./botsettings.json');
 const bot = new Discord.Client({disableEveryone: true});
 const mongoose = require('mongoose')
-const Levels = require('discord-xp')
+const prefix = require('./models/prefix');
 
 bot.on("ready", () => {
   console.log(`${bot.user.username} is online`)
   bot.user.setActivity("prefix is ++", {type: 'PLAYING'});
 })
 
-Levels.setURL("mongodb+srv://Brady1290:caniver1234@cluster0.7abfx.mongodb.net/test", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true })
 
 const fs = require("fs");
 bot.commands = new Discord.Collection();
@@ -40,29 +40,26 @@ bot.on('guildMemberRemove', (guildMember) => {
 bot.on('message', async (message) => {
     if (message.author.bot) return;
     if (message.channel.type === 'dm') return;
- 
-    const randomXp = Math.floor(Math.random() * 4) + 1;
-    const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
-    if (hasLeveledUp) {
-        const user = await Levels.fetch(message.author.id, message.guild.id);
-        const embed = new Discord.MessageEmbed()
-        .setTitle('+1 Chad Level!')
-        .addField("New Level", `${message.author}, Your chad level is now ${user.level}! Keep it going!`)
-        .setTimestamp()
-        .setColor("#57b9ff")
-        message.channel.send(embed);
-    }
+
+    const data = await prefix.findOne({
+        GuildID: message.guild.id
+    });
 
     const messageArray = message.content.split(' ');
     const cmd = messageArray[0].toString().toLowerCase();
     const args = messageArray.slice(1);
 
+    if (data) {
+        const prefix = data.Prefix;
+    }
+    else if (!data) {
         const prefix = "++";
         
         if (!message.content.startsWith(prefix)) return;
         const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
         if (!commandfile) return;
         commandfile.run(bot, message, args);
+    }
 })
 
 bot.login(process.env.token);
