@@ -12,5 +12,5 @@ module.exports.config = {
     name: "saw",
     description: "I sawed this person in half!",
     usage: "++saw <person>",
-    aliases: ["lb"]
+    aliases: []
 }
