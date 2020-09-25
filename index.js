@@ -39,7 +39,8 @@ bot.on('guildMemberRemove', (guildMember) => {
 
 bot.on('message', async (message) => {
     if (message.author.bot) return;
-
+    if (message.channel.type === 'dm') return;
+ 
     const randomXp = Math.floor(Math.random() * 4) + 1;
     const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
     if (hasLeveledUp) {
