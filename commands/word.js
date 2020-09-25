@@ -44579,12 +44579,12 @@ module.exports.run = async (bot, message, args) => {
 
     const randomMessage = words[Math.floor(Math.random() * words.length)];
 
-    message.channel.send(`${randomMessage} is not chad`)
+    message.channel.send(`frick ${randomMessage}`)
 }
 
 module.exports.config = {
-    name: "notchad",
+    name: "frickword",
     description: "test",
-    usage: "++notchad",
+    usage: "++frick",
     aliases: []
 }
