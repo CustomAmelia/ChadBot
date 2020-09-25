@@ -6,7 +6,7 @@ const prefix = require('./models/prefix');
 
 bot.on("ready", () => {
   console.log(`${bot.user.username} is online`)
-  bot.user.setActivity("prefix is ++", {type: 'PLAYING'});
+  bot.user.setActivity("Chad Simulator", {type: 'PLAYING'});
 })
 
 mongoose.connect('mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true })

@@ -13,7 +13,12 @@ module.exports.run = async (bot, message, args) => {
     embed.setTitle('**Chad Bot || Fun Commands**')
     embed.setDescription('``hack <@person>``, ``meme``, ``frickword``')
     embed.setColor('RANDOM')
-    embed.setFooter('use ++ before each command!')
+    if (!data) {
+      embed.setFooter('use ++ before each command')
+    }
+else if (data) {
+  embed.setFooter(`use ${data.Prefix} before each command!`)
+}
     
     message.channel.send(embed)
   }
@@ -23,7 +28,27 @@ module.exports.run = async (bot, message, args) => {
     embed.setTitle('**Chad Bot || Fun Commands**')
     embed.setDescription('``hack <@person>``, ``meme``')
     embed.setColor('RANDOM')
-    embed.setFooter('use ++ before each command!')
+    if (!data) {
+      embed.setFooter('use ++ before each command')
+    }
+else if (data) {
+  embed.setFooter(`use ${data.Prefix} before each command!`)
+}
+    
+    message.channel.send(embed)
+  }
+
+  if (args[0] === 'config') {
+    const embed = new Discord.MessageEmbed()
+    embed.setTitle('**Chad Bot || Fun Commands**')
+    embed.setDescription('``setprefix <new prefix>``')
+    embed.setColor('RANDOM')
+    if (!data) {
+      embed.setFooter('use ++ before each command')
+    }
+else if (data) {
+  embed.setFooter(`use ${data.Prefix} before each command!`)
+}
     
     message.channel.send(embed)
   }
@@ -40,6 +65,11 @@ module.exports.run = async (bot, message, args) => {
     {
       name: "**Information** ❓",
       value: "``help info``",
+      inline: true
+    },
+    {
+      name: "**Config** ⚙️",
+      value: "``help config``",
       inline: true
     },
     )
