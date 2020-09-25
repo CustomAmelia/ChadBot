@@ -70,7 +70,7 @@ bot.on('message', async (message) => {
     }
 })
 
-bot.on("guildCreate", guild => {
+bot.on("guildCreate", async guild => {
     let defaultChannel = "";
     guild.channels.cache.forEach((channel) => {
       if(channel.type == "text" && defaultChannel == "") {
@@ -83,7 +83,7 @@ bot.on("guildCreate", guild => {
     const data = await prefix.findOne({
         GuildID: message.guild.id
     });
-    
+
     const embed = new Discord.MessageEmbed()
     embed.setTitle('Thanks for adding me to your server!')
     embed.setColor("RANDOM")
