@@ -36,7 +36,7 @@ fs.readdir("./commands/", (err, files) => {
 bot.on('guildMemberRemove', (guildMember) => {
 
     if (guildMember.bot) return;
-    
+
     Levels.deleteUser(guildMember.id, guildMember.guild.id);
 })
 
@@ -71,7 +71,6 @@ bot.on('message', async (message) => {
 })
 
 bot.on("guildCreate", guild => {
-
     let defaultChannel = "";
     guild.channels.cache.forEach((channel) => {
       if(channel.type == "text" && defaultChannel == "") {
@@ -81,6 +80,10 @@ bot.on("guildCreate", guild => {
       }
     })
 
+    const data = await prefix.findOne({
+        GuildID: message.guild.id
+    });
+    
     const embed = new Discord.MessageEmbed()
     embed.setTitle('Thanks for adding me to your server!')
     embed.setColor("RANDOM")
