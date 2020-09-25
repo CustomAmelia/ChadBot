@@ -81,7 +81,7 @@ bot.on("guildCreate", async guild => {
     })
 
     const data = await prefix.findOne({
-        GuildID: message.guild.id
+        GuildID: guild.id
     });
 
     const embed = new Discord.MessageEmbed()
