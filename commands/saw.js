@@ -5,8 +5,6 @@ module.exports.run = async (bot, message, args) => {
 
     if (!person) return message.channel.send("Who do I saw in half?")
 
-    if (person.user.bot) return;
-
     message.channel.send(`*saws ${person.username} in half*`)
 }
 
