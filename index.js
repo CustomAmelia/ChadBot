@@ -33,6 +33,19 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 
+bot.on("guildCreate", guild => {
+
+    let defaultChannel = "";
+    guild.channels.cache.forEach((channel) => {
+      if(channel.type == "text" && defaultChannel == "") {
+        if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
+          defaultChannel = channel;
+        }
+      }
+    })
+    defaultChannel.send('testing')
+    });
+
 bot.on('guildMemberRemove', (guildMember) => {
     Levels.deleteUser(guildMember.id, guildMember.guild.id);
 })
