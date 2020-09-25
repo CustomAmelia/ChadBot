@@ -1,7 +1,7 @@
 const Discord = require("discord.js")
 const botconfig = require("../botsettings.json");
 
-module.exports.run = (bot, message, args) => {
+module.exports.run = async (bot, message, args) => {
 
   const data = await prefix.findOne({
     GuildID: message.guild.id
