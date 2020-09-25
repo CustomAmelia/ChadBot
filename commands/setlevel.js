@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     if (person.bot) return;
 
     Levels.setLevel(message.author.id, message.guild.id, 1000);
-}
+};
 
 module.exports.config = {
     name: "setlevel",
