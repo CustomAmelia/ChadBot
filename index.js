@@ -9,7 +9,6 @@ bot.on("ready", () => {
   bot.user.setActivity("prefix is ++", {type: 'PLAYING'});
 })
 
-mongoose.connect('mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true })
 Levels.setURL("mongodb+srv://Brady1290:caniver1234@cluster0.7abfx.mongodb.net/test", { useNewUrlParser: true, useUnifiedTopology: true })
 
 const fs = require("fs");
