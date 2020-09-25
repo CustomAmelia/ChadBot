@@ -34,6 +34,9 @@ fs.readdir("./commands/", (err, files) => {
 });
 
 bot.on('guildMemberRemove', (guildMember) => {
+
+    if (guildMember.bot) return;
+    
     Levels.deleteUser(guildMember.id, guildMember.guild.id);
 })
 
