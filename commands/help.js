@@ -13,6 +13,7 @@ module.exports.run = async (bot, message, args) => {
     embed.setTitle('**Chad Bot || Fun Commands**')
     embed.setDescription('``hack <@person>``, ``meme``, ``frickword``')
     embed.setColor('RANDOM')
+    embed.setTimestamp()
     if (!data) {
       embed.setFooter('use ++ before each command')
     }
@@ -28,6 +29,7 @@ else if (data) {
     embed.setTitle('**Chad Bot || Fun Commands**')
     embed.setDescription('``hack <@person>``, ``meme``')
     embed.setColor('RANDOM')
+    embed.setTimestamp()
     if (!data) {
       embed.setFooter('use ++ before each command')
     }
@@ -43,6 +45,7 @@ else if (data) {
     embed.setTitle('**Chad Bot || Fun Commands**')
     embed.setDescription('``setprefix <new prefix>``')
     embed.setColor('RANDOM')
+    embed.setTimestamp()
     if (!data) {
       embed.setFooter('use ++ before each command')
     }
@@ -57,6 +60,7 @@ else if (data) {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**Chad Bot || Help**')
     embed.setColor('#57b9ff')
+    embed.setTimestamp()
     embed.addFields({
       name: "**Fun** 😂",
       value: "``help fun``",
