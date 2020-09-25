@@ -51,6 +51,11 @@ bot.on('message', async (message) => {
 
     if (data) {
         const prefix = data.Prefix;
+
+        if (!message.content.startsWith(prefix)) return;
+        const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
+        if (!commandfile) return;
+        commandfile.run(bot, message, args);
     }
     else if (!data) {
         const prefix = "++";
