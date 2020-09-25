@@ -5,7 +5,7 @@ module.exports.run = (bot, message, args) => {
   if (args[0] === 'fun') {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**Chad Bot || Fun Commands**')
-    embed.setDescription('``hack <@person>``, ``meme``')
+    embed.setDescription('``hack <@person>``, ``meme``, ``frickword``')
     embed.setColor('RANDOM')
     embed.setFooter('use ++ before each command!')
     
