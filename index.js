@@ -49,8 +49,10 @@ bot.on("guildCreate", guild => {
     embed.setColor("RANDOM")
     embed.setTimestamp()
     embed.setDescription("Hello! I'm chad bot. I am a fun bot which is developed by currently one person. There are currently no ways to support development but there may be soon. The default prefix is ++ but you can change it with ++setprefix <new prefix> if you have the Manage_Servers permission, thats all for now! Have fun!")
-    defaultChannel.send(embed)
-    });
+    defaultChannel.send(embed).catch(error => {
+        return;
+    })
+})
 
 bot.on('guildMemberRemove', (guildMember) => {
     Levels.deleteUser(guildMember.id, guildMember.guild.id);
