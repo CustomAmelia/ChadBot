@@ -33,13 +33,6 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 
-bot.on('guildMemberRemove', (guildMember) => {
-
-    if (guildMember.bot) return;
-
-    Levels.deleteUser(guildMember.id, guildMember.guild.id);
-})
-
 bot.on('message', async (message) => {
     if (message.author.bot) return;
     if (message.channel.type === 'dm') return;
@@ -54,7 +47,7 @@ bot.on('message', async (message) => {
 
     if (data) {
         const prefix = data.Prefix;
-        
+
         if (!message.content.startsWith(prefix)) return;
             const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
             if (!commandfile) return;
