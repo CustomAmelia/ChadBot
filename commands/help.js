@@ -58,20 +58,19 @@ else if (data) {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**Chad Bot || Help**')
     embed.setColor('RANDOM')
-    embed.setDescription(`Make sure that you are not using a space before a command. for example: ++help fun not ++ help fun`)
     embed.addFields({
       name: "**Fun** 😂",
-      value: "`help fun``",
+      value: "``help fun``",
       inline: true
     },
     {
       name: "**Information** ❓",
-      value: "`help info``",
+      value: "``help info``",
       inline: true
     },
     {
       name: "**Config** ⚙️",
-      value: "`help config``",
+      value: "``help config``",
       inline: true
     },
     )
