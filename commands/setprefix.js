@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (args[0].length > 5) return message.channel.send('Your new prefix must be under \`5\` characters!')
 
-    if (message.member.hasPermission('MANAGE_SERVER')) {
+    if (message.member.hasPermission('MANAGE_GUILD')) {
     if (data) {
         await prefixModel.findOneAndRemove({
             GuildID: message.guild.id
