@@ -54,19 +54,35 @@ bot.on('message', async (message) => {
 
     if (data) {
         const prefix = data.Prefix;
+        const prefix2 = `${data.Prefix} `
 
         if (!message.content.startsWith(prefix)) return;
+        if (prefix2) {
         const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
         if (!commandfile) return;
         commandfile.run(bot, message, args);
+        }
+        else if (prefix) {
+            const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
+            if (!commandfile) return;
+            commandfile.run(bot, message, args);
+        }
     }
     else if (!data) {
         const prefix = "++";
+        const prefix2 = "++ "
         
         if (!message.content.startsWith(prefix)) return;
+        if (prefix) {
         const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
         if (!commandfile) return;
         commandfile.run(bot, message, args);
+        }
+        else if (prefix2) {
+            const commandfile = bot.commands.get(cmd.slice(prefix2.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix2.length)));
+            if (!commandfile) return;
+            commandfile.run(bot, message, args);
+        }
     }
 })
 
