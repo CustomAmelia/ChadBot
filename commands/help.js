@@ -26,7 +26,7 @@ else if (data) {
   if (args[0] === 'info') {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**Chad Bot || Information Commands**')
-    embed.setDescription('``help``')
+    embed.setDescription('``help``, ``invite``')
     embed.setColor('RANDOM')
     if (!data) {
       embed.setFooter('use ++ before each command')
