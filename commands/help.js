@@ -25,8 +25,8 @@ else if (data) {
 
   if (args[0] === 'info') {
     const embed = new Discord.MessageEmbed()
-    embed.setTitle('**Chad Bot || Fun Commands**')
-    embed.setDescription('``hack <@person>``, ``meme``')
+    embed.setTitle('**Chad Bot || Information Commands**')
+    embed.setDescription('``help``')
     embed.setColor('RANDOM')
     if (!data) {
       embed.setFooter('use ++ before each command')
@@ -40,7 +40,7 @@ else if (data) {
 
   if (args[0] === 'config') {
     const embed = new Discord.MessageEmbed()
-    embed.setTitle('**Chad Bot || Fun Commands**')
+    embed.setTitle('**Chad Bot || Config Commands**')
     embed.setDescription('``setprefix <new prefix>``')
     embed.setColor('RANDOM')
     if (!data) {
