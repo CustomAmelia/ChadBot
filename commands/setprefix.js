@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send(`The new prefix is now **\`${args[0]}\`**`);
 
         let newData = new prefixModel({
-            Prefix: args[0],
+            Prefix: `${args[0]} `,
             GuildID: message.guild.id
         })
         newData.save();
