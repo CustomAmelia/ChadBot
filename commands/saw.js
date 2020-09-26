@@ -13,4 +13,4 @@ module.exports.config = {
     description: "I sawed this person in half!",
     usage: "++saw <person>",
     aliases: []
-}
+};
