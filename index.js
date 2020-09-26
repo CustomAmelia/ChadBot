@@ -58,7 +58,7 @@ bot.on('message', async (message) => {
 
         if (!message.content.startsWith(prefix)) return;
         if (prefix2) {
-        const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
+        const commandfile = bot.commands.get(cmd.slice(prefix2.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix2.length)));
         if (!commandfile) return;
         commandfile.run(bot, message, args);
         }
