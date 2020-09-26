@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (args[0].length > 5) return message.channel.send('Your new prefix must be under \`5\` characters!')
 
-    if (message.member.hasPermission('MANAGE_GUILD')) {
+    if (message.member.hasPermission('ADMINISTRATOR')) {
     if (data) {
         await prefixModel.findOneAndRemove({
             GuildID: message.guild.id
@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
     }
 }
 else if (!message.member.hasPermission('MANAGE_SERVER')) {
-    message.channel.send('uh oh! you do not have the required permissions to run this command, you need the KICK_MEMBERS permission!')
+    message.channel.send('uh oh! you do not have the required permissions to run this command, you need the ADMINISTRATOR permission!')
 }
 }
 
