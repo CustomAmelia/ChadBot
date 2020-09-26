@@ -54,14 +54,6 @@ else if (data) {
   }
 
   if (!args.length) {
-    let prefix = ""
-
-    if (data) {
-      prefix = data.Prefix
-    }
-    else if (!data) {
-      prefix = "++"
-    }
 
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**Chad Bot || Help**')
@@ -69,17 +61,17 @@ else if (data) {
     embed.setDescription(`Make sure that you are not using a space before a command. for example: ++help fun not ++ help fun`)
     embed.addFields({
       name: "**Fun** 😂",
-      value: ```${prefix}help fun```,
+      value: ```help fun```,
       inline: true
     },
     {
       name: "**Information** ❓",
-      value: ```${prefix}help info```,
+      value: ```help info```,
       inline: true
     },
     {
       name: "**Config** ⚙️",
-      value: ```${prefix}help config```,
+      value: ```help config```,
       inline: true
     },
     )
