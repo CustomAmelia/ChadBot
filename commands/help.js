@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
 
   if (args[0] === 'fun') {
     const embed = new Discord.MessageEmbed()
-    embed.setTitle('**Chad Bot || Fun Commands**')
+    embed.setTitle('**😂 Fun Commands**')
     embed.setDescription(' ``meme``, ``frickword``')
     embed.setColor('RANDOM')
     if (!data) {
@@ -25,7 +25,7 @@ else if (data) {
 
   if (args[0] === 'utility') {
     const embed = new Discord.MessageEmbed()
-    embed.setTitle('**Chad Bot || Utility Commands**')
+    embed.setTitle('**🛠️ Utility Commands**')
     embed.setDescription('``help``, ``invite``')
     embed.setColor('RANDOM')
     if (!data) {
@@ -40,7 +40,7 @@ else if (data) {
 
   if (args[0] === 'config') {
     const embed = new Discord.MessageEmbed()
-    embed.setTitle('**Chad Bot || Config Commands**')
+    embed.setTitle('**⚙️ Config Commands**')
     embed.setDescription('``setprefix <new prefix>``')
     embed.setColor('RANDOM')
     if (!data) {
@@ -55,7 +55,7 @@ else if (data) {
 
   if (!args.length) {
     const embed = new Discord.MessageEmbed()
-    embed.setTitle('**Chad Bot || Help**')
+    embed.setTitle('**Chad Bot Command List**')
     embed.setColor('RANDOM')
     embed.addFields({
       name: "😂 **Fun**",
