@@ -11,7 +11,7 @@ module.exports.run = async (bot, message, args) => {
   if (args[0] === 'fun') {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**😂 Fun Commands**')
-    embed.setDescription(' ``meme``, ``frickword``')
+    embed.setDescription(` ``${data.Prefix}meme``, ``frickword`` `)
     embed.setColor('RANDOM')
     if (!data) {
       embed.setFooter('use ++ before each command')
@@ -57,29 +57,16 @@ else if (data) {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**Chad Bot Command List**')
     embed.setColor('RANDOM')
-    embed.addFields({
-      name: "😂 **Fun**",
-      value: "``help fun``",
-      inline: true
-    },
-    {
-      name: "🛠️ **Utility**",
-      value: "``help utility``",
-      inline: true
-    },
-    {
-      name: "⚙️ **Config**",
-      value: "``help config``",
-      inline: true
-    },
-    )
-
     if (!data) {
-      embed.setFooter('use ++ before each help category command!')
+      embed.addField("😂 **Fun**", "``++help fun``", true)
+      embed.addField("🛠️ **Utility**", "``++help utility``", true)
+      embed.addField("⚙️ **Config**", "``++help config``", true)
     }
-else if (data) {
-  embed.setFooter(`use ${data.Prefix} before each help category command!`)
-}
+    else if (data) {
+      embed.addField("😂 **Fun**", ` ``${data.Prefix}help fun`` `, true)
+      embed.addField("🛠️ **Utility**", ` ``${data.Prefix}help utility`` `, true)
+      embed.addField("⚙️ **Config**", ` ``${data.Prefix}help config`` `, true)
+    }
     message.channel.send(embed)
   }
 }
