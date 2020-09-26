@@ -54,32 +54,31 @@ else if (data) {
   }
 
   if (!args.length) {
-
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**Chad Bot || Help**')
     embed.setColor('RANDOM')
     embed.addFields({
-      name: "**Fun** 😂",
+      name: "😂 **Fun**",
       value: "``help fun``",
       inline: true
     },
     {
-      name: "**Information** ❓",
+      name: "❓ **Information**",
       value: "``help info``",
       inline: true
     },
     {
-      name: "**Config** ⚙️",
+      name: "⚙️ **Config**",
       value: "``help config``",
       inline: true
     },
     )
 
     if (!data) {
-      embed.setFooter('use ++ before each command')
+      embed.setFooter('use ++ before each help category command!')
     }
 else if (data) {
-  embed.setFooter(`use ${data.Prefix} before each command!`)
+  embed.setFooter(`use ${data.Prefix} before each help category command!`)
 }
     message.channel.send(embed)
   }
