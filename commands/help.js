@@ -23,9 +23,9 @@ else if (data) {
     message.channel.send(embed)
   }
 
-  if (args[0] === 'info') {
+  if (args[0] === 'utility') {
     const embed = new Discord.MessageEmbed()
-    embed.setTitle('**Chad Bot || Information Commands**')
+    embed.setTitle('**Chad Bot || Utility Commands**')
     embed.setDescription('``help``, ``invite``')
     embed.setColor('RANDOM')
     if (!data) {
@@ -63,8 +63,8 @@ else if (data) {
       inline: true
     },
     {
-      name: "❓ **Information**",
-      value: "``help info``",
+      name: "🛠️ **Utility**",
+      value: "``help utility``",
       inline: true
     },
     {
