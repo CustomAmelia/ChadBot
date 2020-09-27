@@ -9,7 +9,12 @@ module.exports.run = async (bot, message, args) => {
 
     const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocaleString()}`);
 
-    message.channel.send(`${lb.join("\n\n")}}`)
+    const embed = new Discord.MessageEmbed()
+    embed.setTitle(`${message.guild.name}'s Leaderboard`)
+    embed.setDescription(lb.join("\n\n"))
+    embed.setColor("RANDOM")
+    
+    message.channel.send(embed)
 }
 
 module.exports.config = {
