@@ -5,8 +5,8 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.config = {
-    name: "invite",
-    description: "Gives you the link to invite this bot!",
-    usage: "++invite",
+    name: "server",
+    description: "Gives you the link to join our official discord server!",
+    usage: "++server",
     aliases: []
 };
