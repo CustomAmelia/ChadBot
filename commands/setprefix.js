@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!args[0]) return message.channel.send('You must provide a **new prefix**!');
 
-    if (args[0].length > 5) return message.channel.send('Your new prefix must be under \`5\` characters!')
+    if (args[0].length > 10) return message.channel.send('Your new prefix must be under \`10\` characters!')
 
     if (message.member.hasPermission('MANAGE_GUILD')) {
     if (data) {
