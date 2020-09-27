@@ -44,13 +44,19 @@ bot.on('message', async (message) => {
     if (message.author.bot) return;
     if (message.channel.type === 'dm') return;
 
-    const randomXp = Math.floor(Math.random() * 9) + 1;
+    let randomXp = ""
+    if (message.length > 5) {
+        randomXp = Math.floor(Math.random() * 5) + 1
+    }
+    else if (message.length < 5) {
+        randomXp = Math.floor(Math.random() * 2) + 1
+    }
     const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
     if (hasLeveledUp) {
         const user = await Levels.fetch(message.author.id, message.guild.id);
         message.channel.send(`${message.author}, You leveled up to level ${user.level}! Keep it going!`);
     }
-    
+
     const data = await prefix.findOne({
         GuildID: message.guild.id
     });
