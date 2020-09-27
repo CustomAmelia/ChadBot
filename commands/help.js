@@ -26,7 +26,7 @@ else if (data) {
   if (args[0] === 'utility') {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**🛠️ Utility Commands**')
-    embed.setDescription('``help``, ``invite``, ``suggest <suggestion>``')
+    embed.setDescription('``help``, ``invite``, ``suggest <suggestion>``, ``server``')
     embed.setColor('RANDOM')
     if (!data) {
       embed.setFooter('use ++ before each command')
@@ -69,11 +69,8 @@ else if (data) {
   }
 
   if (!args.length) {
-    const messages = ["Want to invite this bot to your server? Invite it here http://bit.ly/discordchadbot !", "We have a discord server! Join maybe? https://discord.gg/vs9DDa9"]
-    const randomMessage = messages[Math.floor(Math.random() * messages.length)];
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**Chad Bot Command List**')
-    embed.setDescription(randomMessage)
     embed.setColor('RANDOM')
     if (!data) {
       embed.addField("😂 **Fun**", "``++help fun``", true)
