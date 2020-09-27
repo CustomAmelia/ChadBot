@@ -3,15 +3,18 @@ const botsettings = require('./botsettings.json');
 const bot = new Discord.Client({disableEveryone: true});
 const mongoose = require('mongoose')
 const prefix = require('./models/prefix');
+const Levels = require('discord-xp')
 
 bot.on("ready", () => {
   console.log(`${bot.user.username} is online`)
   bot.user.setActivity("Chad Simulator", {type: 'PLAYING'});
 })
 
+Levels.setURL("mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net/test")
 mongoose.connect('mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true })
 
 const fs = require("fs");
+const levels = require('discord-xp/models/levels');
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 
@@ -36,6 +39,13 @@ fs.readdir("./commands/", (err, files) => {
 bot.on('message', async (message) => {
     if (message.author.bot) return;
     if (message.channel.type === 'dm') return;
+
+    const randomXp = Math.floor(math.random() * 9) + 1;
+    const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
+    if (hasLeveledUp) {
+        const user = await Levels.fetch(message.author.id, message.guild.id);
+        message.channel.send(`You leveled up to ${user.level}! Keep it going!`);
+    }
 
     const data = await prefix.findOne({
         GuildID: message.guild.id
@@ -82,10 +92,10 @@ bot.on("guildCreate", async guild => {
     embed.setColor("RANDOM")
     embed.setTimestamp()
     if (!data) {
-        embed.setDescription("Hello! I'm chad bot. I am a fun bot which is developed by currently one person. There is currently no way to support development but there may be soon. The default prefix is ++ but you can change it with ++setprefix <new prefix> if you have the Manage_Guild permission, to view a full list of commands do ++help. If you had invited this before to this server your custom prefix (if you had one) would have saved. Remember to use ++help not ++ help for commands. That's all for now! Have fun!")
+        embed.setDescription("Hello! I'm chad bot. I am a fun bot and xp bot which is developed by one person. There is currently no way to support development but there may be soon. The default prefix is ++ but you can change it with ++setprefix <new prefix> if you have the Manage_Guild permission, to view a full list of commands do ++help. If you had invited this before to this server your custom prefix (if you had one) would have saved. Remember to use ++help not ++ help for commands. That's all for now! Have fun!")
     }
     else if (data) {
-        embed.setDescription(`Hello! I'm chad bot. I am a fun bot which is developed by currently one person. There is currently no way to support development but there may be soon. The default prefix is ++ but you can change it with ++setprefix <new prefix> if you have the Manage_Guild permission, to view a full list of commands do ++help. If you had invited this before to this server your custom prefix (if you had one) would have saved, if you did then your prefix is: ${data.Prefix}. Remember to use ++help not ++ help for commands. That's all for now! Have fun!`)
+        embed.setDescription(`Hello! I'm chad bot. I am a fun bot and xp bot which is developed by one person. There is currently no way to support development but there may be soon. The default prefix is ++ but you can change it with ++setprefix <new prefix> if you have the Manage_Guild permission, to view a full list of commands do ++help. If you had invited this before to this server your custom prefix (if you had one) would have saved, if you did then your prefix is: ${data.Prefix}. Remember to use ++help not ++ help for commands. That's all for now! Have fun!`)
     }
     defaultChannel.send(embed).catch(error => {
         return;
