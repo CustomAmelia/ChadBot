@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
     if (person) {
         if (person.bot) return;
         const user = await Levels.fetch(person.id, message.guild.id);
-        embed.setTitle(`${person.username}'s Level`)
+        embed.setTitle(`${person.username}'s Level!`)
         if (!user.level) {
             embed.addField('Level', '0')
         }
