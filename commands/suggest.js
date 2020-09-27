@@ -5,8 +5,9 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send('done')
 
     let newData = new suggestionModel({
-        Suggestion: "test",
+        Suggestion: "test"
     })
+    
     newData.save();
 }
 
