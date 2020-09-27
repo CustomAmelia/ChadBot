@@ -5,7 +5,10 @@ const SuggestionSchema = new mongoose.Schema({
         type: String
     },
     GuildID: String,
-    UserID: String
+    GuildName: String,
+    UserID: String,
+    UserUsername: String
+
 });
 
 const MessageModel = module.exports = mongoose.model('suggestions', SuggestionSchema);

@@ -9,7 +9,9 @@ module.exports.run = async (bot, message, args) => {
     let newData = new suggestionModel({
         Suggestion: suggestion,
         GuildID: message.guild.id,
-        UserID: message.author.id
+        GuildName: message.guild.name,
+        UserID: message.author.id,
+        UserUsername: message.author.username
     })
 
     message.channel.send('Suggestion sent successfully!')
