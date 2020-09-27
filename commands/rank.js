@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
     const embed = new Discord.MessageEmbed()
     if (!person) {
         const user = await Levels.fetch(message.author.id, message.guild.id);
-        embed.setTitle(`${message.author.username}'s level!`)
+        embed.setTitle(`${message.author.username}'s Level!`)
         embed.addField('Level', user.level)
         embed.addField('XP', user.xp)
         embed.setColor('RANDOM')
