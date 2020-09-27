@@ -50,7 +50,7 @@ bot.on('message', async (message) => {
         const user = await Levels.fetch(message.author.id, message.guild.id);
         message.channel.send(`${message.author}, You leveled up to level ${user.level}! Keep it going!`);
     }
-
+    
     const data = await prefix.findOne({
         GuildID: message.guild.id
     });
