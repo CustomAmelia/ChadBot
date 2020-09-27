@@ -14,6 +14,8 @@ module.exports.run = async (bot, message, args) => {
         UserID: message.author.id
     })
 
+    if (newData.Suggestion === 'test') return;
+
     newData.save();
 }
 
