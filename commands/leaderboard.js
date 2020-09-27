@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
     embed.setColor("RANDOM")
     
     message.channel.send(embed)
-}
+};
 
 module.exports.config = {
     name: "leaderboard",
