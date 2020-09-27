@@ -2,12 +2,18 @@ const Discord = require('discord.js')
 const suggestionModel = require('../models/suggest')
 
 module.exports.run = async (bot, message, args) => {
-    message.channel.send('done')
+    const suggestion = args.join(" ")
+
+    if (!suggestion) return message.channel.send('Please specify a suggestion.')
+
+    message.channel.send('Suggestion sent successfully!')
 
     let newData = new suggestionModel({
-        Suggestion: "test"
+        Suggestion: suggestion,
+        GuildID: message.guild.id,
+        UserID: message.author.id
     })
-    
+
     newData.save();
 }
 
