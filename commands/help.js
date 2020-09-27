@@ -53,6 +53,21 @@ else if (data) {
     message.channel.send(embed)
   }
 
+  if (args[0] === 'xp') {
+    const embed = new Discord.MessageEmbed()
+    embed.setTitle('**🔵 XP Commands**')
+    embed.setDescription('``rank / rank @user``, ``leaderboard``')
+    embed.setColor('RANDOM')
+    if (!data) {
+      embed.setFooter('use ++ before each command')
+    }
+else if (data) {
+  embed.setFooter(`use ${data.Prefix} before each command!`)
+}
+    
+    message.channel.send(embed)
+  }
+
   if (!args.length) {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**Chad Bot Command List**')
@@ -67,11 +82,13 @@ else if (data) {
       embed.addField("😂 **Fun**", "``++help fun``", true)
       embed.addField("🛠️ **Utility**", "``++help utility``", true)
       embed.addField("⚙️ **Config**", "``++help config``", true)
+      embed.addField("🔵 **XP**", "``++help xp``", true)
     }
     else if (data) {
       embed.addField("😂 **Fun**", "``" + data.Prefix + "help fun``", true)
       embed.addField("🛠️ **Utility**", "``" + data.Prefix + "help utility``", true)
       embed.addField("⚙️ **Config**", "``" + data.Prefix + "help config``", true)
+      embed.addField("🔵 **XP**", "``" + data.Prefix + "help xp``", true)
     }
     message.channel.send(embed)
   }
