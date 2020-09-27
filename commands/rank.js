@@ -16,8 +16,18 @@ module.exports.run = async (bot, message, args) => {
         if (person.bot) return;
         const user = await Levels.fetch(person.id, message.guild.id);
         embed.setTitle(`${person.username}'s Level`)
-        embed.addField('Level', user.level)
-        embed.addField('XP', user.xp)
+        if (!user.level) {
+            embed.addField('Level', '0')
+        }
+        else if (user.level ) {
+            embed.addField('Level', user.level)
+        }
+        if (!user.xp) {
+            embed.addField('XP', '0')
+        }
+        else if (user.xp) {
+            embed.addField('XP', user.xp)
+        }
         embed.setColor("RANDOM")
         message.channel.send(embed)
     }
