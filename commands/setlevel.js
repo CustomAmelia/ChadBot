@@ -6,12 +6,12 @@ module.exports.run = async (bot, message, args) => {
 
     if (!person) return message.channel.send('Please specify the user you want to set the level to and the level amount.')
 
-    if (!args[0]) return message.channel.send('Please specify the user you want to set the level to and the level amount.')
+    if (!args[1]) return message.channel.send('Please specify the user you want to set the level to and the level amount.')
 
     if (message.member.hasPermission('MANAGE_GUILD')) {
         message.channel.send('Done!')
 
-        Levels.setLevel(person.user.id, message.guild.id, args[0]);
+        Levels.setLevel(person.user.id, message.guild.id, args[1]);
     }
     else return message.channel.send('Uh Oh! You do not have the required permissions to run this command, you need the MANAGE_GUILD or ADMINISTRATOR permission!')
 }
