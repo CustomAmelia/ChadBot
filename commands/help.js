@@ -26,7 +26,7 @@ else if (data) {
   if (args[0] === 'utility') {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**🛠️ Utility Commands**')
-    embed.setDescription('``help``, ``invite``, ``suggest <suggestion>``, ``server``')
+    embed.setDescription('``help``, ``invite``, ``suggest <suggestion>``, ``bugreport <bug>``, ``server``')
     embed.setColor('RANDOM')
     if (!data) {
       embed.setFooter('use ++ before each command')
