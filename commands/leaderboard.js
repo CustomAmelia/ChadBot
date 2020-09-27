@@ -15,6 +15,6 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "leaderboard",
     description: "Gives you a list of the 10 highest leaderboard users!",
-    usage: "++rank",
-    aliases: []
+    usage: "++leaderboard",
+    aliases: ["lb"]
 };
