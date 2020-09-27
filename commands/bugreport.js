@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!bug) return message.channel.send('Please specify a bug to report.')
 
-    let newData = new suggestionModel({
+    let newData = new bugreportModel({
         Bug: bug,
         GuildID: message.guild.id,
         GuildName: message.guild.name,
