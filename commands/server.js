@@ -1,7 +1,7 @@
 const Discord = require('discord.js')
 
 module.exports.run = async (bot, message, args) => {
-    message.channel.send("Join our disocrd server here! https://discord.gg/AEGRMSS")
+    message.channel.send("Join our discord server here! https://discord.gg/AEGRMSS")
 }
 
 module.exports.config = {
