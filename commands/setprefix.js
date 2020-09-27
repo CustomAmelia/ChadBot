@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
     }
 }
 else if (!message.member.hasPermission('MANAGE_GUILD')) {
-    message.channel.send('uh oh! you do not have the required permissions to run this command, you need the MANAGE_GUILD permission!')
+    message.channel.send('uh oh! you do not have the required permissions to run this command, you need the MANAGE_GUILD or ADMINISTRATOR permission!')
 }
 }
 
