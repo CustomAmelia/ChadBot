@@ -56,6 +56,12 @@ else if (data) {
   if (!args.length) {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**Chad Bot Command List**')
+    if (data) {
+      embed.setDescription(`Want to invite this bot to your server? use ${data.Prefix}invite!`)
+    }
+    else if (!data) {
+      embed.setDescription(`Want to invite this bot to your server? use ++invite!`)
+    }
     embed.setColor('RANDOM')
     if (!data) {
       embed.addField("😂 **Fun**", "``++help fun``", true)
