@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const bugreportModel = require('../models/suggest')
+const bugreportModel = require('../models/bugreport')
 
 module.exports.run = async (bot, message, args) => {
     const bug = args.join(" ")
