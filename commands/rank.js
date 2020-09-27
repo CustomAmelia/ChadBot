@@ -3,15 +3,23 @@ const Levels = require('discord-xp')
 
 module.exports.run = async (bot, message, args) => {
     const person = message.mentions.users.first();
-
+    const embed = new Discord.MessageEmbed()
     if (!person) {
         const user = await Levels.fetch(message.author.id, message.guild.id);
-        message.channel.send(`You are currently level **${user.level}**!`)
+        embed.setTitle(`${message.author.username}'s level!`)
+        embed.addField('Level', user.level)
+        embed.addField('XP', user.xp)
+        embed.setColor('RANDOM')
+        message.channel.send(embed)
     }
     if (person) {
         if (person.bot) return;
         const user = await Levels.fetch(person.id, message.guild.id);
-        message.channel.send(`${person.username} is currently level **${user.level}**!`)
+        embed.setTitle(`${person.username}'s Level`)
+        embed.addField('Level', user.level)
+        embed.addField('XP', user.xp)
+        embed.setColor("RANDOM")
+        message.channel.send(embed)
     }
 }
 
