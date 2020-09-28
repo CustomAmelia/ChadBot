@@ -13,8 +13,8 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.config = {
-    name: "bugreport",
-    description: "Lets you report bugs for Chad Bot!",
-    usage: "++bugreport <bug>",
-    aliases: []
+    name: "whitelist",
+    description: "test",
+    usage: "++whitelist",
+    aliases: ["wl"]
 };
