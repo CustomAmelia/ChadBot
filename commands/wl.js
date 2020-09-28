@@ -8,10 +8,6 @@ module.exports.run = async (bot, message, args) => {
     });
 
     if (data) {
-        await wl.findOneAndRemove({
-            GuildID: message.guild.id
-        })
-        
         message.channel.send('You are already whitelisted!')
     }
     else if (!data) {
