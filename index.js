@@ -14,7 +14,6 @@ Levels.setURL("mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net/te
 mongoose.connect('mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true })
 
 const fs = require("fs");
-const levels = require('discord-xp/models/levels');
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 
