@@ -25,7 +25,7 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send(`you now have ${data.Kills} kills`)
 
         let newData = new kills({
-            Kills: data.Kills,
+            Kills: data.Kills + 1,
             UserID: message.author.id
         })
         newData.save();
