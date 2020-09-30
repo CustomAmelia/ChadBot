@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!data) {
         let newData = new kills({
-            Kills: "1",
+            Kills: data.Kills,
             UserID: message.author.id
         })
 
@@ -22,10 +22,10 @@ module.exports.run = async (bot, message, args) => {
             UserID: message.author.id
         })
 
-        message.channel.send(`you now have ${kills.Kills + 1} kills`)
+        message.channel.send(`you now have ${data.Kills} kills`)
 
         let newData = new kills({
-            Kills: kills.Kills + 1,
+            Kills: data.Kills,
             UserID: message.author.id
         })
         newData.save();
