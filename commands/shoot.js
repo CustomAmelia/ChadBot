@@ -9,7 +9,8 @@ module.exports.run = async (bot, message, args) => {
 
     if (!data) {
         let newData = new kills({
-            Kills: "1"
+            Kills: "1",
+            UserID: message.author.id
         })
 
         message.channel.send('you now have 1 kill')
