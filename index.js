@@ -9,7 +9,7 @@ let statuses = ["Chad Simulator", "Chad Tycoon", "https://discord.gg/AEGRMSS"]
 bot.on("ready", () => {
     setInterval(function() {
 
-        let status = statues[Math.floor(Math.random()*statuses.length)]
+        let status = statuses[Math.floor(Math.random()*statuses.length)]
             
         bot.user.setActivity(status, {type: 'PLAYING'});
     }, 10000)
