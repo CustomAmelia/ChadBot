@@ -5,9 +5,16 @@ const mongoose = require('mongoose')
 const prefix = require('./models/prefix');
 const Levels = require('discord-xp')
 
+let statuses = ["Chad Simulator", "Chad Tycoon", "https://discord.gg/AEGRMSS"]
 bot.on("ready", () => {
+    setInterval(function() {
+
+        let status = statues[Math.floor(Math.random()*statuses.length)]
+            
+        bot.user.setActivity(status, {type: 'PLAYING'});
+    }, 10000)
+
   console.log(`${bot.user.username} is online`)
-  bot.user.setActivity("Chad Simulator", {type: 'PLAYING'});
 })
 
 Levels.setURL("mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net/test")
