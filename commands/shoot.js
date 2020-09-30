@@ -29,10 +29,6 @@ module.exports.run = async (bot, message, args) => {
         })
         newData.save();
     }
-
-    message.channel.send('Suggestion sent successfully!')
-
-    newData.save();
 }
 
 module.exports.config = {
