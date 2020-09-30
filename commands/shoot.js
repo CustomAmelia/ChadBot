@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
 
     if (!data) {
         let newData = new kills({
-            Kills: data.Kills,
+            Kills: "1",
             UserID: message.author.id
         })
 
