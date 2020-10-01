@@ -42,11 +42,6 @@ fs.readdir("./commands/", (err, files) => {
     });
 });
 
-bot.on('message', message => {
-    if (message.content.toLowerCase() === '!role') {
-        message.member.roles.add('761306963153256448')
-    }
-})
 bot.on('guildMemberRemove', guildMember => {
     Levels.deleteUser(guildMember.id, guildMember.guild.id);
 })
