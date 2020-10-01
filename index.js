@@ -44,7 +44,7 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on('message', message => {
     if (message.content.toLowerCase() === '!role') {
-        message.member.addRole('761306963153256448')
+        message.member.roles.add('761306963153256448')
     }
 })
 bot.on('guildMemberRemove', guildMember => {
