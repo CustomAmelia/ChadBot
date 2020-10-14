@@ -18,14 +18,12 @@ module.exports.run = async (bot, message, args) => {
         embed.setTitle(`${person.username}'s Level!`)
         if (!user.level) {
             embed.addField('Level', '0')
-        }
-        else if (user.level ) {
+        } else if (user.level) {
             embed.addField('Level', user.level)
         }
         if (!user.xp) {
             embed.addField('XP', '0')
-        }
-        else if (user.xp) {
+        } else if (user.xp) {
             embed.addField('XP', user.xp)
         }
         embed.setColor("RANDOM")

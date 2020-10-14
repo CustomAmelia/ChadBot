@@ -1,41 +1,48 @@
 const Discord = require('discord.js');
 const botsettings = require('./botsettings.json');
-const bot = new Discord.Client({disableEveryone: true});
+const bot = new Discord.Client({
+    disableEveryone: true
+});
 const mongoose = require('mongoose')
 const prefix = require('./models/prefix');
 const Levels = require('discord-xp')
 
 let statuses = ["Chad Simulator", "Chad Tycoon", "https://discord.gg/AEGRMSS"]
 bot.on("ready", () => {
-    setInterval(function() {
+    setInterval(function () {
 
-        let status = statuses[Math.floor(Math.random()*statuses.length)]
-            
-        bot.user.setActivity(status, {type: 'PLAYING'});
+        let status = statuses[Math.floor(Math.random() * statuses.length)]
+
+        bot.user.setActivity(status, {
+            type: 'PLAYING'
+        });
     }, 10000)
 
-  console.log(`${bot.user.username} is online`)
+    console.log(`${bot.user.username} is online`)
 })
 
 Levels.setURL("mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net/test")
-mongoose.connect('mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net/test', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net/test', {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
 
 const fs = require("fs");
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 
-fs.readdir("./commands/", (err, files) => { 
+fs.readdir("./commands/", (err, files) => {
 
-    if(err) console.log(err)
+    if (err) console.log(err)
 
-    let jsfile = files.filter(f => f.split(".").pop() === "js") 
-    if(jsfile.length <= 0) {
-         return console.log("[LOGS] Couldn't Find Commands!");
+    let jsfile = files.filter(f => f.split(".").pop() === "js")
+    if (jsfile.length <= 0) {
+        return console.log("[LOGS] Couldn't Find Commands!");
     }
 
     jsfile.forEach((f, i) => {
         let pull = require(`./commands/${f}`);
-        bot.commands.set(pull.config.name, pull);  
+        bot.commands.set(pull.config.name, pull);
         pull.config.aliases.forEach(alias => {
             bot.aliases.set(alias, pull.config.name)
         });
@@ -69,13 +76,12 @@ bot.on('message', async (message) => {
         const prefix = data.Prefix;
 
         if (!message.content.startsWith(prefix)) return;
-            const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
-            if (!commandfile) return;
-            commandfile.run(bot, message, args);
-    }
-    else if (!data) {
+        const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
+        if (!commandfile) return;
+        commandfile.run(bot, message, args);
+    } else if (!data) {
         const prefix = "++";
-        
+
         if (!message.content.startsWith(prefix)) return;
         const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
         if (!commandfile) return;
@@ -86,11 +92,11 @@ bot.on('message', async (message) => {
 bot.on("guildCreate", async guild => {
     let defaultChannel = "";
     guild.channels.cache.forEach((channel) => {
-      if(channel.type == "text" && defaultChannel == "") {
-        if(channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
-          defaultChannel = channel;
+        if (channel.type == "text" && defaultChannel == "") {
+            if (channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
+                defaultChannel = channel;
+            }
         }
-      }
     })
 
     const data = await prefix.findOne({
@@ -103,8 +109,7 @@ bot.on("guildCreate", async guild => {
     embed.setTimestamp()
     if (!data) {
         embed.setDescription("Hello! I'm chad bot. I am a fun bot and xp bot which is developed by one person. There is currently no way to support development but there may be soon. The default prefix is ++ but you can change it with ++setprefix <new prefix> if you have the Manage_Guild permission, to view a full list of commands do ++help. If you had invited this before to this server your custom prefix (if you had one) would have saved. Remember to use ++help not ++ help for commands. That's all for now! Have fun!")
-    }
-    else if (data) {
+    } else if (data) {
         embed.setDescription(`Hello! I'm chad bot. I am a fun bot and xp bot which is developed by one person. There is currently no way to support development but there may be soon. The default prefix is ++ but you can change it with ++setprefix <new prefix> if you have the Manage_Guild permission, to view a full list of commands do ++help. If you had invited this before to this server your custom prefix (if you had one) would have saved, if you did then your prefix is: ${data.Prefix}. Remember to use ++help not ++ help for commands. That's all for now! Have fun!`)
     }
     defaultChannel.send(embed).catch(error => {

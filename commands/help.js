@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
 
   const data = await prefix.findOne({
     GuildID: message.guild.id
-});
+  });
 
   if (args[0] === 'fun') {
     const embed = new Discord.MessageEmbed()
@@ -15,11 +15,10 @@ module.exports.run = async (bot, message, args) => {
     embed.setColor('RANDOM')
     if (!data) {
       embed.setFooter('use ++ before each command')
+    } else if (data) {
+      embed.setFooter(`use ${data.Prefix} before each command!`)
     }
-else if (data) {
-  embed.setFooter(`use ${data.Prefix} before each command!`)
-}
-    
+
     message.channel.send(embed)
   }
 
@@ -30,11 +29,10 @@ else if (data) {
     embed.setColor('RANDOM')
     if (!data) {
       embed.setFooter('use ++ before each command')
+    } else if (data) {
+      embed.setFooter(`use ${data.Prefix} before each command!`)
     }
-else if (data) {
-  embed.setFooter(`use ${data.Prefix} before each command!`)
-}
-    
+
     message.channel.send(embed)
   }
 
@@ -45,11 +43,10 @@ else if (data) {
     embed.setColor('RANDOM')
     if (!data) {
       embed.setFooter('use ++ before each command')
+    } else if (data) {
+      embed.setFooter(`use ${data.Prefix} before each command!`)
     }
-else if (data) {
-  embed.setFooter(`use ${data.Prefix} before each command!`)
-}
-    
+
     message.channel.send(embed)
   }
 
@@ -60,11 +57,10 @@ else if (data) {
     embed.setColor('RANDOM')
     if (!data) {
       embed.setFooter('use ++ before each command')
+    } else if (data) {
+      embed.setFooter(`use ${data.Prefix} before each command!`)
     }
-else if (data) {
-  embed.setFooter(`use ${data.Prefix} before each command!`)
-}
-    
+
     message.channel.send(embed)
   }
 
@@ -77,8 +73,7 @@ else if (data) {
       embed.addField("🛠️ **Utility**", "``++help utility``", true)
       embed.addField("⚙️ **Config**", "``++help config``", true)
       embed.addField("🔵 **XP**", "``++help xp``", true)
-    }
-    else if (data) {
+    } else if (data) {
       embed.addField("😂 **Fun**", "``" + data.Prefix + "help fun``", true)
       embed.addField("🛠️ **Utility**", "``" + data.Prefix + "help utility``", true)
       embed.addField("⚙️ **Config**", "``" + data.Prefix + "help config``", true)
@@ -89,8 +84,8 @@ else if (data) {
 }
 
 module.exports.config = {
-    name: "help",
-    description: "Here you can find a full list of the commands you can use along with some cool tips!",
-    usage: "++help",
-    aliases: ['cmds']
+  name: "help",
+  description: "Here you can find a full list of the commands you can use along with some cool tips!",
+  usage: "++help",
+  aliases: ['cmds']
 }
