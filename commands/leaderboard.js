@@ -1,25 +1,49 @@
 const Discord = require('discord.js')
 const Levels = require('discord-xp')
 const usedCommand = new Set()
+const lbamount = require('../models/lbamount')
 
 module.exports.run = async (bot, message, args) => {
     if(usedCommand.has(message.author.id)){
         message.reply('Slow down! You have to wait 2 seconds to use this command again.')
     } else {
 
-    const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 10);
-    if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
+        const data = await lbamount.findOne({
+            GuildID: message.guild.id
+        });
 
-    const leaderboard = Levels.computeLeaderboard(bot, rawLeaderboard);
+    if (data) {
+        const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, data.Amount);
 
-    const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocaleString()}`);
+        if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
 
-    const embed = new Discord.MessageEmbed()
-    embed.setTitle(`${message.guild.name}'s Leaderboard`)
-    embed.setDescription(lb.join("\n\n"))
-    embed.setColor("RANDOM")
+        const leaderboard = Levels.computeLeaderboard(bot, rawLeaderboard);
+    
+        const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocaleString()}`);
+    
+        const embed = new Discord.MessageEmbed()
+        embed.setTitle(`${message.guild.name}'s Leaderboard`)
+        embed.setDescription(lb.join("\n\n"))
+        embed.setColor("RANDOM")
+    
+        message.channel.send(embed)
+    }
+    else if (!data) {
+        const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
 
-    message.channel.send(embed)
+        if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
+
+        const leaderboard = Levels.computeLeaderboard(bot, rawLeaderboard);
+    
+        const lb = leaderboard.map(e => `${e.position}. ${e.username}#${e.discriminator}\nLevel: ${e.level}\nXP: ${e.xp.toLocaleString()}`);
+    
+        const embed = new Discord.MessageEmbed()
+        embed.setTitle(`${message.guild.name}'s Leaderboard`)
+        embed.setDescription(lb.join("\n\n"))
+        embed.setColor("RANDOM")
+    
+        message.channel.send(embed)
+    }
     }
     usedCommand.add(message.author.id);
     setTimeout(() => {
@@ -29,7 +53,7 @@ module.exports.run = async (bot, message, args) => {
 
 module.exports.config = {
     name: "leaderboard",
-    description: "Gives you a list of the 10 highest leaderboard users!",
+    description: "Gives you a list of the 5 highest leaderboard users!",
     usage: "++leaderboard",
     aliases: ["lb"]
 };
