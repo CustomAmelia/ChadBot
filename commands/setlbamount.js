@@ -12,9 +12,9 @@ module.exports.run = async (bot, message, args) => {
     } else {
         if (!args[0]) return message.channel.send('Please provide an amount of users to display in the leaderboard.')
 
-        if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('Uh Oh! You do not have the required permissions to run this command, you need the MANAGE_GUILD or ADMINISTRATOR permission!')
+        if (args[0].length > 10) return message.channel.send('Your lb user amount must be under \`10\` characters!')
 
-        if (!args[0].length > 10) {
+        if (message.member.hasPermission('MANAGE_GUILD')) {
             if (data) {
                 await lbamount.findOneAndRemove({
                     GuildID: message.guild.id
@@ -39,9 +39,12 @@ module.exports.run = async (bot, message, args) => {
 
                 newData.save();
             }
+            else {
+                message.channel.send('Amount must be under 10!')
+            }
         }
-        else {
-            message.channel.send('Amount must be under 10!')
+        else if (!message.member.hasPermission('MANAGE_GUILD')) {
+            message.channel.send('Uh Oh! You do not have the required permissions to run this command, you need the MANAGE_GUILD or ADMINISTRATOR permission!')
         }
     }
 }
