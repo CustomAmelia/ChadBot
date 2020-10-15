@@ -12,6 +12,8 @@ module.exports.run = async (bot, message, args) => {
     } else {
         if (!args[0]) return message.channel.send('Please provide an amount of users to display in the leaderboard.')
 
+        if (args[0].length === 2) return message.channel.send('Your LB user amount must be under \`10\`!')
+
         if (args[0].length > 2) return message.channel.send('Your LB user amount must be under \`10\`!')
 
         if (args[0] === '0') return message.channel.send('Your LB user amount cannot be \`0\`!')
