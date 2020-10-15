@@ -44,6 +44,10 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send('Uh Oh! You do not have the required permissions to run this command, you need the MANAGE_GUILD or ADMINISTRATOR permission!')
     }
 }
+usedCommand.add(message.author.id);
+setTimeout(() => {
+    usedCommand.delete(message.author.id);
+}, 5000);
 }
 
 module.exports.config = {

@@ -21,6 +21,10 @@ module.exports.run = async (bot, message, args) => {
 
     message.channel.send(embed)
     }
+    usedCommand.add(message.author.id);
+    setTimeout(() => {
+        usedCommand.delete(message.author.id);
+    }, 5000);
 };
 
 module.exports.config = {

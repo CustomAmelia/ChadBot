@@ -12,6 +12,10 @@ module.exports.run = async (bot, message, args) => {
 
     message.channel.send(`*saws ${person.username} in half*`)
     }
+    usedCommand.add(message.author.id);
+    setTimeout(() => {
+        usedCommand.delete(message.author.id);
+    }, 5000);
 }
 
 module.exports.config = {
