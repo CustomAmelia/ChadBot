@@ -25,6 +25,7 @@ module.exports.run = async (bot, message, args) => {
 
     usedCommandRecently.add(message.author.id)
     setTimeout(() => {
+        usedCommandRecently.delete(message.author.id)
     }, 30000)
 }
 
