@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     });
 
     if(usedCommand.has(message.author.id)){
-        message.reply('Slow down! You have to wait 5 seconds to use this command again.')
+        message.reply('Slow down! You have to wait 2 seconds to use this command again.')
     } else {
     if (!thing) return message.channel.send('You must provide a **new prefix**!');
 
@@ -47,7 +47,7 @@ module.exports.run = async (bot, message, args) => {
 usedCommand.add(message.author.id);
 setTimeout(() => {
     usedCommand.delete(message.author.id);
-}, 5000);
+}, 2000);
 }
 
 module.exports.config = {
