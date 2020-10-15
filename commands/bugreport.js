@@ -7,6 +7,8 @@ module.exports.run = async (bot, message, args) => {
         message.channel.send('cooldown! wait 30 seconds')
     }
 
+    else if (!usedCommandRecently) {
+
     const bug = args.join(" ")
 
     if (!bug) return message.channel.send('Please specify a bug to report.')
@@ -27,6 +29,7 @@ module.exports.run = async (bot, message, args) => {
     setTimeout(() => {
         usedCommandRecently.delete(message.author.id)
     }, 30000)
+}
 }
 
 module.exports.config = {
