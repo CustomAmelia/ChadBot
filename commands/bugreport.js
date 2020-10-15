@@ -1,13 +1,11 @@
 const Discord = require('discord.js')
 const bugreportModel = require('../models/bugreport')
-const usedCommandRecently = new Set()
+const usedCommand = new Set()
 
 module.exports.run = async (bot, message, args) => {
-    if (usedCommandRecently) {
-        message.channel.send('cooldown! wait 30 seconds')
-    }
-
-    else if (!usedCommandRecently) {
+    if(usedCommand.has(message.author.id)){
+        message.reply('You cannot use the command beacuse of the cooldown.')
+    } else {
 
     const bug = args.join(" ")
 
@@ -24,11 +22,11 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send('Bug report sent successfully!')
 
     newData.save();
-
-    usedCommandRecently.add(message.author.id)
+    
+    usedCommand.add(message.author.id);
     setTimeout(() => {
-        usedCommandRecently.delete(message.author.id)
-    }, 30000)
+        usedCommand.delete(message.author.id);
+    }, 5000);
 }
 }
 
