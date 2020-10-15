@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args) => {
     if(usedCommand.has(message.author.id)){
         message.reply('Slow down! You have to wait 2 seconds to use this command again.')
     } else {
-        if (args[0]) return message.channel.send('Please provide an amount of users to display in the leaderboard.')
+        if (!args[0]) return message.channel.send('Please provide an amount of users to display in the leaderboard.')
 
         if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('Uh Oh! You do not have the required permissions to run this command, you need the MANAGE_GUILD or ADMINISTRATOR permission!')
 
