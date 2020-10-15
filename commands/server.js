@@ -1,4 +1,5 @@
 const Discord = require('discord.js')
+const usedCommand = new Set()
 
 module.exports.run = async (bot, message, args) => {
     message.channel.send("Join our discord server here! https://discord.gg/AEGRMSS")

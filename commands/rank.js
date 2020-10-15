@@ -1,5 +1,6 @@
 const Discord = require('discord.js')
 const Levels = require('discord-xp')
+const usedCommand = new Set()
 
 module.exports.run = async (bot, message, args) => {
     const person = message.mentions.users.first();

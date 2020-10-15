@@ -1,6 +1,7 @@
 const Discord = require("discord.js")
 const botconfig = require("../botsettings.json");
 const prefixModel = require("../models/prefix")
+const usedCommand = new Set()
 
 
 module.exports.run = async (bot, message, args) => {
