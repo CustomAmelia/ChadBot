@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     } else {
         if (!args[0]) return message.channel.send('Please provide an amount of users to display in the leaderboard.')
 
-        if (args[0].length > 10) return message.channel.send('Your lb user amount must be under \`10\` characters!')
+        if (args[0].length > 2) return message.channel.send('Your LB user amount must be under \`10\` characters!')
 
         if (message.member.hasPermission('MANAGE_GUILD')) {
             if (data) {
@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
                     GuildID: message.guild.id
                 })
 
-                message.channel.send(`The new lb amount is now ${args[0]}`)
+                message.channel.send(`The new LB amount is now ${args[0]}`)
 
                 let newData = new lbamount({
                     Amount: args[0],
@@ -30,7 +30,7 @@ module.exports.run = async (bot, message, args) => {
                 newData.save()
             }
             else if (!data) {
-                message.channel.send(`The new lb amount is now ${args[0]}`)
+                message.channel.send(`The new LB amount is now ${args[0]}`)
 
                 let newData = new lbamount({
                     Amount: args[0],
@@ -40,7 +40,7 @@ module.exports.run = async (bot, message, args) => {
                 newData.save();
             }
             else {
-                message.channel.send('Amount must be under 10!')
+                message.channel.send('LB User Amount must be under 10!')
             }
         }
         else if (!message.member.hasPermission('MANAGE_GUILD')) {
