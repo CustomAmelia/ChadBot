@@ -40,7 +40,7 @@ module.exports.run = async (bot, message, args) => {
                 newData.save();
             }
         }
-        else {
+        else if (args[0].length > 2) {
             message.channel.send('Amount must be under 10!')
         }
     }
