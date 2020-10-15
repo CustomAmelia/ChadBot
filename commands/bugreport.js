@@ -1,7 +1,12 @@
 const Discord = require('discord.js')
 const bugreportModel = require('../models/bugreport')
+const usedCommandRecently = new Set()
 
 module.exports.run = async (bot, message, args) => {
+    if (usedCommandRecently) {
+        message.channel.send('cooldown! wait 30 seconds')
+    }
+
     const bug = args.join(" ")
 
     if (!bug) return message.channel.send('Please specify a bug to report.')
@@ -17,6 +22,10 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send('Bug report sent successfully!')
 
     newData.save();
+
+    usedCommandRecently.add(message.author.id)
+    setTimeout(() => {
+    }, 30000)
 }
 
 module.exports.config = {

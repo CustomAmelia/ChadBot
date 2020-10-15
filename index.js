@@ -28,6 +28,7 @@ mongoose.connect('mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net
 })
 
 const fs = require("fs");
+
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
 
