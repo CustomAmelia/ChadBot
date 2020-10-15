@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
 
         if (!message.member.hasPermission('MANAGE_GUILD')) return message.channel.send('Uh Oh! You do not have the required permissions to run this command, you need the MANAGE_GUILD or ADMINISTRATOR permission!')
 
-        if (!args[0].length > 2) {
+        if (args[0].length > 2) {
             if (data) {
                 await lbamount.findOneAndRemove({
                     GuildID: message.guild.id
@@ -40,7 +40,7 @@ module.exports.run = async (bot, message, args) => {
                 newData.save();
             }
         }
-        else if (args[0].length > 2) {
+        else {
             message.channel.send('Amount must be under 10!')
         }
     }
