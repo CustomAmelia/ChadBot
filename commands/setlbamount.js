@@ -18,6 +18,8 @@ module.exports.run = async (bot, message, args) => {
 
         if (args[0] === '0') return message.channel.send('Your LB user amount cannot be \`0\`!')
 
+        if (isNaN(args[0])) return message.channel.send('Thats not a number!')
+
         if (message.member.hasPermission('MANAGE_GUILD')) {
             if (data) {
                 await lbamount.findOneAndRemove({
