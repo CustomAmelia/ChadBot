@@ -4,7 +4,7 @@ const usedCommand = new Set()
 
 module.exports.run = async (bot, message, args) => {
     if(usedCommand.has(message.author.id)){
-        message.reply('You cannot use the command beacuse of the cooldown.')
+        message.reply('Slow down! You have to wait 5 seconds to use this command again.')
     } else {
 
     const bug = args.join(" ")

@@ -2,6 +2,10 @@ const Discord = require('discord.js')
 const Levels = require('discord-xp')
 
 module.exports.run = async (bot, message, args) => {
+    if(usedCommand.has(message.author.id)){
+        message.reply('Slow down! You have to wait 5 seconds to use this command again.')
+    } else {
+
     const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 10);
     if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
 
@@ -15,6 +19,7 @@ module.exports.run = async (bot, message, args) => {
     embed.setColor("RANDOM")
 
     message.channel.send(embed)
+    }
 };
 
 module.exports.config = {

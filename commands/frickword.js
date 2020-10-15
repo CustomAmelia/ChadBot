@@ -44577,9 +44577,14 @@ module.exports.run = async (bot, message, args) => {
         "hillbilly"
     ]
 
+    if(usedCommand.has(message.author.id)){
+        message.reply('Slow down! You have to wait 5 seconds to use this command again.')
+    } else {
+
     const randomMessage = words[Math.floor(Math.random() * words.length)];
 
     message.channel.send(`frick ${randomMessage}`)
+    }
 }
 
 module.exports.config = {

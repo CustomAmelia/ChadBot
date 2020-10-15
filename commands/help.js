@@ -3,6 +3,9 @@ const botconfig = require("../botsettings.json");
 const prefix = require('../models/prefix');
 
 module.exports.run = async (bot, message, args) => {
+  if(usedCommand.has(message.author.id)){
+    message.reply('Slow down! You have to wait 5 seconds to use this command again.')
+ } else {
 
   const data = await prefix.findOne({
     GuildID: message.guild.id
@@ -80,6 +83,7 @@ module.exports.run = async (bot, message, args) => {
       embed.addField("🔵 **XP**", "``" + data.Prefix + "help xp``", true)
     }
     message.channel.send(embed)
+  }
   }
 }
 

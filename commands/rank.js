@@ -4,6 +4,11 @@ const Levels = require('discord-xp')
 module.exports.run = async (bot, message, args) => {
     const person = message.mentions.users.first();
     const embed = new Discord.MessageEmbed()
+
+    if(usedCommand.has(message.author.id)){
+        message.reply('Slow down! You have to wait 5 seconds to use this command again.')
+    } else {
+
     if (!person) {
         const user = await Levels.fetch(message.author.id, message.guild.id);
         embed.setTitle(`${message.author.username}'s Level!`)
@@ -29,6 +34,7 @@ module.exports.run = async (bot, message, args) => {
         embed.setColor("RANDOM")
         message.channel.send(embed)
     }
+}
 }
 
 module.exports.config = {

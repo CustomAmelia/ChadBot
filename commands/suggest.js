@@ -4,6 +4,10 @@ const suggestionModel = require('../models/suggest')
 module.exports.run = async (bot, message, args) => {
     const suggestion = args.join(" ")
 
+    if(usedCommand.has(message.author.id)){
+        message.reply('Slow down! You have to wait 5 seconds to use this command again.')
+    } else {
+
     if (!suggestion) return message.channel.send('Please specify a suggestion.')
 
     let newData = new suggestionModel({
@@ -17,6 +21,7 @@ module.exports.run = async (bot, message, args) => {
     message.channel.send('Suggestion sent successfully!')
 
     newData.save();
+}
 }
 
 module.exports.config = {

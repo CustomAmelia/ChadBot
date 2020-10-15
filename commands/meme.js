@@ -7,6 +7,10 @@ module.exports.run = (bot, message, args) => {
     const subreddits = ["meme", "me_irl", "dankmeme", "nocontextxboxmessages"]
     const subredditsrandom = subreddits[Math.floor(Math.random() * subreddits.length)];
 
+    if(usedCommand.has(message.author.id)){
+        message.reply('Slow down! You have to wait 5 seconds to use this command again.')
+    } else {
+
     got(`https://www.reddit.com/r/${subredditsrandom}/random/.json`).then(response => {
         let content = JSON.parse(response.body);
         let permalink = content[0].data.children[0].data.permalink;
@@ -22,6 +26,7 @@ module.exports.run = (bot, message, args) => {
         embed.setFooter(`👍 ${memeUpvotes} 💬 ${memeNumComments}  ||  From r/${subredditsrandom}`)
         message.channel.send(embed);
     })
+}
 }
 
 module.exports.config = {
