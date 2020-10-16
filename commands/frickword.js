@@ -44596,6 +44596,6 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "frickword",
     description: "test",
-    usage: "chad frick",
+    usage: "++frick",
     aliases: []
 }

@@ -45,6 +45,6 @@ setTimeout(() => {
 module.exports.config = {
     name: "rank",
     description: "Tells you your rank!",
-    usage: "chad rank",
+    usage: "++rank",
     aliases: []
 };

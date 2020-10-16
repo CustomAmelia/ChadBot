@@ -58,6 +58,6 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "setlbamount",
     description: "Lets you change the amount of people shown in the lb.!",
-    usage: "chad setlbamount <amount>",
+    usage: "++setlbamount <amount>",
     aliases: []
 };

@@ -33,6 +33,6 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "bugreport",
     description: "Lets you report bugs for Chad Bot!",
-    usage: "chad bugreport <bug>",
+    usage: "++bugreport <bug>",
     aliases: []
 };

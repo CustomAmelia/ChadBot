@@ -81,7 +81,7 @@ bot.on('message', async (message) => {
         if (!commandfile) return;
         commandfile.run(bot, message, args);
     } else if (!data) {
-        const prefix = "chad";
+        const prefix = "++";
 
         if (!message.content.startsWith(prefix)) return;
         const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
@@ -108,7 +108,7 @@ bot.on("guildCreate", async guild => {
     embed.setTitle('Thanks for adding me to your server!')
     embed.setColor("RANDOM")
     embed.setTimestamp()
-    embed.setDescription("Hello! I'm chad bot. I am a fun bot and xp bot which is developed by one person. There is currently no way to support development but there may be soon. The default prefix is chad but you can change it with chad setprefix <new prefix> if you have the Manage_Guild permission, to view a full list of commands do chad help. If you had invited this before to this server your custom prefix (if you had one) would have saved. Remember to use chad help for commands. That's all for now! Have fun!")
+    embed.setDescription("Hello! I'm chad bot. I am a fun bot and xp bot which is developed by one person. There is currently no way to support development but there may be soon. The default prefix is ++ but you can change it with ++setprefix <new prefix> if you have the Manage_Guild permission, to view a full list of commands do ++help. If you had invited this before to this server your custom prefix (if you had one) would have saved. Remember to use ++help for commands. That's all for now! Have fun!")
     defaultChannel.send(embed).catch(error => {
         return;
     })

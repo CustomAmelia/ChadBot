@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
     embed.setDescription('``meme``, ``frickword``')
     embed.setColor('RANDOM')
     if (!data) {
-      embed.setFooter('use chad before each command')
+      embed.setFooter('use ++ before each command')
     } else if (data) {
       embed.setFooter(`use ${data.Prefix} before each command!`)
     }
@@ -32,7 +32,7 @@ module.exports.run = async (bot, message, args) => {
     embed.setDescription('``help``, ``invite``, ``suggest <suggestion>``, ``bugreport <bug>``, ``server``')
     embed.setColor('RANDOM')
     if (!data) {
-      embed.setFooter('use chad before each command')
+      embed.setFooter('use ++ before each command')
     } else if (data) {
       embed.setFooter(`use ${data.Prefix} before each command!`)
     }
@@ -46,7 +46,7 @@ module.exports.run = async (bot, message, args) => {
     embed.setDescription('``setprefix <new prefix>``, ``setlbamount <amount>``')
     embed.setColor('RANDOM')
     if (!data) {
-      embed.setFooter('use chad before each command')
+      embed.setFooter('use ++ before each command')
     } else if (data) {
       embed.setFooter(`use ${data.Prefix} before each command!`)
     }
@@ -60,7 +60,7 @@ module.exports.run = async (bot, message, args) => {
     embed.setDescription('``rank / rank @user``, ``leaderboard``')
     embed.setColor('RANDOM')
     if (!data) {
-      embed.setFooter('use chad before each command')
+      embed.setFooter('use ++ before each command')
     } else if (data) {
       embed.setFooter(`use ${data.Prefix} before each command!`)
     }
@@ -73,10 +73,10 @@ module.exports.run = async (bot, message, args) => {
     embed.setTitle('**Chad Bot Command List**')
     embed.setColor('RANDOM')
     if (!data) {
-      embed.addField("😂 **Fun**", "``chad fun``", true)
-      embed.addField("🛠️ **Utility**", "``chad utility``", true)
-      embed.addField("⚙️ **Config**", "``chad config``", true)
-      embed.addField("🔵 **XP**", "``chad xp``", true)
+      embed.addField("😂 **Fun**", "``++help fun``", true)
+      embed.addField("🛠️ **Utility**", "``++help utility``", true)
+      embed.addField("⚙️ **Config**", "``++help config``", true)
+      embed.addField("🔵 **XP**", "``++help xp``", true)
     } else if (data) {
       embed.addField("😂 **Fun**", "``" + data.Prefix +"help fun``", true)
       embed.addField("🛠️ **Utility**", "``" + data.Prefix +"help utility``", true)
@@ -96,6 +96,6 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
   name: "help",
   description: "Here you can find a full list of the commands you can use along with some cool tips!",
-  usage: "chad help",
+  usage: "++help",
   aliases: ['cmds']
 }

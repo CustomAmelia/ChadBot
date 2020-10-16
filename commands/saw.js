@@ -21,6 +21,6 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "saw",
     description: "I sawed this person in half!",
-    usage: "chad saw <person>",
+    usage: "++saw <person>",
     aliases: []
 };

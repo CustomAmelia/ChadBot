@@ -32,6 +32,6 @@ setTimeout(() => {
 module.exports.config = {
     name: "suggest",
     description: "Lets you suggest features to Chad Bot",
-    usage: "chad suggest <suggestion>",
+    usage: "++suggest <suggestion>",
     aliases: []
 };
