@@ -90,21 +90,6 @@ bot.on('message', async (message) => {
     }
 })
 
-bot.on('guildDelete', async guild => {
-    const data = await prefix.findOne({
-        GuildID: guild.id
-    });
-
-    if (data) {
-        await prefix.findOneAndRemove({
-            GuildID: message.guild.id
-        })
-    }
-    else if (!data) {
-        return;
-    }
-})
-
 bot.on("guildCreate", async guild => {
     let defaultChannel = "";
     guild.channels.cache.forEach((channel) => {
