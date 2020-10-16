@@ -28,6 +28,7 @@ mongoose.connect('mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net
 })
 
 const fs = require("fs");
+const { brotliCompressSync } = require('zlib');
 
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
@@ -81,12 +82,27 @@ bot.on('message', async (message) => {
         if (!commandfile) return;
         commandfile.run(bot, message, args);
     } else if (!data) {
-        const prefix = "++";
+        const prefix = "chad ";
 
         if (!message.content.startsWith(prefix)) return;
         const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
         if (!commandfile) return;
         commandfile.run(bot, message, args);
+    }
+})
+
+bot.on('guildDelete', async guild => {
+    const data = await prefix.findOne({
+        GuildID: guild.id
+    });
+
+    if (data) {
+        await prefix.findOneAndRemove({
+            GuildID: message.guild.id
+        })
+    }
+    else if (!data) {
+        return;
     }
 })
 
@@ -108,11 +124,7 @@ bot.on("guildCreate", async guild => {
     embed.setTitle('Thanks for adding me to your server!')
     embed.setColor("RANDOM")
     embed.setTimestamp()
-    if (!data) {
-        embed.setDescription("Hello! I'm chad bot. I am a fun bot and xp bot which is developed by one person. There is currently no way to support development but there may be soon. The default prefix is ++ but you can change it with ++setprefix <new prefix> if you have the Manage_Guild permission, to view a full list of commands do ++help. If you had invited this before to this server your custom prefix (if you had one) would have saved. Remember to use ++help not ++ help for commands. That's all for now! Have fun!")
-    } else if (data) {
-        embed.setDescription(`Hello! I'm chad bot. I am a fun bot and xp bot which is developed by one person. There is currently no way to support development but there may be soon. The default prefix is ++ but you can change it with ++setprefix <new prefix> if you have the Manage_Guild permission, to view a full list of commands do ++help. If you had invited this before to this server your custom prefix (if you had one) would have saved, if you did then your prefix is: ${data.Prefix}. Remember to use ++help not ++ help for commands. That's all for now! Have fun!`)
-    }
+    embed.setDescription("Hello! I'm chad bot. I am a fun bot and xp bot which is developed by one person. There is currently no way to support development but there may be soon. The default prefix is ++ but you can change it with ++setprefix <new prefix> if you have the Manage_Guild permission, to view a full list of commands do ++help. If you had invited this before to this server your custom prefix (if you had one) would have saved. Remember to use chad help for commands. That's all for now! Have fun!")
     defaultChannel.send(embed).catch(error => {
         return;
     })
