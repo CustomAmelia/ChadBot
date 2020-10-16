@@ -81,7 +81,7 @@ bot.on('message', async (message) => {
         if (!commandfile) return;
         commandfile.run(bot, message, args);
     } else if (!data) {
-        const prefix = "chad ";
+        const prefix = "chad";
 
         if (!message.content.startsWith(prefix)) return;
         const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
