@@ -8,6 +8,6 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "server",
     description: "Gives you the link to join our official discord server!",
-    usage: "++server",
+    usage: "chad server",
     aliases: []
 };

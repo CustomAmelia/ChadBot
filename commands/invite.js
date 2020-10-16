@@ -8,6 +8,6 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
     name: "invite",
     description: "Gives you the link to invite this bot!",
-    usage: "++invite",
+    usage: "chad invite",
     aliases: []
 };

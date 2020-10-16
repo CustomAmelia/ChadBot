@@ -53,6 +53,6 @@ setTimeout(() => {
 module.exports.config = {
     name: "setprefix",
     description: "Sets the server prefix!",
-    usage: "++setprefix <new prefix>",
+    usage: "chad setprefix <new prefix>",
     aliases: []
 }

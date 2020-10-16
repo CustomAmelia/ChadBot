@@ -37,6 +37,6 @@ setTimeout(() => {
 module.exports.config = {
     name: "meme",
     description: "Posts a random meme from any of the following subreddits. r/meme, r/me_irl, r/dankmeme, r/nocontextxboxmessages",
-    usage: "++meme",
+    usage: "chad meme",
     aliases: []
 }
