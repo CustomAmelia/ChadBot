@@ -96,6 +96,6 @@ module.exports.run = async (bot, message, args) => {
 module.exports.config = {
   name: "help",
   description: "Here you can find a full list of the commands you can use along with some cool tips!",
-  usage: "chadhelp",
+  usage: "chad help",
   aliases: ['cmds']
 }
