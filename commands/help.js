@@ -78,10 +78,10 @@ module.exports.run = async (bot, message, args) => {
       embed.addField("⚙️ **Config**", "``++help config``", true)
       embed.addField("🔵 **XP**", "``++help xp``", true)
     } else if (data) {
-      embed.addField("😂 **Fun**", "``" + data.Prefix + "help fun``", true)
-      embed.addField("🛠️ **Utility**", "``" + data.Prefix + "help utility``", true)
-      embed.addField("⚙️ **Config**", "``" + data.Prefix + "help config``", true)
-      embed.addField("🔵 **XP**", "``" + data.Prefix + "help xp``", true)
+      embed.addField("😂 **Fun**", "``" + data.Prefix +"help fun``", true)
+      embed.addField("🛠️ **Utility**", "``" + data.Prefix +"help utility``", true)
+      embed.addField("⚙️ **Config**", "``" + data.Prefix +"help config``", true)
+      embed.addField("🔵 **XP**", "``" + data.Prefix +"help xp``", true)
     }
     message.channel.send(embed)
   }
