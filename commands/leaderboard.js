@@ -42,7 +42,9 @@ module.exports.run = async (bot, message, args) => {
         embed.setDescription(lb.join("\n\n"))
         embed.setColor("RANDOM")
     
-        message.channel.send(embed)
+        message.channel.send(embed).catch(error => {
+            message.channel.send(`LEADERBOARD[ERROR]: ${error} CHECK THAT YOUR LBAMOUNT IS NOT SET TO AN EXTREMELY HIGH AMOUNT LIKE 100, 10 OR 20 IS RECOMMENDED`)
+        })
     }
     }
     usedCommand.add(message.author.id);
