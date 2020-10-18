@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
 
         if (isNaN(args[0])) return message.channel.send('Thats not a number!')
 
-        if (message.member.hasPermission('MANAGE_GUILD')) {
+        if (message.member.hasPermission('MANAGE_GUILD') && args[0] === '10') {
             if (data) {
                 await lbamount.findOneAndRemove({
                     GuildID: message.guild.id
@@ -49,8 +49,34 @@ module.exports.run = async (bot, message, args) => {
                 message.channel.send('LB User Amount must be under 10!')
             }
         }
-        else if (!message.member.hasPermission('MANAGE_GUILD')) {
-            message.channel.send('Uh Oh! You do not have the required permissions to run this command, you need the MANAGE_GUILD or ADMINISTRATOR permission!')
+        else if (message.member.hasPermission('MANAGE_GUILD') && !args[0] === '10') {
+            if (data) {
+                await lbamount.findOneAndRemove({
+                    GuildID: message.guild.id
+                })
+
+                message.channel.send(`The new LB amount is now ${args[0]}`)
+
+                let newData = new lbamount({
+                    Amount: args[0],
+                    GuildID: message.guild.id
+                })
+
+                newData.save()
+            }
+            else if (!data) {
+                message.channel.send(`The new LB amount is now ${args[0]}`)
+
+                let newData = new lbamount({
+                    Amount: args[0],
+                    GuildID: message.guild.id
+                })
+
+                newData.save();
+            }
+            else {
+                message.channel.send('LB User Amount must be under 10!')
+            }
         }
     }
 }
