@@ -108,7 +108,7 @@ bot.on("guildCreate", async guild => {
     embed.setTitle('Thanks for adding me to your server!')
     embed.setColor("RANDOM")
     embed.setTimestamp()
-    embed.setDescription("Hello! I'm chad bot. I am a fun bot and xp bot which is developed by one person. There is currently no way to support development but there may be soon. The default prefix is ++ but you can change it with ++setprefix <new prefix> if you have the Manage_Guild permission, to view a full list of commands do ++help. If you had invited this before to this server your custom prefix (if you had one) would have saved. Remember to use ++help for commands. That's all for now! Have fun!")
+    embed.setDescription("Hello! I'm chad bot. I am a fun bot and xp bot which is developed by one person. There is currently no way to support development but there may be soon. The default prefix is ++ but you can change it with ++setprefix <new prefix> if you have the Manage_Guild permission, to view a full list of commands do ++help. If you had invited this before to this server your custom prefix (if you had one) would have saved. That's all for now! Have fun!")
     defaultChannel.send(embed).catch(error => {
         return;
     })
