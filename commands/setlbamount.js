@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
 
         if (isNaN(args[0])) return message.channel.send('Thats not a number!')
 
-        if (args[0].length > 2) return message.channel.send('Your LB user amount must be under \`10\`!')
+        if (args[0].length > 2) return message.channel.send('Your LB user amount must be under \`100\`!')
 
         if (message.member.hasPermission('MANAGE_GUILD')) {
             if (data) {
