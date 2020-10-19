@@ -7,12 +7,9 @@ module.exports.run = (bot, message, args) => {
     if(usedCommand.has(message.author.id)){
         message.reply('Slow down! You have to wait 2 seconds to use this command again.')
     } else {
-        const embed = new Discord.MessageEmbed()
-        embed.setTitle('Fake Person!')
-        embed.setColor("RANDOM")
-        embed.setImage("https://thispersondoesnotexist.com/image")
+        const image = Discord.MessageAttachment('https://thispersondoesnotexist.com/image')
 
-        message.channel.send(embed)
+        message.channel.send(image)
 }
 usedCommand.add(message.author.id);
 setTimeout(() => {
