@@ -1,7 +1,6 @@
 const Discord = require('discord.js')
 const Levels = require('discord-xp')
 const usedCommand = new Set()
-const lbamount = require('../models/lbamount')
 
 module.exports.run = async (bot, message, args) => {
     if(usedCommand.has(message.author.id)){

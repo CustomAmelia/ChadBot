@@ -43,7 +43,7 @@ module.exports.run = async (bot, message, args) => {
   if (args[0] === 'config') {
     const embed = new Discord.MessageEmbed()
     embed.setTitle('**⚙️ Config Commands**')
-    embed.setDescription('``setprefix <new prefix>``, ``setlbamount <amount>``')
+    embed.setDescription('``setprefix <new prefix>``')
     embed.setColor('RANDOM')
     if (!data) {
       embed.setFooter('use ++ before each command')
