@@ -10,7 +10,7 @@ module.exports.run = (bot, message, args) => {
         const embed = new Discord.MessageEmbed()
         embed.setTitle('Fake Person!')
         embed.setColor("RANDOM")
-        embed.setImage("https://thispersondoesnotexist.com/")
+        embed.setImage("https://thispersondoesnotexist.com/image")
 
         message.channel.send(embed)
 }
