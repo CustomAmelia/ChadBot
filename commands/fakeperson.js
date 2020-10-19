@@ -7,7 +7,7 @@ module.exports.run = (bot, message, args) => {
     if(usedCommand.has(message.author.id)){
         message.reply('Slow down! You have to wait 2 seconds to use this command again.')
     } else {
-        const image = Discord.MessageAttachment('https://thispersondoesnotexist.com/image')
+        const image = new Discord.MessageAttachment('https://thispersondoesnotexist.com/image')
 
         message.channel.send(image)
 }
