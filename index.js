@@ -88,7 +88,7 @@ bot.on('message', async (message) => {
         if (!commandfile) return;
         commandfile.run(bot, message, args);
     }
-})
+});
 
 bot.on("guildCreate", async guild => {
     let defaultChannel = "";
