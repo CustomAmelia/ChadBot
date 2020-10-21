@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "canvas": "^2.6.1",
     "cheerio": "^1.0.0-rc.3",
     "discord-xp": "^1.0.6",
     "discord.js": "^12.3.1",
