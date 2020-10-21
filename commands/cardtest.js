@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
 	// Add an exclamation point here and below
 	ctx.font = applyText(canvas, `${message.member.displayName}!`);
 	ctx.fillStyle = '#ffffff';
-	ctx.fillText(`${member.displayName}!`, canvas.width / 2.5, canvas.height / 1.8);
+	ctx.fillText(`${message.member.displayName}!`, canvas.width / 2.5, canvas.height / 1.8);
 
 	ctx.beginPath();
 	ctx.arc(125, 125, 100, 0, Math.PI * 2, true);
@@ -36,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
 
 	const attachment = new Discord.MessageAttachment(canvas.toBuffer(), 'image.png');
 
-	channel.send(`Welcome to the server, ${message.author}!`, attachment);
+	message.channel.send(`Welcome to the server, ${message.author}!`, attachment);
     
     usedCommand.add(message.author.id);
     setTimeout(() => {
