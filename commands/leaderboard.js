@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
         message.reply('Slow down! You have to wait 2 seconds to use this command again.')
     }
 
-        const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, data.Amount);
+        const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 5);
 
         if (rawLeaderboard.length < 1) return reply("Nobody's in leaderboard yet.");
 
