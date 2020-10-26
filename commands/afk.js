@@ -14,26 +14,23 @@ module.exports.run = async (bot, message, args) => {
 
     let reason = ""
 
-    if (!args[0]) {
+    if (!args.join(" ")) {
         reason = "No reason specified."
     }
-    else if (args[0]) {
+
+    if (args.join(" ").includes === '@') {
+        reason = "No reason. (reason contained @)"
+    }
+    if (args[0]) {
         reason = args.join(" ")
     }
-
-
     let newData = new afkModel({
         UserID: message.author.id,
         GuildID: message.guild.id,
         Reason: reason
     })
 
-    const embed = new Discord.MessageEmbed()
-    .setTitle('AFK')
-    .setDescription(`${message.author} is now AFK, Reason: ${reason}`)
-    .setColor("RANDOM")
-
-    message.channel.send(embed)
+    message.channel.send(`${message.author} is now AFK, Reason: ${reason}`)
 
     newData.save()
 
