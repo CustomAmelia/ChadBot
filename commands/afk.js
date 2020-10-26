@@ -1,4 +1,5 @@
 const Discord = require('discord.js')
+const { Util } = require('discord.js')
 const afkModel = require('../models/afk')
 const usedCommand = new Set()
 
@@ -28,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
         Reason: reason
     })
 
-    message.channel.send(`${message.author} is now AFK, Reason: ${Discord.cleanContent(reason, message)}`)
+    message.channel.send(`${message.author} is now AFK, Reason: ${Util.cleanContent(reason, message)}`)
     newData.save()
 
     usedCommand.add(message.author.id);
