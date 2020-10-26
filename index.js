@@ -60,12 +60,7 @@ bot.on('message', async (message) => {
 
     if (!afkData) return;
     if (afkData.GuildID === message.guild.id) {
-        const embed = new Discord.MessageEmbed()
-        .setTitle('AFK')
-        .setDescription(`${message.author} is no longer afk.`)
-        .setColor("RANDOM")
-    
-        message.channel.send(embed)
+        message.channel.send(`${message.author} is no longer afk.`)
 
         await afkModel.findOneAndRemove({
             UserID: message.author.id
