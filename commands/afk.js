@@ -9,8 +9,12 @@ module.exports.run = async (bot, message, args) => {
 
     let reason = ""
 
-    if (!args[0]) return reason = "No reason specified."
-    if (args[0]) return reason = args[0]
+    if (!args[0]) {
+        reason = "No reason specified."
+    }
+    else if (args[0]) {
+        reason = args[0]
+    }
 
     message.channel.send(reason)
     usedCommand.add(message.author.id);
