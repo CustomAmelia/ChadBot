@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
         var ping = m.createdTimestamp - message.createdTimestamp;
         var botPing = Math.round(bot.pi);
 
-        m.edit(`**Pong! Bot Ping Is:-**\n  ${ping}ms`);
+        m.edit(`*Pong!* Bot Ping Is: ${ping}ms`);
     });
 }
 
