@@ -114,4 +114,4 @@ bot.on("guildCreate", async guild => {
     })
 })
 
-bot.login(process.env.token);
+bot.login("NzQ4MjY1MzQwNzkzNzgyNDA0.X0a6Zw.dhIw2c5AzeAPsUvZ5xOlR0bMb5Q");
