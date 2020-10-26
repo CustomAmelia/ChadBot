@@ -61,8 +61,7 @@ bot.on('message', async (message) => {
     });
 
     if (!afkData) return;
-    if (!afkData.GuildID === message.guild.id) return;
-    else if (afkData) {
+    if (afkData.GuildID === message.guild.id) {
         const embed = new Discord.MessageEmbed()
         .setTitle('AFK')
         .setDescription(`${message.author} is no longer afk.`)
