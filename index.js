@@ -84,12 +84,7 @@ bot.on('message', async (message) => {
 
         if (!afkData) return;
         else if (afkData) {
-            const embed = new Discord.MessageEmbed()
-            .setTitle('AFK')
-            .setDescription(`${message.mentions.members.first()} is AFK, Reason: ${afkData.Reason}`)
-            .setColor("RANDOM")
-        
-            message.channel.send(embed)
+            message.channel.send(`${message.mentions.members.first()} is AFK, Reason: ${afkData.Reason}`)
         }
     }
     let randomXp = Math.floor(Math.random() * 5) + 1

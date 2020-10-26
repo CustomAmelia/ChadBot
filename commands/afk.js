@@ -33,7 +33,7 @@ module.exports.run = async (bot, message, args) => {
         Reason: reason
     })
 
-    message.channel.send(Util.cleanContent(`${message.author} is now AFK, Reason: ${reason}`, message))
+    message.channel.send(`${message.author} is now AFK, Reason: ${reason}`)
     newData.save()
 
     usedCommand.add(message.author.id);
