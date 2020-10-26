@@ -61,6 +61,7 @@ bot.on('message', async (message) => {
     });
 
     if (!afkData) return;
+    if (!afkData.GuildID === message.guild.id) return;
     else if (afkData) {
         const embed = new Discord.MessageEmbed()
         .setTitle('AFK')
