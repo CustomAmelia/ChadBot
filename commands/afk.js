@@ -19,7 +19,6 @@ module.exports.run = async (bot, message, args) => {
     }
 
     else if (args[0]) {
-        args[0].removeMentions()
         reason = args.join(" ")
     }
 
@@ -29,8 +28,7 @@ module.exports.run = async (bot, message, args) => {
         Reason: reason
     })
 
-    message.channel.send(`${message.author} is now AFK, Reason: ${reason}`)
-
+    message.channel.send(`${message.author} is now AFK, Reason: ${Discord.cleanContent(reason, message)}`)
     newData.save()
 
     usedCommand.add(message.author.id);
