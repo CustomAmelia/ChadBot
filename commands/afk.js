@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
         reason = "No reason specified."
     }
     else if (args[0]) {
-        reason = args[0]
+        reason = args.join(" ")
     }
 
 
