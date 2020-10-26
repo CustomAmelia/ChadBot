@@ -68,7 +68,7 @@ bot.on('message', async (message) => {
         else if (afkData) {
             const embed = new Discord.MessageEmbed()
             .setTitle('AFK')
-            .setDescription(`${message.mentions.members.first()} is AFK, Reason: ${afkdata.Reason}`)
+            .setDescription(`${message.mentions.members.first()} is AFK, Reason: ${afkData.Reason}`)
             .setColor("RANDOM")
         
             message.channel.send(embed)
