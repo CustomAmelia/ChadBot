@@ -4,6 +4,7 @@ const bot = new Discord.Client({
     disableEveryone: true
 });
 const mongoose = require('mongoose')
+const afkModel = require('./models/afk')
 const prefix = require('./models/prefix');
 const Levels = require('discord-xp')
 
@@ -55,9 +56,24 @@ bot.on('guildMemberRemove', guildMember => {
 })
 
 bot.on('message', async (message) => {
+
     if (message.author.bot) return;
     if (message.channel.type === 'dm') return;
+    if (message.mentions.members.first()) {
+        const afkData = await afkModel.findOne({
+            UserID: message.mentions.members.first().id
+        });
 
+        if (!afkData) return;
+        else if (afkData) {
+            const embed = new Discord.MessageEmbed()
+            .setTitle('AFK')
+            .setDescription(`${message.mentions.members.first()} is AFK, Reason: ${afkdata.Reason}`)
+            .setColor("RANDOM")
+        
+            message.channel.send(embed)
+        }
+    }
     let randomXp = Math.floor(Math.random() * 5) + 1
     const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
     if (hasLeveledUp) {
@@ -65,7 +81,7 @@ bot.on('message', async (message) => {
         message.channel.send(`${message.author}, You leveled up to level ${user.level}! Keep it going!`);
     }
 
-    const data = await prefix.findOne({
+    const prefixData = await prefix.findOne({
         GuildID: message.guild.id
     });
 
@@ -73,14 +89,14 @@ bot.on('message', async (message) => {
     const cmd = messageArray[0].toString().toLowerCase();
     const args = messageArray.slice(1);
 
-    if (data) {
-        const prefix = data.Prefix;
+    if (prefixData) {
+        const prefix = prefixData.Prefix;
 
         if (!message.content.startsWith(prefix)) return;
         const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
         if (!commandfile) return;
         commandfile.run(bot, message, args);
-    } else if (!data) {
+    } else if (!prefixData) {
         const prefix = "++";
 
         if (!message.content.startsWith(prefix)) return;
@@ -99,10 +115,6 @@ bot.on("guildCreate", async guild => {
             }
         }
     })
-
-    const data = await prefix.findOne({
-        GuildID: guild.id
-    });
 
     const embed = new Discord.MessageEmbed()
     embed.setTitle('Thanks for adding me to your server!')
