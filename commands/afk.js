@@ -18,9 +18,13 @@ module.exports.run = async (bot, message, args) => {
     if (!args.join(" ")) {
         reason = "No reason specified."
     }
-
     else if (args[0]) {
-        reason = args.join(" ")
+        if (args.join(" ").includes('@')) {
+            reason = "Reason had an @ in it."
+        }
+        else {
+            reason = args.join(" ")
+        }
     }
 
     let newData = new afkModel({
