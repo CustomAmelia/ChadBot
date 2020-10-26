@@ -64,7 +64,7 @@ bot.on('message', async (message) => {
     else if (afkData) {
         const embed = new Discord.MessageEmbed()
         .setTitle('AFK')
-        .setDescription(`${message.author.id} is no longer afk.`)
+        .setDescription(`${message.author} is no longer afk.`)
         .setColor("RANDOM")
     
         message.channel.send(embed)
