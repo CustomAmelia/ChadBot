@@ -56,6 +56,26 @@ bot.on('guildMemberRemove', guildMember => {
 })
 
 bot.on('message', async (message) => {
+    const afkData = await afkModel.findOne({
+        UserID: message.author.id
+    });
+
+    if (!afkData) return;
+    else if (afkData) {
+        const embed = new Discord.MessageEmbed()
+        .setTitle('AFK')
+        .setDescription(`${message.author.id} is no longer afk.`)
+        .setColor("RANDOM")
+    
+        message.channel.send(embed)
+
+        await afkModel.findOneAndRemove({
+            UserID: message.author.id
+        })
+    }
+})
+
+bot.on('message', async (message) => {
 
     if (message.author.bot) return;
     if (message.channel.type === 'dm') return;
