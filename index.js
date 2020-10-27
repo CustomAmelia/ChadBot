@@ -63,6 +63,7 @@ bot.on('message', async (message) => {
         message.channel.send(`${message.author} is no longer afk.`)
 
         await afkModel.findOneAndRemove({
+            GuildID: message.guild.id,
             UserID: message.author.id
         })
     }
