@@ -15,6 +15,8 @@ module.exports.run = async (bot, message, args, delay) => {
         const difference = process.hrtime(start)
         if (typeof output !== "string") output = inspect(output, { depth: 2 })
 
+        await delay(10)
+        
         message.channel.send(stripIndents`
         *Executed In ${difference[0] > 0 ?`${difference[0]}s ` : ""} ${difference[1] / 1e6}ms*
         \`\`\`js
