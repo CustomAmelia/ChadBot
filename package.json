@@ -11,7 +11,8 @@
     "discord.js": "^12.4.1",
     "got": "^11.8.0",
     "mongoose": "^5.10.10",
-    "snekfetch": "^4.0.4"
+    "snekfetch": "^4.0.4",
+    "vultrex.haste": "^1.0.1"
   },
   "devDependencies": {},
   "scripts": {
