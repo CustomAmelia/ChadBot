@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
         const start = process.hrtime()
         let output = eval(args.join(' '))
         const difference = process.hrtime(start)
-        if (typeof output !== "string") output = inspect(output, { depth: 10 })
+        if (typeof output !== "string") output = inspect(output, { depth: 1 })
 
         message.channel.send(stripIndents`
         *Executed In ${difference[0] > 0 ?`${difference[0]}s ` : ""} ${difference[1] / 1e6}ms*
