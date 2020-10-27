@@ -97,20 +97,24 @@ bot.on('message', async (message) => {
     const cmd = messageArray[0].toString().toLowerCase();
     const args = messageArray.slice(1);
 
+    function delay(time) {
+        return new Promise(resolve => setTimeout(resolve, time * 1000));
+    }
+
     if (prefixData) {
         const prefix = prefixData.Prefix;
 
         if (!message.content.startsWith(prefix)) return;
         const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
         if (!commandfile) return;
-        commandfile.run(bot, message, args);
+        commandfile.run(bot, message, args, delay);
     } else if (!prefixData) {
         const prefix = "++";
 
         if (!message.content.startsWith(prefix)) return;
         const commandfile = bot.commands.get(cmd.slice(prefix.length)) || bot.commands.get(bot.aliases.get(cmd.slice(prefix.length)));
         if (!commandfile) return;
-        commandfile.run(bot, message, args);
+        commandfile.run(bot, message, args, delay);
     }
 });
 

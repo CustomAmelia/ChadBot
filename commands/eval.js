@@ -4,7 +4,7 @@ const { stripIndents } = require('common-tags')
 const { VultrexHaste } = require('vultrex.haste')
 const haste = new VultrexHaste({ url: "https://hasteb.in" })
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args, delay) => {
     if (message.author.id !== '498097065264676864') return;
 
     if (!args[0]) return message.channel.send('Please provide javascript code to run.')
