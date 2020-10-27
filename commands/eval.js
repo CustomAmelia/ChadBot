@@ -8,7 +8,9 @@ module.exports.run = async (bot, message, args) => {
       const result = eval(args.join(' '))
 
       if (!result) return;
-      channel.send(result)
+      channel.send(result).catch(error => {
+          message.channel.send(`ERROR: ${error}`)
+      })
 }
 module.exports.config = {
     name: "eval",
