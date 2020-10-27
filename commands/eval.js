@@ -5,12 +5,12 @@ module.exports.run = async (bot, message, args) => {
 
     const { member, channel, content } = message
 
-      const result = eval(args.join(' '))
+      const result = eval(args.join(' ')).catch(error => {
+        message.channel.send(`ERROR: ${error}`)
+    })
 
       if (!result) return;
-      channel.send(result).catch(error => {
-          message.channel.send(`ERROR: ${error}`)
-      })
+      channel.send(result)
 }
 module.exports.config = {
     name: "eval",
