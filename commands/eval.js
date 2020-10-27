@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const { inspect } = require('util')
 const { stripIndents } = require('common-tags')
 const { VultrexHaste } = require('vultrex.haste')
-const haste = new VultrexHaste({ url: "https://hasteb.in/" })
+const haste = new VultrexHaste({ url: "https://hasteb.in" })
 
 module.exports.run = async (bot, message, args) => {
     if (message.author.id !== '498097065264676864') return;
