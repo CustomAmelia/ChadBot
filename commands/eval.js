@@ -2,12 +2,12 @@ const Discord = require('discord.js')
 
 module.exports.run = async (bot, message, args) => {
     if (message.author.id !== '498097065264676864') return;
-    const embed = new MessageEmbed()
+    const embed = new Discord.MessageEmbed()
         .setTitle('Evaluating...')
     const msg = await message.channel.send(embed);
     try {
         const data = eval(args.join(' ').replace(/```/g, ''));
-        const embed = new MessageEmbed()
+        const embed = new Discord.MessageEmbed()
             .setTitle('Output: ')
             .setDescription(await data)
         await msg.edit(embed)
@@ -28,7 +28,7 @@ module.exports.run = async (bot, message, args) => {
                 })
             })
     } catch (e) {
-        const embed = new MessageEmbed()
+        const embed = new Discord.MessageEmbed()
             .setTitle('An Error has occured')
         return await msg.edit(embed);
     }
