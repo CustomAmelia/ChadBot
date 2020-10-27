@@ -5,7 +5,7 @@ module.exports.run = async (bot, message, args) => {
 
     const { member, channel, content } = message
 
-      const result = args.join(' ')
+      const result = eval(args.join(' '))
 
       if (!result) return;
       channel.send(result)
