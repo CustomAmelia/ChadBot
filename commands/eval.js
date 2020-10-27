@@ -8,8 +8,11 @@ module.exports.run = async (bot, message, args) => {
     try {
         const data = eval(args.join(' ').replace(/```/g, ''));
         const embed = new Discord.MessageEmbed()
-            .setTitle('Output: ')
-            .setDescription(await data)
+            embed.setTitle('Output: ')
+            if (!data) {
+                embed.setDescription("No code to eval!")
+            }
+            embed.setDescription(await data)
         await msg.edit(embed)
         await msg.react('✅')
         await msg.react('❌')
