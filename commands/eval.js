@@ -17,14 +17,16 @@ module.exports.run = async (bot, message, args) => {
 
         return message.channel.send(stripIndents`
         *Executed In ${difference[0] > 0 ?`${difference[0]}s ` : ""} ${difference[1] / 1e6}ms*
-        \`\`\`
+        \`\`\`js
         ${output.length > 1950 ? await haste.post(output) : output}
         \`\`\`
         `)
     } catch(err) {
         return message.channel.send(stripIndents`
         Error:
-        \`${err}\`
+        \`\`\`js
+        ${err}
+        \`\`\`
         `)
     }
 }
