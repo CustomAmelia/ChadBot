@@ -5,8 +5,8 @@ module.exports.run = async (bot, message, args) => {
 
     const { member, channel, content } = message
 
-      const result = eval(args.join(' ')).catch(error => {
-        message.channel.send(`ERROR: ${error}`)
+      const result = eval(args.join(' ')).catch(err => {
+        message.channel.send(`ERROR: ${err}`)
     })
 
       if (!result) return;
