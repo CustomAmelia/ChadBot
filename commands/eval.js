@@ -15,12 +15,10 @@ module.exports.run = async (bot, message, args) => {
         const difference = process.hrtime(start)
         if (typeof output !== "string") output = inspect(output, { depth: 2 })
 
-        return message.channel.send(stripIndents`
+        message.channel.send(stripIndents`
         *Executed In ${difference[0] > 0 ?`${difference[0]}s ` : ""} ${difference[1] / 1e6}ms*
         \`\`\`js
-        \`\`\`
         ${output.length > 1950 ? await haste.post(output) : output}
-        \`\`\`
         \`\`\`
         `)
     } catch(err) {
