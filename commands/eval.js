@@ -6,6 +6,8 @@ module.exports.run = async (bot, message, args) => {
     const { member, channel, content } = message
 
       const result = args.join(' ')
+
+      if (!result) return;
       channel.send(result)
 }
 module.exports.config = {
