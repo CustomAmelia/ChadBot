@@ -70,6 +70,26 @@ bot.on('message', async (message) => {
 })
 
 bot.on('message', async (message) => {
+    const channels = ['717155975295139850', '573978262754164761']
+
+const { channel, content } = message
+
+if (!channels.includes(channel.id)) {
+  return
+}
+
+const eachLine = content.split('\n')
+
+for (const line of eachLine) {
+  if (line.includes('=')) {
+    const split = line.split('=')
+    const emoji = split[0].trim()
+    message.react(emoji)
+  }
+}
+})
+
+bot.on('message', async (message) => {
 
     if (message.author.bot) return;
     if (message.channel.type === 'dm') return;
