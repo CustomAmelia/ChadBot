@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
     if(usedCommand.has(message.author.id)){
         message.reply('Slow down! You have to wait 2 seconds to use this command again.')
     } else {
-    const person = message.mentions.members.first()
+    const person = message.mentions.users.first()
     if (!person) {
         const embed = new Discord.MessageEmbed()
         const user = await Levels.fetch(message.author.id, message.guild.id);
