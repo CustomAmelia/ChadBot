@@ -1,7 +1,5 @@
 const Discord = require('discord.js')
 const usedCommand = new Set()
-const prefix = require('../models/prefix');
-const userCreatedPolls = new Map();
 
 module.exports.run = async (bot, message, args, delay) => {
     if(usedCommand.has(message.author.id)){
@@ -12,26 +10,23 @@ module.exports.run = async (bot, message, args, delay) => {
           `You do not have the correct permissions to run this command, ${message.author.username}`
         );
 
-        const channel = message.guild.channels.cache.get(args[0]);
-      if (!channel) {
-        let msg = await message.channel.send('You did not give the id of your channel! The poll will be sent in this channel. Poll starting in 5 seconds.')
-        await delay(5)
-        await msg.delete()
-      }
+        const channels = ['717155975295139850']
 
-      let question = args.join(' ')
+        const { channel, content } = message
 
-      if (!question) return message.channel.send(`You did not specify your question!`);
-      const Embed = new Discord.MessageEmbed()
-        .setTitle(`New poll!`)
-        .setDescription(`${question}`)
-        .setFooter(`${message.author.username} created this poll.`)
-        .setColor(`RANDOM`);
-      let msg = ''
-      if (!channel) msg = await bot.channels.cache.get(message.channel.id).send(Embed);
-      else if (channel) msg = await bot.channels.cache.get(channel.id).send(Embed);
-      await msg.react("👍");
-      await msg.react("👎");
+        if (!channels.includes(channel.id)) {
+          return
+        }
+    
+        const eachLine = content.split('\n')
+    
+        for (const line of eachLine) {
+          if (line.includes('=')) {
+            const split = line.split('=')
+            const emoji = split[0].trim()
+            message.react(emoji)
+          }
+        }
     }
     usedCommand.add(message.author.id);
     setTimeout(() => {
