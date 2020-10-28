@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const usedCommand = new Set()
 const userCreatedPolls = new Map();
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args, delay) => {
     if(usedCommand.has(message.author.id)){
         message.reply('Slow down! You have to wait 2 seconds to use this command again.')
     } else {
@@ -10,16 +10,6 @@ module.exports.run = async (bot, message, args) => {
         return message.channel.send(
           `You do not have the correct permissions to run this command, ${message.author.username}`
         );
-
-        function delay(time) {
-            return new Promise((resolve, reject) => {
-                setTimeout(() => {
-                    resolve();
-                }, time)
-            })
-        }
-
-
 
         function getPollOptions(collector) {
             return new Promise((resolve, reject) => {
@@ -74,7 +64,7 @@ module.exports.run = async (bot, message, args) => {
         let reaction = (await confirm.awaitReactions(reactionFilter, { max: 1 })).first();
         if(reaction.emoji.name === '✅') {
             message.channel.send("Poll will begin in 1 seconds.");
-            await delay(1000);
+            await delay(1);
             message.channel.send("Vote now!");
             let userVotes = new Map();
             let pollTally = new discord.Collection(pollOptions.map(o => [o, 0]));
@@ -104,22 +94,15 @@ module.exports.run = async (bot, message, args) => {
         else if(reaction.emoji.name === '❎') {
             message.channel.send("Poll cancelled.");
         }
-    else if(message.content.toLowerCase() === '!stopvote') {
-        if(userCreatedPolls.has(message.author.id)) {
-            console.log("Trying to stop poll.");
+        await delay(20)
             userCreatedPolls.get(message.author.id).stop();
-            userCreatedPolls.delete(message.author.id);
-        }
-        else {
-            message.channel.send("You don't have a poll going on right now.");
+             userCreatedPolls.delete(message.author.id);
     }
 }
     usedCommand.add(message.author.id);
     setTimeout(() => {
         usedCommand.delete(message.author.id);
     }, 2000);
-}
-}
 module.exports.config = {
     name: "poll",
     description: "I sawed this person in half!",
