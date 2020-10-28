@@ -10,7 +10,9 @@ module.exports.run = async (bot, message, args) => {
 
     if (!person) return message.channel.send("Who do I saw in half?")
 
+    console.log('hi')
     message.channel.send(`*saws ${person.username} in half*`)
+    console.log('bruh')
     }
     usedCommand.add(message.author.id);
     setTimeout(() => {
