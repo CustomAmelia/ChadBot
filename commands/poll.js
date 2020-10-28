@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
         .setTitle('New Poll')
         .setColor("RANDOM")
         .setDescription(topic)
-        .setFooter(`Started by ${message.author}`)
+        .setFooter(`Started by ${message.author.username}`)
         const mes = await message.channel.send(embed)
         await mes.react("👍")
         await mes.react("👎")
