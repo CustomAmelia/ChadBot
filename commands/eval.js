@@ -11,9 +11,7 @@ module.exports.run = async (bot, message, args) => {
 
     try {
         const start = process.hrtime() 
-        let output = eval(args.join(' ')).catch(err => {
-            return;
-        })
+        let output = eval(args.join(' ')).catch(err => message.channel.send(err))
         const difference = process.hrtime(start)
         if (typeof output !== "string") output = inspect(output, { depth: 1 })
 
