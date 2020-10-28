@@ -16,6 +16,7 @@ module.exports.run = async (bot, message, args, delay) => {
             GuildID: message.guild.id
         });
 
+        const channel =
         message.mentions.channels.first() ||
         message.guild.channels.cache.get(args[0]);
       if (!channel) {
