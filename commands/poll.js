@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args, delay) => {
           `You do not have the correct permissions to run this command, ${message.author.username}`
         );
 
-        const data = await prefixModel.findOne({
+        const data = await prefix.findOne({
             GuildID: message.guild.id
         });
 
