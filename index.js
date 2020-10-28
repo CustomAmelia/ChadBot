@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const botsettings = require('./botsettings.json');
-const bot = new Discord.Client({disableEveryone: true});
+const bot = new Discord.Client({ ws: { intents: ['GUILDS', 'GUILD_MESSAGES'] } });
 const mongoose = require('mongoose')
 const afkModel = require('./models/afk')
 const prefix = require('./models/prefix');
@@ -51,7 +51,6 @@ fs.readdir("./commands/", (err, files) => {
 
 bot.on('guildMemberRemove', guildMember => {
     Levels.deleteUser(guildMember.id, guildMember.guild.id);
-    console.log('hi')
 })
 
 bot.on('message', async (message) => {
