@@ -14,6 +14,7 @@ module.exports.run = async (bot, message, args) => {
             msg.author.displayAvatarURL({ dynamic: true, size: 256 })
           )
           .setDescription(msg.content)
+          .setColor("RANDOM")
           .setFooter(`Date: ${msg.date} | ${args[0] || 1}/${snipes.length}`);
         if (msg.attachment) Embed.setImage(msg.attachment);
         message.channel.send(Embed);
