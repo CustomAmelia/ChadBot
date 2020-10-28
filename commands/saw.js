@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const usedCommand = new Set()
 
 module.exports.run = async (bot, message, args) => {
-    const person = message.mentions.members.first();
+    const person = message.mentions.users.first()
 
     if(usedCommand.has(message.author.id)){
         message.reply('Slow down! You have to wait 2 seconds to use this command again.')
