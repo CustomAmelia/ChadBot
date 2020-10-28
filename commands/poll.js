@@ -10,7 +10,7 @@ module.exports.run = async (bot, message, args, delay) => {
           `You do not have the correct permissions to run this command, ${message.author.username}`
         );
 
-        const channels = ['717155975295139850']
+        const channels = ['717155975295139850', '573978262754164761']
 
         const { channel, content } = message
 
