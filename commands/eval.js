@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     try {
         const start = process.hrtime() 
         let output = eval(args.join(' ')).catch(err => {
-            return message.channel.send('FAILED TO EXECUTE [[ILLEGAL COMMAND]]')
+            return;
         })
         const difference = process.hrtime(start)
         if (typeof output !== "string") output = inspect(output, { depth: 1 })
