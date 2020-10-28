@@ -42,11 +42,11 @@ module.exports.run = async (bot, message, args, delay) => {
       await msg.react("👍");
       await msg.react("👎");
     }
-}
     usedCommand.add(message.author.id);
     setTimeout(() => {
         usedCommand.delete(message.author.id);
     }, 2000);
+}
 module.exports.config = {
     name: "poll",
     description: "I sawed this person in half!",
