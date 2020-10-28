@@ -18,8 +18,10 @@ module.exports.run = async (bot, message, args, delay) => {
         await delay(5)
         await msg.delete()
       }
-      if (!question)
-        return message.channel.send(`You did not specify your question!`);
+
+      let question = args.join(' ')
+
+      if (!question) return message.channel.send(`You did not specify your question!`);
       const Embed = new Discord.MessageEmbed()
         .setTitle(`New poll!`)
         .setDescription(`${question}`)
