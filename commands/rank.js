@@ -7,6 +7,7 @@ module.exports.run = async (bot, message, args) => {
     if(usedCommand.has(message.author.id)){
         message.reply('Slow down! You have to wait 2 seconds to use this command again.')
     } else {
+    const person = message.mentions.members.first()
     if (!person) {
         const embed = new Discord.MessageEmbed()
         const user = await Levels.fetch(message.author.id, message.guild.id);
@@ -18,7 +19,6 @@ module.exports.run = async (bot, message, args) => {
     else if (person) {
         if (person.bot) return;
         const embed = new Discord.MessageEmbed()
-        const person = message.mentions.members.first()
         const user = await Levels.fetch(person.id, message.guild.id);
         embed.setTitle(`${person.username}'s Rank!`)
         if (!user.xp) {
