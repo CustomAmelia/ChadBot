@@ -88,7 +88,7 @@ module.exports.run = async (bot, message, args) => {
             console.log(pollTally.entries());
             let entries = [...pollTally.entries()];
             let winners = [];
-            let embed = new discord.RichEmbed();
+            let embed = new Discord.MessageEmbed();
             let desc = '';
             entries.forEach(entry => entry[1] === max ? winners.push(entry[0]) : null);
             entries.forEach(entry => desc  += entry[0] + " received " + entry[1] + " votes(s)\n");
