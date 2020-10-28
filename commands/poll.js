@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args, delay) => {
       if (!channel) {
         let msg = await message.channel.send('You did not give the id of your channel! The poll will be sent in this channel. Poll starting in 5 seconds.')
         await delay(5)
-        msg.delete()
+        await msg.delete()
       }
       if (!question)
         return message.channel.send(`You did not specify your question!`);
