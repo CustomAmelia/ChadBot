@@ -12,26 +12,14 @@ module.exports.run = async (bot, message, args, delay) => {
           `You do not have the correct permissions to run this command, ${message.author.username}`
         );
 
-        const data = await prefix.findOne({
-            GuildID: message.guild.id
-        });
-
-        const channel =
-        message.mentions.channels.first() ||
-        message.guild.channels.cache.get(args[0]);
+        const channel = message.guild.channels.cache.get(args[0]);
       if (!channel) {
-        return message.channel.send(
-          `You did not mention / give the id of your channel!`
+        let msg = message.channel.send(
+          `You did not give the id of your channel! The poll will be sent in this channel. Poll starting in 5 seconds.`
         );
+        await delay(5)
+        msg.delete()
       }
-      let question = message.content
-      if (!data) {
-        question.split(`++poll ${channel} `) 
-      }
-      else if (data) {
-        question.split(`${data.prefix}poll ${channel} `) 
-      }
-        question.join("");
       if (!question)
         return message.channel.send(`You did not specify your question!`);
       const Embed = new Discord.MessageEmbed()
