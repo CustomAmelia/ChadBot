@@ -62,7 +62,7 @@ module.exports.run = async (bot, message, args) => {
             message.channel.send("Not enough options, must contain 2!");
             return;
         }
-        let embed = new discord.RichEmbed();
+        let embed = new Discord.MessageEmbed();
         embed.setTitle("Your Poll");
         embed.setDescription(pollOptions.join("\n"));
         let confirm = await message.channel.send(embed);
