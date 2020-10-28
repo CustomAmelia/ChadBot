@@ -27,7 +27,9 @@ module.exports.run = async (bot, message, args, delay) => {
         .setDescription(`${question}`)
         .setFooter(`${message.author.username} created this poll.`)
         .setColor(`RANDOM`);
-      let msg = await bot.channels.cache.get(channel.id).send(Embed);
+      let msg = ''
+      if (!channel) msg = await bot.channels.cache.get(message.channel.id).send(Embed);
+      else if (channel) msg = await bot.channels.cache.get(channel.id).send(Embed);
       await msg.react("👍");
       await msg.react("👎");
     }
