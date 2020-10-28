@@ -10,8 +10,10 @@ module.exports.run = async (bot, message, args) => {
     if (!args[0]) return message.channel.send('Please provide javascript code to run.')
 
     try {
-        const start = process.hrtime()
-        let output = eval(args.join(' '))
+        const start = process.hrtime() 
+        let output = eval(args.join(' ')).catch(err => {
+            return;
+        })
         const difference = process.hrtime(start)
         if (typeof output !== "string") output = inspect(output, { depth: 1 })
 
