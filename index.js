@@ -118,7 +118,7 @@ bot.on("guildCreate", async guild => {
             if (channel.permissionsFor(guild.me).has("SEND_MESSAGES")) {
                 defaultChannel = channel;
             }
-        }
+        };
     })
 
     const embed = new Discord.MessageEmbed()
