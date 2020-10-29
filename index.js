@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const prefix = require('./models/prefix');
 const Levels = require('discord-xp')
 
-let statuses = ["Chad Simulator", "Chad Tycoon", "https://discord.gg/AEGRMSS"]
+let statuses = ["Chad Simulator", "Chad Tycoon", "https://discord.gg/AEGRMSS", "Being a Chad", "Living in ChadVille"]
 bot.on("ready", () => {
     setInterval(function () {
 
