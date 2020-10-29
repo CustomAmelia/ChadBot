@@ -1,6 +1,6 @@
-const { Intents, Discord } = require('discord.js');
+const { Intents } = require('discord.js');
 const botsettings = require('./botsettings.json');
-const bot = new Discord.Client({ ws: { intents: Intents.ALL } })
+const bot = new Client({ ws: { intents: Intents.ALL } })
 const mongoose = require('mongoose')
 const afkModel = require('./models/afk')
 const prefix = require('./models/prefix');
@@ -19,8 +19,8 @@ bot.on("ready", () => {
 
     console.log(`${bot.user.username} is online`)
 
-    const webhookClient = new Discord.WebhookClient('771049225240444958', '-Sd06WjSMC6Z4bihpvL_ShpU-40oYj1bxX0zH8g52VeWgJAaOoQmffxTgONFEVzQTRXw');
-    const embed = new Discord.MessageEmbed()
+    const webhookClient = new WebhookClient('771049225240444958', '-Sd06WjSMC6Z4bihpvL_ShpU-40oYj1bxX0zH8g52VeWgJAaOoQmffxTgONFEVzQTRXw');
+    const embed = new MessageEmbed()
     .setTitle('New Commit')
     .setColor("#0090d4")
     .setTimestamp()
@@ -36,9 +36,9 @@ mongoose.connect('mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net
 
 const fs = require("fs");
 
-bot.commands = new Discord.Collection();
-bot.aliases = new Discord.Collection();
-bot.snipes = new Discord.Collection();
+bot.commands = new Collection();
+bot.aliases = new Collection();
+bot.snipes = new Collection();
 
 fs.readdir("./commands/", (err, files) => {
 
@@ -155,7 +155,7 @@ bot.on("guildCreate", async guild => {
         }
     })
 
-    const embed = new Discord.MessageEmbed()
+    const embed = new MessageEmbed()
     embed.setTitle('Thanks for adding me to your server!')
     embed.setColor("RANDOM")
     embed.setTimestamp()
