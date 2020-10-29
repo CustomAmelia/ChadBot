@@ -2,7 +2,6 @@ const Discord = require('discord.js');
 const botsettings = require('./botsettings.json');
 const bot = new Discord.Client({ ws: { intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MEMBERS', 'GUILD_PRESENCES'] } });
 const mongoose = require('mongoose')
-const afkModel = require('./models/afk')
 const prefix = require('./models/prefix');
 const Levels = require('discord-xp')
 
@@ -79,36 +78,11 @@ bot.on("messageDelete", async (message) => {
         snipes.splice(10);
         message.client.snipes.set(message.channel.id, snipes);
   })
-bot.on('message', async (message) => {
-    const afkData = await afkModel.findOne({
-        UserID: message.author.id
-    });
-
-    if (!afkData) return;
-    if (afkData.GuildID === message.guild.id) {
-        message.channel.send(`${message.author} is no longer afk.`)
-
-        await afkModel.findOneAndRemove({
-            GuildID: message.guild.id,
-            UserID: message.author.id
-        })
-    }
-})
 
 bot.on('message', async (message) => {
 
     if (message.author.bot) return;
     if (message.channel.type === 'dm') return;
-    if (message.mentions.members.first()) {
-        const afkData = await afkModel.findOne({
-            UserID: message.mentions.members.first().id
-        });
-
-        if (!afkData) return;
-        else if (afkData) {
-            message.channel.send(`${message.mentions.members.first()} is AFK, Reason: ${afkData.Reason}`)
-        }
-    }
     let randomXp = Math.floor(Math.random() * 5) + 1
     const hasLeveledUp = await Levels.appendXp(message.author.id, message.guild.id, randomXp);
     if (hasLeveledUp) {
