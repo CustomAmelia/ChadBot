@@ -1,4 +1,4 @@
-const Discord = require('discord.js');
+const { Intents, Discord } = require('discord.js');
 const botsettings = require('./botsettings.json');
 const bot = new Discord.Client({ ws: { intents: Intents.ALL } })
 const mongoose = require('mongoose')
