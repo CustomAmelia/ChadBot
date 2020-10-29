@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const botsettings = require('./botsettings.json');
+const settings = require('./botsettings.json');
 const bot = new Discord.Client({ ws: { intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MEMBERS', 'GUILD_PRESENCES'] } });
 const mongoose = require('mongoose')
 const prefix = require('./models/prefix');
@@ -131,4 +131,4 @@ bot.on("guildCreate", async guild => {
     })
 })
 
-bot.login("NzQ4MjY1MzQwNzkzNzgyNDA0.X0a6Zw.dhIw2c5AzeAPsUvZ5xOlR0bMb5Q");
+bot.login(settings.token);
