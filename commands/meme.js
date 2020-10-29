@@ -5,7 +5,7 @@ const usedCommand = new Set()
 
 module.exports.run = (bot, message, args) => {
     const embed = new Discord.MessageEmbed()
-    const subreddits = ["meme", "me_irl", "dankmeme", "nocontextxboxmessages"]
+    const subreddits = ["memes", "me_irl", "dankmeme", "nocontextxboxmessages", "funny"]
     const subredditsrandom = subreddits[Math.floor(Math.random() * subreddits.length)];
 
     if(usedCommand.has(message.author.id)){

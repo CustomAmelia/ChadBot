@@ -29,7 +29,7 @@ setTimeout(() => {
 
 module.exports.config = {
     name: "botstats",
-    description: "Checks the bot stats!",
+    description: "Checks the bot stats.",
     usage: "++botstats",
     aliases: []
 };
