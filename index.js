@@ -1,6 +1,6 @@
-const { Intents } = require('discord.js');
+const { Intents, Discord} = require('discord.js');
 const botsettings = require('./botsettings.json');
-const bot = new Client({ ws: { intents: Intents.ALL } })
+const bot = new Discord.Client({ ws: { intents: Intents.ALL } })
 const mongoose = require('mongoose')
 const afkModel = require('./models/afk')
 const prefix = require('./models/prefix');
