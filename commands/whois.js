@@ -23,7 +23,7 @@ module.exports.run = async (bot, message, args) => {
             VERIFIED_DEVELOPER: 'Verified Bot Developer'
         };
 
-        const member = message.mentions.members.last() || message.guild.members.cache.get(target) || message.member;
+        const member = message.mentions.members.last() || message.guild.members.cache.get(args[0]) || message.member;
 		const roles = member.roles.cache
 			.sort((a, b) => b.position - a.position)
 			.map(role => role.toString())
