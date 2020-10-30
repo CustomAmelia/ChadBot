@@ -23,18 +23,19 @@ module.exports.run = async (bot, message, args) => {
             VERIFIED_DEVELOPER: 'Verified Bot Developer'
         };
 
-        const member = message.mentions.members.last() || message.guild.members.cache.get(args[0]) || message.member;
+        const member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.member;
 		const roles = member.roles.cache
 			.sort((a, b) => b.position - a.position)
 			.map(role => role.toString())
 			.slice(0, -1);
         const userFlags = member.user.flags.toArray();
-        let b = ''
+
         if (member.bot === true) {
-            b = "True"
+            member.bot === "True"
         }
-        else if (member.bot === false) {
-            b = "False"
+
+        if (member.bot === false) {
+            member.bot === "False"
         }
 
         if (member.presence.status === 'dnd') member.presence.status = 'Do Not Disturb';
@@ -54,7 +55,7 @@ module.exports.run = async (bot, message, args) => {
 				`**❯ Account Created:** ${moment.utc(member.user.createdAt).format("dddd, MMMM Do YYYY")}`,
 				`**❯ Status:** ${member.user.presence.status}`,
                 `**❯ Game:** ${member.user.presence.game || 'Not playing a game.'}`,
-                `**❯ Bot:** ${b}.`,
+                `**❯ Bot:** ${member.bot}.`,
 				`\u200b`
 			])
 			.addField('Member', [
