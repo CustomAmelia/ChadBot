@@ -1,4 +1,8 @@
 {
     "token": "NzQ4MjY1MzQwNzkzNzgyNDA0.X0a6Zw.dhIw2c5AzeAPsUvZ5xOlR0bMb5Q",
-    "defaultprefix": "++"
+    "defaultprefix": "++",
+    "botdeveloper": "<@498097065264676864>",
+    "staff": [
+        "498097065264676864"
+    ]
 }
