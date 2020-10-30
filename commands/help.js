@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
     if (args[0] === 'utility') {
       const embed = new Discord.MessageEmbed()
       embed.setTitle('**🛠️ Utility Commands**')
-      embed.setDescription('``help``, ``invite``, ``suggest <suggestion>``, ``bugreport <bug>``, ``server``, ``ping``, ``botstats``, ``snipe / snipe <number>``, ``whois <user> / whois')
+      embed.setDescription('``help``, ``invite``, ``suggest <suggestion>``, ``bugreport <bug>``, ``server``, ``ping``, ``botinfo``, ``snipe / snipe <number>``, ``whois <user> / whois')
       embed.setColor('RANDOM')
       if (!data) {
         embed.setFooter('use ++ before each command')

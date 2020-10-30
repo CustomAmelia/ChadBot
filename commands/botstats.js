@@ -1,25 +1,44 @@
-const Discord = require('discord.js')
+const { MessageEmbed, version: djsversion } = require('discord.js')
+const { version } = require('../package.json')
+const { utc } = require('moment')
+const os = require('os')
+const ms = require('ms')
 const usedCommand = new Set()
 
 module.exports.run = async (bot, message, args) => {
     if (usedCommand.has(message.author.id)) {
         message.reply('Slow down! You have to wait 2 seconds to use this command again.')
     } else {
-        let days = Math.floor(bot.uptime / 86400000);
-        let hours = Math.floor(bot.uptime / 3600000) % 24;
-        let minutes = Math.floor(bot.uptime / 60000) % 60;
-        let seconds = Math.floor(bot.uptime / 1000) % 60;
-        const arr = [1, 2, 3, 4, 5, 6, 9, 7, 8, 9, 10];
-        arr.reverse();
-        const used = process.memoryUsage().heapUsed / 1024 / 1024;
-        const embed = new Discord.MessageEmbed()
-            .setTitle('Bot Stats')
-            .setColor("RANDOM")
-            .addField('Memory Usage', `${Math.round(used * 100) / 100}MB`, true)
-            .addField('Uptime', `${days}d ${hours}h ${minutes}m ${seconds}s`, true)
-            .addField('Guilds', bot.guilds.cache.size, true)
-            .addField('Developer', "<@498097065264676864>", true)
-        message.channel.send(embed)
+		const core = os.cpus()[0];
+		const embed = new MessageEmbed()
+			.setThumbnail(this.client.user.displayAvatarURL())
+			.setColor(message.guild.me.displayHexColor || 'BLUE')
+			.addField('General', [
+				`**❯ Client:** ${this.client.user.tag} (${this.client.user.id})`,
+				`**❯ Commands:** ${this.client.commands.size}`,
+				`**❯ Servers:** ${this.client.guilds.cache.size.toLocaleString()} `,
+				`**❯ Users:** ${this.client.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}`,
+				`**❯ Channels:** ${this.client.channels.cache.size.toLocaleString()}`,
+				`**❯ Creation Date:** ${utc(this.client.user.createdTimestamp).format('Do MMMM YYYY HH:mm:ss')}`,
+				`**❯ Node.js:** ${process.version}`,
+				`**❯ Version:** v${version}`,
+				`**❯ Discord.js:** v${djsversion}`,
+				'\u200b'
+			])
+			.addField('System', [
+				`**❯ Platform:** ${process.platform}`,
+				`**❯ Uptime:** ${ms(os.uptime() * 1000, { long: true })}`,
+				`**❯ CPU:**`,
+				`\u3000 Cores: ${os.cpus().length}`,
+				`\u3000 Model: ${core.model}`,
+				`\u3000 Speed: ${core.speed}MHz`,
+				`**❯ Memory:**`,
+				`\u3000 Total: ${this.client.utils.formatBytes(process.memoryUsage().heapTotal)}`,
+				`\u3000 Used: ${this.client.utils.formatBytes(process.memoryUsage().heapUsed)}`
+			])
+			.setTimestamp();
+
+		message.channel.send(embed);
     }
     usedCommand.add(message.author.id);
     setTimeout(() => {
@@ -28,8 +47,8 @@ module.exports.run = async (bot, message, args) => {
 }
 
 module.exports.config = {
-    name: "botstats",
-    description: "Checks the bot stats.",
-    usage: "++botstats",
+    name: "botinfo",
+    description: "Tells you bot information.",
+    usage: "++botinfo",
     aliases: []
 };
