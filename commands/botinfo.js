@@ -3,6 +3,7 @@ const { version } = require('../package.json')
 const { utc } = require('moment')
 const os = require('os')
 const ms = require('ms')
+const settings = require('../botsettings.json');
 const usedCommand = new Set()
 
 module.exports.run = async (bot, message, args) => {
@@ -21,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
 				`**❯ Channels:** ${bot.channels.cache.size.toLocaleString()}`,
 				`**❯ Creation Date:** ${utc(bot.user.createdTimestamp).format('Do MMMM YYYY HH:mm:ss')}`,
 				`**❯ Node.js:** ${process.version}`,
-				`**❯ Version:** v${version}`,
+				`**❯ Version:** v${settings.version}`,
 				`**❯ Discord.js:** v${djsversion}`,
 				'\u200b'
 			])
