@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
 			.setThumbnail(bot.user.displayAvatarURL())
 			.setColor(message.guild.me.displayHexColor || 'BLUE')
 			.addField('General', [
-				`**❯ Client:** ${bot.user.tag} (${this.bot.user.id})`,
+				`**❯ Client:** ${bot.user.tag} (${bot.user.id})`,
 				`**❯ Commands:** ${bot.commands.size}`,
 				`**❯ Servers:** ${bot.guilds.cache.size.toLocaleString()} `,
 				`**❯ Users:** ${bot.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}`,
