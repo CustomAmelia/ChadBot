@@ -3,7 +3,6 @@ const { version } = require('../package.json')
 const { utc } = require('moment')
 const os = require('os')
 const ms = require('ms')
-const util = require('./Util.js');
 const usedCommand = new Set()
 
 module.exports.run = async (bot, message, args) => {
