@@ -44578,15 +44578,15 @@ module.exports.run = async (bot, message, args) => {
         "hillbilly"
     ]
 
-    if(usedCommand.has(message.author.id)){
+    if (usedCommand.has(message.author.id)) {
         message.reply('Slow down! You have to wait 2 seconds to use this command again.')
     } else {
 
-    const randomMessage = words[Math.floor(Math.random() * words.length)];
+        const randomMessage = words[Math.floor(Math.random() * words.length)];
 
-    message.channel.send(`frick ${randomMessage}`)
+        message.channel.send(`frick ${randomMessage}`)
     }
-    
+
     usedCommand.add(message.author.id);
     setTimeout(() => {
         usedCommand.delete(message.author.id);

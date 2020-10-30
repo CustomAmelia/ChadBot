@@ -1,6 +1,10 @@
 const Discord = require('discord.js');
 const settings = require('./botsettings.json');
-const bot = new Discord.Client({ ws: { intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MEMBERS', 'GUILD_PRESENCES'] } });
+const bot = new Discord.Client({
+    ws: {
+        intents: ['GUILDS', 'GUILD_MESSAGES', 'GUILD_MEMBERS', 'GUILD_PRESENCES']
+    }
+});
 const mongoose = require('mongoose')
 const prefix = require('./models/prefix');
 const Levels = require('discord-xp')
@@ -54,22 +58,22 @@ bot.on('guildMemberRemove', guildMember => {
 })
 
 bot.on("messageDelete", async (message) => {
-        if (message.author.bot) return;
-        const snipes = message.client.snipes.get(message.channel.id) || [];
-        snipes.unshift({
-          content: message.content,
-          author: message.author,
-          image: message.attachments.first()
-            ? message.attachments.first().proxyURL
-            : null,
-          date: new Date().toLocaleString("en-GB", {
+    if (message.author.bot) return;
+    const snipes = message.client.snipes.get(message.channel.id) || [];
+    snipes.unshift({
+        content: message.content,
+        author: message.author,
+        image: message.attachments.first() ?
+            message.attachments.first().proxyURL :
+            null,
+        date: new Date().toLocaleString("en-GB", {
             dataStyle: "full",
             timeStyle: "short",
-          }),
-        });
-        snipes.splice(10);
-        message.client.snipes.set(message.channel.id, snipes);
-  })
+        }),
+    });
+    snipes.splice(10);
+    message.client.snipes.set(message.channel.id, snipes);
+})
 
 bot.on('message', async (message) => {
 
