@@ -23,6 +23,11 @@ module.exports.run = async (bot, message, args) => {
             VERIFIED_DEVELOPER: 'Verified Bot Developer'
         };
 
+        if (member.presence.status === 'dnd') member.presence.status = 'Do Not Disturb';
+        if (member.presence.status === 'online') member.presence.status = 'Online';
+        if (member.presence.status === 'idle') member.presence.status = 'Idle';
+        if (member.presence.status === 'offline') member.presence.status = 'Offline';
+        
         const member = message.mentions.members.last() || message.guild.members.cache.get(args[0]) || message.member;
 		const roles = member.roles.cache
 			.sort((a, b) => b.position - a.position)
