@@ -53,8 +53,7 @@ module.exports.run = async (bot, message, args) => {
 				`**❯ Flags:** ${userFlags.length ? userFlags.map(flag => flags[flag]).join(', ') : 'None'}`,
 				`**❯ Avatar:** [Link to avatar](${member.user.displayAvatarURL({ dynamic: true })})`,
 				`**❯ Account Created:** ${moment.utc(member.user.createdAt).format("dddd, MMMM Do YYYY")}`,
-				`**❯ Status:** ${member.presence.status}`,
-                `**❯ Game:** ${member.presence.game || 'Not playing a game.'}`,
+				`**❯ Status:** ${member.user.presence.status}`,
                 `**❯ Bot:** ${b}.`,
 				`\u200b`
 			])
