@@ -30,10 +30,10 @@ module.exports.run = async (bot, message, args) => {
 			.slice(0, -1);
         const userFlags = member.user.flags.toArray();
         let b = ''
-        if (member.bot) {
+        if (member.bot === true) {
             b = "True"
         }
-        else if (!member.bot) {
+        else if (member.bot === false) {
             b = "False"
         }
 
@@ -41,7 +41,7 @@ module.exports.run = async (bot, message, args) => {
         if (member.presence.status === 'online') member.presence.status = 'Online';
         if (member.presence.status === 'idle') member.presence.status = 'Idle';
         if (member.presence.status === 'offline') member.presence.status = 'Offline';
-        
+
 		const embed = new Discord.MessageEmbed()
 			.setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 512 }))
 			.setColor(member.displayHexColor || 'BLUE')
