@@ -8,7 +8,7 @@ module.exports.run = async (bot, message, args) => {
     let channel = server.channels.cache.get("771048912881844244")
 
     channel
-    .fetchMessages({ limit: 1 })
+    .messages.fetch({ limit: 1 })
     .then(f =>
       message.channel.send(
         f.first().content
