@@ -29,7 +29,7 @@ module.exports.run = async (bot, message, args) => {
 			.map(role => role.toString())
 			.slice(0, -1);
 		const userFlags = member.user.flags.toArray();
-		const embed = new MessageEmbed()
+		const embed = new Discord.MessageEmbed()
 			.setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 512 }))
 			.setColor(member.displayHexColor || 'BLUE')
 			.addField('User', [
