@@ -48,7 +48,7 @@ module.exports.run = async (bot, message, args) => {
 				`**❯ Account Created:** ${moment(member.user.createdTimestamp).format('LT')} ${moment(member.user.createdTimestamp).format('LL')} ${moment(member.user.createdTimestamp).fromNow()}`,
 				`**❯ Status:** ${member.user.presence.status}`,
                 `**❯ Game:** ${member.user.presence.game || 'Not playing a game.'}`,
-                `**❯ Bot:** ${b}.`
+                `**❯ Bot:** ${b}.`,
 				`\u200b`
 			])
 			.addField('Member', [
