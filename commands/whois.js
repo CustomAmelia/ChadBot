@@ -30,14 +30,14 @@ module.exports.run = async (bot, message, args) => {
 			.slice(0, -1);
         const userFlags = member.user.flags.toArray();
 
+        let b = ''
+
         if (member.user.bot === true) {
-            member.user.bot === "True"
+            b = "True"
         }
-
-        if (member.user.bot === false) {
-            member.user.bot === "False"
+        else if (member.user.bot === false) {
+            b = "False"
         }
-
         if (member.presence.status === 'dnd') member.presence.status = 'Do Not Disturb';
         if (member.presence.status === 'online') member.presence.status = 'Online';
         if (member.presence.status === 'idle') member.presence.status = 'Idle';
@@ -55,7 +55,7 @@ module.exports.run = async (bot, message, args) => {
 				`**❯ Account Created:** ${moment.utc(member.user.createdAt).format("dddd, MMMM Do YYYY")}`,
 				`**❯ Status:** ${member.user.presence.status}`,
                 `**❯ Game:** ${member.user.presence.game || 'Not playing a game.'}`,
-                `**❯ Bot:** ${member.user.bot}.`,
+                `**❯ Bot:** ${b}.`,
 				`\u200b`
 			])
 			.addField('Member', [
