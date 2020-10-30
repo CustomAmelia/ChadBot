@@ -11,15 +11,15 @@ module.exports.run = async (bot, message, args) => {
     } else {
 		const core = os.cpus()[0];
 		const embed = new MessageEmbed()
-			.setThumbnail(this.bot.user.displayAvatarURL())
+			.setThumbnail(bot.user.displayAvatarURL())
 			.setColor(message.guild.me.displayHexColor || 'BLUE')
 			.addField('General', [
-				`**❯ Client:** ${this.bot.user.tag} (${this.bot.user.id})`,
-				`**❯ Commands:** ${this.bot.commands.size}`,
-				`**❯ Servers:** ${this.bot.guilds.cache.size.toLocaleString()} `,
-				`**❯ Users:** ${this.bot.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}`,
-				`**❯ Channels:** ${this.bot.channels.cache.size.toLocaleString()}`,
-				`**❯ Creation Date:** ${utc(this.bot.user.createdTimestamp).format('Do MMMM YYYY HH:mm:ss')}`,
+				`**❯ Client:** ${bot.user.tag} (${this.bot.user.id})`,
+				`**❯ Commands:** ${bot.commands.size}`,
+				`**❯ Servers:** ${bot.guilds.cache.size.toLocaleString()} `,
+				`**❯ Users:** ${bot.guilds.cache.reduce((a, b) => a + b.memberCount, 0).toLocaleString()}`,
+				`**❯ Channels:** ${bot.channels.cache.size.toLocaleString()}`,
+				`**❯ Creation Date:** ${utc(bot.user.createdTimestamp).format('Do MMMM YYYY HH:mm:ss')}`,
 				`**❯ Node.js:** ${process.version}`,
 				`**❯ Version:** v${version}`,
 				`**❯ Discord.js:** v${djsversion}`,
@@ -33,8 +33,8 @@ module.exports.run = async (bot, message, args) => {
 				`\u3000 Model: ${core.model}`,
 				`\u3000 Speed: ${core.speed}MHz`,
 				`**❯ Memory:**`,
-				`\u3000 Total: ${this.bot.utils.formatBytes(process.memoryUsage().heapTotal)}`,
-				`\u3000 Used: ${this.bot.utils.formatBytes(process.memoryUsage().heapUsed)}`
+				`\u3000 Total: ${bot.utils.formatBytes(process.memoryUsage().heapTotal)}`,
+				`\u3000 Used: ${bot.utils.formatBytes(process.memoryUsage().heapUsed)}`
 			])
 			.setTimestamp();
 
