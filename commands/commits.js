@@ -4,8 +4,8 @@ const {
 } = require('common-tags')
 
 module.exports.run = async (bot, message, args) => {
-    let server = bot.guilds.cache.get('771048912881844244')
-    let channel = server.channels.cache.get('771048912881844244')
+    let server = bot.guilds.cache.get("758801288321302528")
+    let channel = server.channels.cache.get("771048912881844244")
 
     channel
     .fetchMessages({ limit: 1 })
