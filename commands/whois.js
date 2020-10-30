@@ -30,12 +30,12 @@ module.exports.run = async (bot, message, args) => {
 			.slice(0, -1);
         const userFlags = member.user.flags.toArray();
 
-        if (member.bot === true) {
-            member.bot === "True"
+        if (member.user.bot === true) {
+            member.user.bot === "True"
         }
 
-        if (member.bot === false) {
-            member.bot === "False"
+        if (member.user.bot === false) {
+            member.user.bot === "False"
         }
 
         if (member.presence.status === 'dnd') member.presence.status = 'Do Not Disturb';
