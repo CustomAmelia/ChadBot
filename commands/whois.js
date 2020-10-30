@@ -38,10 +38,10 @@ module.exports.run = async (bot, message, args) => {
         else if (member.user.bot === false) {
             b = "False"
         }
-        if (member.presence.status === 'dnd') member.presence.status = 'Do Not Disturb';
-        if (member.presence.status === 'online') member.presence.status = 'Online';
-        if (member.presence.status === 'idle') member.presence.status = 'Idle';
-        if (member.presence.status === 'offline') member.presence.status = 'Offline';
+        if (member.user.presence.status === 'dnd') member.user.presence.status = 'Do Not Disturb';
+        if (member.user.presence.status === 'online') member.user.presence.status = 'Online';
+        if (member.user.presence.status === 'idle') member.user.presence.status = 'Idle';
+        if (member.user.presence.status === 'offline') member.user.presence.status = 'Offline';
 
 		const embed = new Discord.MessageEmbed()
 			.setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 512 }))
