@@ -55,14 +55,14 @@ module.exports.run = async (bot, message, args) => {
 				`**❯ Account Created:** ${moment.utc(member.user.createdAt).format("dddd, MMMM Do YYYY")}`,
 				`**❯ Status:** ${member.user.presence.status}`,
                 `**❯ Game:** ${member.user.presence.game || 'Not playing a game.'}`,
-                `**❯ Bot:** ${member.bot}.`,
+                `**❯ Bot:** ${member.user.bot}.`,
 				`\u200b`
 			])
 			.addField('Member', [
 				`**❯ Highest Role:** ${member.roles.highest.id === message.guild.id ? 'None' : member.roles.highest.name}`,
 				`**❯ Server Join Date:** ${moment(member.joinedAt).format('LL LTS')}`,
 				`**❯ Hoist Role:** ${member.roles.hoist ? member.roles.hoist.name : 'None'}`,
-				`**❯ Roles [${roles.length}]:** ${roles.length < 10 ? roles.join(', ') : roles.length > 10 ? bot.utils.trimArray(roles) : 'None'}`,
+				`**❯ Roles [${roles.length}]:** ${roles.length < 10 ? roles.join(', ') : roles.length > 10 ? bot.trimArray(roles) : 'None.'}`,
 				`\u200b`
             ]);
             if(settings.staff.includes(member.id)) {
