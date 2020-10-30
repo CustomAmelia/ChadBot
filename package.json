@@ -10,6 +10,7 @@
     "discord-xp": "^1.0.6",
     "discord.js": "^12.4.1",
     "got": "^11.8.0",
+    "moment": "^2.29.1",
     "mongoose": "^5.10.10",
     "snekfetch": "^4.0.4",
     "vultrex.haste": "^1.0.1"
