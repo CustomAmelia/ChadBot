@@ -28,7 +28,14 @@ module.exports.run = async (bot, message, args) => {
 			.sort((a, b) => b.position - a.position)
 			.map(role => role.toString())
 			.slice(0, -1);
-		const userFlags = member.user.flags.toArray();
+        const userFlags = member.user.flags.toArray();
+        let b = ''
+        if (member.bot) {
+            b = "True"
+        }
+        else if (!member.bot) {
+            b = "False"
+        }
 		const embed = new Discord.MessageEmbed()
 			.setThumbnail(member.user.displayAvatarURL({ dynamic: true, size: 512 }))
 			.setColor(member.displayHexColor || 'BLUE')
@@ -40,7 +47,8 @@ module.exports.run = async (bot, message, args) => {
 				`**❯ Avatar:** [Link to avatar](${member.user.displayAvatarURL({ dynamic: true })})`,
 				`**❯ Account Created:** ${moment(member.user.createdTimestamp).format('LT')} ${moment(member.user.createdTimestamp).format('LL')} ${moment(member.user.createdTimestamp).fromNow()}`,
 				`**❯ Status:** ${member.user.presence.status}`,
-				`**❯ Game:** ${member.user.presence.game || 'Not playing a game.'}`,
+                `**❯ Game:** ${member.user.presence.game || 'Not playing a game.'}`,
+                `**❯ Bot:** ${b}.`
 				`\u200b`
 			])
 			.addField('Member', [
