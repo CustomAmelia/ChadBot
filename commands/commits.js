@@ -5,7 +5,7 @@ const {
 
 module.exports.run = async (bot, message, args) => {
     let server = bot.guilds.cache.get('771048912881844244')
-    let channel = server.channels.cache.get('771048912881844244').latest
+    let channel = server.channels.cache.get('771048912881844244')
 
     channel
     .fetchMessages({ limit: 1 })
