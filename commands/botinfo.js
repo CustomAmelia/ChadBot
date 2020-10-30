@@ -3,6 +3,7 @@ const { version } = require('../package.json')
 const { utc } = require('moment')
 const os = require('os')
 const ms = require('ms')
+const util = require('./Util.js');
 const usedCommand = new Set()
 
 module.exports.run = async (bot, message, args) => {
@@ -32,9 +33,6 @@ module.exports.run = async (bot, message, args) => {
 				`\u3000 Cores: ${os.cpus().length}`,
 				`\u3000 Model: ${core.model}`,
 				`\u3000 Speed: ${core.speed}MHz`,
-				`**❯ Memory:**`,
-				`\u3000 Total: ${bot.utils.formatBytes(process.memoryUsage().heapTotal)}`,
-				`\u3000 Used: ${bot.utils.formatBytes(process.memoryUsage().heapUsed)}`
 			])
 			.setTimestamp();
 
