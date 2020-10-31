@@ -3,7 +3,7 @@ const settings = require('../botsettings.json');
 const fetch = require('node-fetch')
 const usedCommand = new Set()
 
-module.exports.run = async (bot, message, args, { channel }, query) => {
+module.exports.run = async (bot, message, args, query) => {
     if (usedCommand.has(message.author.id)) {
         message.reply('Slow down! You have to wait 2 seconds to use this command again.')
     } else {
@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args, { channel }, query) => {
         const embed = await fetch(`https://djsdocs.sorta.moe/v2/embed?${queryParams.toString()}`)
         .then(res => res.json())
   
-      channel.send({ embed })
+      message.channel.send({ embed })
     }
     usedCommand.add(message.author.id)
     setTimeout(() => {
