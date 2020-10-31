@@ -7,7 +7,8 @@ module.exports.run = async (bot, message, args, query) => {
     if (usedCommand.has(message.author.id)) {
         message.reply('Slow down! You have to wait 2 seconds to use this command again.')
     } else {
-        const queryParams = new URLSearchParams({ src: 'stable', q: query })
+        if (!args[0]) return message.channel.send('Please specify a branch.')
+        const queryParams = new URLSearchParams({ src: args[0], q: query })
 
         const embed = await fetch(`https://djsdocs.sorta.moe/v2/embed?${queryParams.toString()}`)
         .then(res => res.json())
