@@ -71,7 +71,7 @@ module.exports.run = async (bot, message, args) => {
     if (args[0] === 'dev') {
       const embed = new Discord.MessageEmbed()
       embed.setTitle('**⌨️ Developer Commands**')
-      embed.setDescription('``djsdocs <query>``')
+      embed.setDescription('``djsdocs <query> <src> (src is not required)``')
       embed.setColor('RANDOM')
       if (!data) {
         embed.setFooter('use ++ before each command')
