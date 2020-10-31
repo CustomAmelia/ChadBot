@@ -10,14 +10,15 @@ module.exports.run = async (bot, message, args, delay) => {
         if (!args[0]) return message.channel.send('Please specify a query.')
         if (!args[1]) {
             let src = await message.channel.send("No src provided! Will search using the default 'stable' one. This message will be deleted in 4 seconds.")
-            await delay(4)
-            src.delete()
+
             const queryParams = new URLSearchParams({ src: 'stable', q: args[0] })
 
             const embed = await fetch(`https://djsdocs.sorta.moe/v2/embed?${queryParams.toString()}`)
             .then(res => res.json())
       
           message.channel.send({ embed })
+          await delay(4)
+          src.delete()
         }
         else if (args[1]) {
             const queryParams = new URLSearchParams({ src: args[1], q: args[0] })
