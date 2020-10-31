@@ -96,7 +96,7 @@ module.exports.run = async (bot, message, args) => {
         embed.addField("🛠️ **Utility**", "``" + data.Prefix + "help utility``", true)
         embed.addField("⚙️ **Config**", "``" + data.Prefix + "help config``", true)
         embed.addField("🔵 **XP**", "``" + data.Prefix + "help xp``", true)
-        embed.addField("⌨️ **Developers**", "``" + data.Prefix + "help dev``", true)
+        embed.addField("⌨️ **Dev**", "``" + data.Prefix + "help dev``", true)
       }
       message.channel.send(embed)
     }
