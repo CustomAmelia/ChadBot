@@ -87,16 +87,17 @@ module.exports.run = async (bot, message, args) => {
       embed.setTitle('**Chad Bot Command List**')
       embed.setColor('RANDOM')
       if (!data) {
-        embed.addField("😂 **Fun**", "``++help fun``", true)
-        embed.addField("🛠️ **Utility**", "``++help utility``", true)
-        embed.addField("⚙️ **Config**", "``++help config``", true)
-        embed.addField("🔵 **XP**", "``++help xp``", true)
+        embed.addField("😂 **Fun**", "``++help fun``")
+        embed.addField("🛠️ **Utility**", "``++help utility``")
+        embed.addField("⚙️ **Config**", "``++help config``")
+        embed.addField("🔵 **XP**", "``++help xp``")
+        embed.addField("⌨️ **Dev**", "``++help dev``")
       } else if (data) {
-        embed.addField("😂 **Fun**", "``" + data.Prefix + "help fun``", true)
-        embed.addField("🛠️ **Utility**", "``" + data.Prefix + "help utility``", true)
-        embed.addField("⚙️ **Config**", "``" + data.Prefix + "help config``", true)
-        embed.addField("🔵 **XP**", "``" + data.Prefix + "help xp``", true)
-        embed.addField("⌨️ **Dev**", "``" + data.Prefix + "help dev``", true)
+        embed.addField("😂 **Fun**", "``" + data.Prefix + "help fun``")
+        embed.addField("🛠️ **Utility**", "``" + data.Prefix + "help utility``")
+        embed.addField("⚙️ **Config**", "``" + data.Prefix + "help config``")
+        embed.addField("🔵 **XP**", "``" + data.Prefix + "help xp``")
+        embed.addField("⌨️ **Dev**", "``" + data.Prefix + "help dev``")
       }
       message.channel.send(embed)
     }
