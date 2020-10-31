@@ -68,6 +68,20 @@ module.exports.run = async (bot, message, args) => {
       message.channel.send(embed)
     }
 
+    if (args[0] === 'dev') {
+      const embed = new Discord.MessageEmbed()
+      embed.setTitle('**⌨️ Developer Commands**')
+      embed.setDescription('``djsdocs <query>``')
+      embed.setColor('RANDOM')
+      if (!data) {
+        embed.setFooter('use ++ before each command')
+      } else if (data) {
+        embed.setFooter(`use ${data.Prefix} before each command!`)
+      }
+
+      message.channel.send(embed)
+    }
+
     if (!args.length) {
       const embed = new Discord.MessageEmbed()
       embed.setTitle('**Chad Bot Command List**')
@@ -82,6 +96,7 @@ module.exports.run = async (bot, message, args) => {
         embed.addField("🛠️ **Utility**", "``" + data.Prefix + "help utility``", true)
         embed.addField("⚙️ **Config**", "``" + data.Prefix + "help config``", true)
         embed.addField("🔵 **XP**", "``" + data.Prefix + "help xp``", true)
+        embed.addField("⌨️ **Developers**", "``" + data.Prefix + "help dev``", true)
       }
       message.channel.send(embed)
     }
