@@ -11,6 +11,14 @@ module.exports.run = async (bot, message, args) => {
         message.reply('Slow down! You have to wait 2 seconds to use this command again.')
     } else {
 		const core = os.cpus()[0];
+		let totalSeconds = (client.uptime / 1000);
+        let days = Math.floor(totalSeconds / 86400);
+        totalSeconds %= 86400;
+        let hours = Math.floor(totalSeconds / 3600);
+        totalSeconds %= 3600;
+        let minutes = Math.floor(totalSeconds / 60);
+		let seconds = Math.floor(totalSeconds % 60);
+		let uptime = `${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds`;
 		const embed = new MessageEmbed()
 			.setThumbnail(bot.user.displayAvatarURL())
 			.setColor(message.guild.me.displayHexColor || 'BLUE')
@@ -28,7 +36,7 @@ module.exports.run = async (bot, message, args) => {
 			])
 			.addField('System', [
 				`**❯ Platform:** ${process.platform}`,
-				`**❯ Uptime:** ${ms(os.uptime() * 1000, { long: true })}`,
+				`**❯ Uptime:** ${uptime}`,
 				`**❯ CPU:**`,
 				`\u3000 Cores: ${os.cpus().length}`,
 				`\u3000 Model: ${core.model}`,
