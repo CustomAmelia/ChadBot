@@ -14,7 +14,6 @@ module.exports.run = async (bot, message, args, delay) => {
             const queryParams = new URLSearchParams({ src: 'stable', q: args[0] })
 
             const embed = await fetch(`https://djsdocs.sorta.moe/v2/embed?${queryParams.toString()}`)
-            embed.setColor('2f3136')
             .then(res => res.json())
       
           message.channel.send({ embed })
