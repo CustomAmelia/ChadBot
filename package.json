@@ -2,7 +2,7 @@
   "name": "filterbot",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "dependencies": {
     "canvas": "^2.6.1",
     "cheerio": "^1.0.0-rc.3",
