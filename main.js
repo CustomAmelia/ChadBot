@@ -11,6 +11,7 @@ const {
 const mongoose = require('mongoose')
 const prefix = require('./models/prefix');
 const Levels = require('discord-xp')
+const fs = require("fs");
 
 let statuses = ["Chad Simulator", "Chad Tycoon", "https://discord.gg/AEGRMSS", "Being a Chad", "Living in ChadVille"]
 bot.on("ready", () => {
@@ -24,7 +25,7 @@ bot.on("ready", () => {
     }, 10000)
 
     console.log(`${bot.user.username} is online`)
-    fs.reddir("./commands/", (error, f) => {
+    fs.readdir("./commands/", (error, f) => {
         if (error) return console.log(error)
         
         let commands = f.filter(f => f.split(".").pop() === "js")
@@ -43,8 +44,6 @@ mongoose.connect('mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
-
-const fs = require("fs");
 
 bot.commands = new Discord.Collection();
 bot.aliases = new Discord.Collection();
