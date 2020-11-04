@@ -5,7 +5,6 @@
   "main": "main.js",
   "dependencies": {
     "canvacord": "^5.0.8",
-    "canvas": "^2.6.1",
     "cheerio": "^1.0.0-rc.3",
     "common-tags": "^1.8.0",
     "discord-xp": "^1.0.6",
