@@ -44,7 +44,7 @@ module.exports.run = async (bot, message, args) => {
                 .setStatus(person.presence.status)
                 .setProgressBar('#FFA500', "COLOR")
                 .setUsername(person.username)
-                .setDiscriminator(person.user.discriminator)
+                .setDiscriminator(person.discriminator)
                 .setLevel(user.level)
             rank.build()
                 .then(data => {
