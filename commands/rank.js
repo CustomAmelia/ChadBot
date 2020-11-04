@@ -25,7 +25,6 @@ module.exports.run = async (bot, message, args) => {
                 .setUsername(message.author.username)
                 .setDiscriminator(message.author.discriminator)
                 .setLevel(user.level)
-                .setRank(user.rank)
             rank.build()
                 .then(data => {
                     const attachment = new Discord.MessageAttachment(data, 'rank.png')
