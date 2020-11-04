@@ -25,18 +25,6 @@ bot.on("ready", () => {
     }, 10000)
 
     console.log(`${bot.user.username} is online`)
-    fs.readdir("./commands/", (error, f) => {
-        if (error) return console.log(error)
-        
-        let commands = f.filter(f => f.split(".").pop() === "js")
-        if (commands.length <= 0) return console.log('[❌] No commands found')
-        
-        commands.forEach((f) => {
-        
-        let command = require(`./commands/${f}`)
-        console.log(`[✅] ${f} has loaded.`)
-        })
-    })
 })
 
 Levels.setURL("mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net/test")
