@@ -1,6 +1,7 @@
 const Discord = require('discord.js')
 const Levels = require('discord-xp')
 const canvacord = require('canvacord')
+const data = require('canvacord/src/Plugins')
 const usedCommand = new Set()
 
 module.exports.run = async (bot, message, args) => {
