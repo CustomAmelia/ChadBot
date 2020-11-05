@@ -12,6 +12,11 @@ module.exports.run = async (bot, message, args) => {
         const person = message.mentions.users.first()
         if (!person) {
             const user = await Levels.fetch(message.author.id, message.guild.id);
+            const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 100);
+        
+            const leaderboard = Levels.computeLeaderboard(bot, rawLeaderboard);
+        
+            const lb = leaderboard.map(e => `\`\`${e.position} • ${e.username}#${e.discriminator}\nLevel: ${e.level} ‣ XP: ${e.xp.toLocaleString()}\`\``);
             const neededXp = Levels.xpFor(parseInt(user.level) + 1)
             const rank = new canvacord.Rank()
                 .setAvatar(message.author.displayAvatarURL({
@@ -25,6 +30,7 @@ module.exports.run = async (bot, message, args) => {
                 .setUsername(message.author.username)
                 .setDiscriminator(message.author.discriminator)
                 .setLevel(user.level)
+                .setRank(e.rank)
             rank.build()
                 .then(data => {
                     const attachment = new Discord.MessageAttachment(data, 'rank.png')
@@ -33,6 +39,11 @@ module.exports.run = async (bot, message, args) => {
         } else if (person) {
             if (person.bot) return;
             const user = await Levels.fetch(person.id, message.guild.id);
+            const rawLeaderboard = await Levels.fetchLeaderboard(message.guild.id, 100);
+        
+            const leaderboard = Levels.computeLeaderboard(bot, rawLeaderboard);
+        
+            const lb = leaderboard.map(e => `\`\`${e.position} • ${e.username}#${e.discriminator}\nLevel: ${e.level} ‣ XP: ${e.xp.toLocaleString()}\`\``);
             const neededXp = Levels.xpFor(parseInt(user.level) + 1)
             const rank = new canvacord.Rank()
                 .setAvatar(person.displayAvatarURL({
@@ -46,11 +57,12 @@ module.exports.run = async (bot, message, args) => {
                 .setUsername(person.username)
                 .setDiscriminator(person.discriminator)
                 .setLevel(user.level)
+                .setRank(e.rank)
             rank.build()
                 .then(data => {
                     const attachment = new Discord.MessageAttachment(data, 'rank.png')
                     message.channel.send(attachment)
-                })
+                });
         }
     }
     usedCommand.add(message.author.id);
