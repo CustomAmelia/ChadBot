@@ -102,6 +102,10 @@ module.exports.run = async (bot, message, args) => {
       message.channel.send(embed)
     }
 
+    if (args[0] === bot.commands.get(args[0])) {
+      message.channel.send(args[0])
+    }
+
     usedCommand.add(message.author.id);
     setTimeout(() => {
       usedCommand.delete(message.author.id);
