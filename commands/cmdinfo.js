@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
     if(helpArgs[0]) {
       let command = helpArgs[0];
 
-      if(bot.commands(command)) {
+      if(bot.commands.has(command).toLowerCase()) {
           
           command = bot.commands.toLowerCase().get(command)
           var embed = new Discord.MessageEmbed()
