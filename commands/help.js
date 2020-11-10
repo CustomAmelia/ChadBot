@@ -100,24 +100,6 @@ module.exports.run = async (bot, message, args) => {
         embed.addField("⌨️ **Dev**", "``" + data.Prefix + "help dev``")
       }
       message.channel.send(embed)
-
-      let helpArray = message.content.split(" ");
-      let helpArgs = helpArray.slice(1);
-
-      if(helpArgs[0]) {
-        let command = helpArgs[0];
-  
-        if(bot.commands(command).toLowerCase()) {
-            
-            command = bot.commands.get(command).toLowerCase()
-            const embed = new Discord.MessageEmbed()
-            .setAuthor(`${command.config.name} Command`)
-            .addField('Description:', `${command.config.description || "There is no description for this command."} `)
-            .addField('Usage:', `${command.config.usage || "No Usage"}`)
-            .addField('Aliases:', `${command.config.aliases || "No Aliases"}`)
-            .setColor('RANDOM')
-        message.channel.send(embed);
-    }}
     }
 
     usedCommand.add(message.author.id);
