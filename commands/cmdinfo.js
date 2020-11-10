@@ -12,17 +12,15 @@ module.exports.run = async (bot, message, args) => {
     if(helpArgs[0]) {
       let command = helpArgs[0];
 
-      if(bot.commands.has(command)) {
+      if(bot.commands(command).toLowerCase()) {
           
-          command = bot.commands.get(command);
+          command = bot.commands.get(command).toLowerCase()
           var embed = new Discord.MessageEmbed()
           .setAuthor(`${command.config.name} Command`)
-          .setDescription(`
-          - **Command's Description** __${command.config.description || "There is No Description for this command."}__
-          - **Command's Usage:** __${command.config.usage || "No Usage"}__
-          - **Command's Aliases:** __${command.config.aliases || "No Aliases"}__
-          `)
-          .setColor('#2EFF00')
+          .addField('Description:', `${command.config.description || "There is no description for this command."} `)
+          .addField('Usage:', `${command.config.usage || "No Usage"}`)
+          .addField('Aliases:', `${command.config.aliases || "No Aliases"}`)
+          .setColor('RANDOM')
 
       message.channel.send(embed);
   }}
