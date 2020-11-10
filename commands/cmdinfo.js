@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
 
       if(bot.commands.has(command)) {
           
-          command = bot.commands.toLowerCase().get(command)
+          command = bot.commands.get(command)
           var embed = new Discord.MessageEmbed()
           .setAuthor(`${command.config.name} Command`)
           .addField('Description:', `${command.config.description || "There is no description for this command."} `)
