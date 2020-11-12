@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
         if (typeof output !== "string") output = inspect(output, {
             depth: 5
         })
-
+        
         message.channel.send(stripIndents `
         *Executed In ${difference[0] > 0 ?`${difference[0]}s ` : ""} ${difference[1] / 1e6}ms*
         \`\`\`js
