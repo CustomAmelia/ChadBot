@@ -7,9 +7,9 @@ const bot = new Discord.Client({
 });
 const {
     loadCommands
-} = require('./utils/loadCommands');
+} = require('./src/utils/loadCommands');
 const mongoose = require('mongoose')
-const prefix = require('./models/prefix');
+const prefix = require('./src/models/prefix');
 const Levels = require('discord-xp')
 const fs = require("fs");
 
