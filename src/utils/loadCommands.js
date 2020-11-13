@@ -1,7 +1,7 @@
 const fs = require('fs');
 
 function loadCommands(bot) {
-    fs.readdir('./commands', (error, Category) => {
+    fs.readdir('./src/commands', (error, Category) => {
         if (error) throw error;
         Category.forEach((category) => {
           fs.readdir(`./src/commands/${category}`, (err, commands) => {
