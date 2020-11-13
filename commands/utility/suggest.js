@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const suggestionModel = require('../models/suggest')
+const suggestionModel = require('../../models/suggest')
 const usedCommand = new Set()
 
 module.exports.run = async (bot, message, args) => {
