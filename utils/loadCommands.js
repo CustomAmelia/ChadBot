@@ -10,9 +10,9 @@ function loadCommands(bot) {
             commands.forEach((command) => {
               const cmd = require(`../commands/${category}/${command}`);
       
-              client.commands.set(cmd.config.name, cmd);
+              bot.commands.set(cmd.config.name, cmd);
               cmd.config.aliases.forEach((alias) => {
-                client.aliases.set(alias, cmd.config.name);
+                bot.aliases.set(alias, cmd.config.name);
               });
             });
           });
