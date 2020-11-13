@@ -1,5 +1,5 @@
 const Discord = require('discord.js')
-const settings = require('../../botsettings.json');
+const settings = require('../../../botsettings.json');
 const fetch = require('node-fetch')
 const usedCommand = new Set()
 
