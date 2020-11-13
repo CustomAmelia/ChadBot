@@ -1,9 +1,9 @@
 const { MessageEmbed, version: djsversion } = require('discord.js')
-const { version } = require('../package.json')
+const { version } = require('.../package.json')
 const { utc } = require('moment')
 const os = require('os')
 const ms = require('ms')
-const settings = require('../botsettings.json');
+const settings = require('.../botsettings.json');
 const usedCommand = new Set()
 
 module.exports.run = async (bot, message, args) => {
