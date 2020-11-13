@@ -1,6 +1,6 @@
 const Discord = require("discord.js")
-const botconfig = require("../../botsettings.json");
-const prefixModel = require("../../models/prefix")
+const botconfig = require("../../../botsettings.json");
+const prefixModel = require("../../../models/prefix")
 const usedCommand = new Set()
 
 
