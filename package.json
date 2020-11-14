@@ -29,8 +29,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "update": "git pull https://CustomNate:caniver5469maximoo09@github.com/CustomNate/ChadBot.git",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "git pull https://CustomNate:caniver5469maximoo09@github.com/CustomNate/ChadBot.git"
   },
   "repository": {
     "type": "git",
