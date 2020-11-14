@@ -31,7 +31,7 @@ module.exports.run = (bot, message, args) => {
     usedCommand.add(message.author.id);
     setTimeout(() => {
         usedCommand.delete(message.author.id);
-    }, 2000);
+    }, 5000);
 }
 
 module.exports.config = {
