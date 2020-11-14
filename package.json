@@ -29,7 +29,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "git pull https://CustomNate:caniver5469maximoo09@github.com/CustomNate/ChadBot.git"
+    "test": "console.log('test')"
   },
   "repository": {
     "type": "git",
