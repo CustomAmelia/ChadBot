@@ -18,6 +18,7 @@ module.exports.run = async (bot, message, args) => {
                     dynamic: false,
                     format: 'png'
                 }))
+                .setBackground("IMAGE", "https://i.imgur.com/5QHCaOQ.png")
                 .setCurrentXP(user.xp)
                 .setRequiredXP(neededXp)
                 .setStatus(message.member.user.presence.status)
@@ -25,6 +26,7 @@ module.exports.run = async (bot, message, args) => {
                 .setUsername(message.author.username)
                 .setDiscriminator(message.author.discriminator)
                 .setLevel(user.level)
+                .setRank(user.rank)
             rank.build()
                 .then(data => {
                     const attachment = new Discord.MessageAttachment(data, 'rank.png')
@@ -40,12 +42,14 @@ module.exports.run = async (bot, message, args) => {
                     format: 'png'
                 }))
                 .setCurrentXP(user.xp)
+                .setBackground("IMAGE", "https://i.imgur.com/5QHCaOQ.png")
                 .setRequiredXP(neededXp)
                 .setStatus(person.presence.status)
                 .setProgressBar('#FFA500', "COLOR")
                 .setUsername(person.username)
                 .setDiscriminator(person.discriminator)
                 .setLevel(user.level)
+                .setRank(user.rank)
             rank.build()
                 .then(data => {
                     const attachment = new Discord.MessageAttachment(data, 'rank.png')
