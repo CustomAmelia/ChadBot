@@ -26,7 +26,7 @@ module.exports.run = async (bot, message, args) => {
                 .setUsername(message.author.username)
                 .setDiscriminator(message.author.discriminator)
                 .setLevel(user.level)
-                .setRank(user.rank)
+                .setRank(0)
             rank.build()
                 .then(data => {
                     const attachment = new Discord.MessageAttachment(data, 'rank.png')
@@ -49,7 +49,7 @@ module.exports.run = async (bot, message, args) => {
                 .setUsername(person.username)
                 .setDiscriminator(person.discriminator)
                 .setLevel(user.level)
-                .setRank(user.rank)
+                .setRank(0)
             rank.build()
                 .then(data => {
                     const attachment = new Discord.MessageAttachment(data, 'rank.png')
