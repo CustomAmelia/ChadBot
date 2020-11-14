@@ -45,7 +45,7 @@ module.exports.run = async (bot, message, args) => {
                 .setBackground("IMAGE", "https://i.imgur.com/5QHCaOQ.png")
                 .setRequiredXP(neededXp)
                 .setStatus(person.presence.status)
-                .setProgressBar('#FFA500', "COLOR")
+                .setProgressBar('#8b73f4', "COLOR")
                 .setUsername(person.username)
                 .setDiscriminator(person.discriminator)
                 .setLevel(user.level)
