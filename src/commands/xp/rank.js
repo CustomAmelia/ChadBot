@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
                 .setCurrentXP(user.xp)
                 .setRequiredXP(neededXp)
                 .setStatus(message.member.user.presence.status)
-                .setProgressBar('#FFA500', "COLOR")
+                .setProgressBar('#8b73f4', "COLOR")
                 .setUsername(message.author.username)
                 .setDiscriminator(message.author.discriminator)
                 .setLevel(user.level)
