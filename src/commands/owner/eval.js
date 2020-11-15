@@ -29,11 +29,13 @@ module.exports.run = async (bot, message, args) => {
         .setTitle(`Executed In ${difference[0] > 0 ?`${difference[0]}s ` : ""} ${difference[1] / 1e6}ms`)
         .addField(stripIndents `
         Input:
-        \`\`\`js\n${args.join(' ')}\`\`\`
+        \`\`\`js
+        ${args.join(' ')}\`\`\`
         `)
         .addField(stripIndents `
         Output:
-        \`\`\`js\n${output.length > 1950 ? await haste.post(output) : output}\`\`\`
+        \`\`\`js
+        ${output.length > 1950 ? await haste.post(output) : output}\`\`\`
         `)
         .setColor("RANDOM")
 
