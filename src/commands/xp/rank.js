@@ -12,7 +12,7 @@ module.exports.run = async (bot, message, args) => {
         const person = message.mentions.users.first()
         if (!person) {
             const user = await Levels.fetch(message.author.id, message.guild.id);
-            const neededXp = Levels.xpFor(parseInt(user.level))
+            const neededXp = Levels.xpFor(parseInt(user.level) + 1)
             const rank = new canvacord.Rank()
                 .setAvatar(message.author.displayAvatarURL({
                     dynamic: false,
