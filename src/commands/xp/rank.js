@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
                     dynamic: false,
                     format: 'png'
                 }))
-                .setBackground("IMAGE", "https://i.imgur.com/LHwXaqL.jpeg")
+                .setBackground("IMAGE", "https://i.imgur.com/5QHCaOQ.png")
                 .setCurrentXP(user.xp)
                 .setRequiredXP(neededXp)
                 .setStatus(message.member.user.presence.status)
