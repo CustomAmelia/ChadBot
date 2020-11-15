@@ -7,6 +7,7 @@ module.exports.run = async (bot, message, args) => {
     if (!msg) return;
     if (message.author.id === '498097065264676864') {
         message.channel.send(msg)
+        message.delete()
     }
 }
 
