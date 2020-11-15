@@ -25,12 +25,12 @@ module.exports.run = async (bot, message, args) => {
             depth: 5
         })
         
-        message.channel.send(stripIndents `
-        *Executed In ${difference[0] > 0 ?`${difference[0]}s ` : ""} ${difference[1] / 1e6}ms*
-        \`\`\`js
-        ${output.length > 1950 ? await haste.post(output) : output}
-        \`\`\`
-        `)
+        const embed = new Discord.MessageEmbed()
+        .setTitle(`Executed In ${difference[0] > 0 ?`${difference[0]}s ` : ""} ${difference[1] / 1e6}ms`)
+        .addField('Input', args.join(' '))
+        .addField('Output', `\`\`\`js${output.length > 1950 ? await haste.post(output) : output}\`\`\``)
+
+        message.channel.send(embed)
     } catch (err) {
         return message.channel.send(stripIndents `
         Error:
