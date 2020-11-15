@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
         
         const embed = new Discord.MessageEmbed()
         .setTitle(`Executed In ${difference[0] > 0 ?`${difference[0]}s ` : ""} ${difference[1] / 1e6}ms`)
-        .setDescription(`Input: \n \`\`\`js\n${args.join(' ')}\`\`\` \n Output: \n \`\`\`js\n${output.length > 1950 ? await haste.post(output) : output}\`\`\``)
+        .setDescription(`Input: \n \`\`\`js\n${args.join(' ')}\`\`\` \n Output: \n \`\`\`js\n${output.length > 1950 ? await haste.post(output) : output}\`\`\` \n TypeOf: \n \`\`\`js\n${typeof(start)}\`\`\``)
         .setColor("#8b73f4")
 
         message.channel.send(embed)
