@@ -32,12 +32,15 @@ module.exports.run = async (bot, message, args) => {
 
         message.channel.send(embed)
     } catch (err) {
-        return message.channel.send(stripIndents `
+        const embed = new Discord.MessageEmbed()
+        .setTitle('ERROR')
+        .setDescription(stripIndents `
         Error:
         \`\`\`js
         ${err}
         \`\`\`
         `)
+        message.channel.send(embed)
     }
 }
 module.exports.config = {
