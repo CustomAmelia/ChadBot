@@ -5,9 +5,9 @@ module.exports.run = async (bot, message, args) => {
     const msg = args.join(' ')
 
     if (!msg) return;
-    if (!message.author.id === '498097065264676864') return;
-
-    message.channel.send(msg)
+    if (message.author.id === '498097065264676864') {
+        message.channel.send(msg)
+    }
 }
 
 module.exports.config = {
