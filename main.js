@@ -27,8 +27,8 @@ bot.on("ready", () => {
     console.log(`${bot.user.username} is online`)
 })
 
-Levels.setURL("mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net/test")
-mongoose.connect('mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net/test', {
+Levels.setURL(settings.MongooseURL)
+mongoose.connect(settings.MongooseURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
