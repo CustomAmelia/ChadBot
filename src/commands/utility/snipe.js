@@ -7,6 +7,7 @@ module.exports.run = async (bot, message, args) => {
     } else {
         const snipes = bot.snipes.get(message.channel.id) || [];
         const msg = snipes[args[0] - 1 || 0];
+        if (isNaN(msg)) return message.channel.send('Not a number.')
         if (!msg) return message.channel.send(`That is not a valid snipe...`);
         const Embed = new Discord.MessageEmbed()
             .setAuthor(
