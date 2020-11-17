@@ -34,4 +34,4 @@ module.exports.config = {
     description: "Gets a deleted message!",
     usage: "++snipe <number>",
     aliases: []
-};
+}
