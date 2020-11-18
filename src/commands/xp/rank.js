@@ -15,7 +15,7 @@ module.exports.run = async (bot, message, args) => {
             const neededXp = Levels.xpFor(parseInt(user.level) + 1)
             let image = ""
             if (message.guild.id === '567809387226464256') {
-                image = "https://cdn.hipwallpaper.com/i/84/46/Fvhz9Q.jpg"
+                image = "https://media.discordapp.net/attachments/573978262754164761/752946028180799568/IMG_20200908_123833452.jpg?width=425&height=567"
             }
             else image = "https://i.imgur.com/5QHCaOQ.png"
             const rank = new canvacord.Rank()
@@ -43,7 +43,7 @@ module.exports.run = async (bot, message, args) => {
             const neededXp = Levels.xpFor(parseInt(user.level) + 1)
             let image = ""
             if (message.guild.id === '567809387226464256') {
-                image = "https://cdn.hipwallpaper.com/i/84/46/Fvhz9Q.jpg"
+                image = "https://media.discordapp.net/attachments/573978262754164761/752946028180799568/IMG_20200908_123833452.jpg?width=425&height=567"
             }
             else image = "https://i.imgur.com/5QHCaOQ.png"
             const rank = new canvacord.Rank()
