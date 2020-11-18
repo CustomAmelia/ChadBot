@@ -13,12 +13,17 @@ module.exports.run = async (bot, message, args) => {
         if (!person) {
             const user = await Levels.fetch(message.author.id, message.guild.id);
             const neededXp = Levels.xpFor(parseInt(user.level) + 1)
+            let image = ""
+            if (message.guild.id === '567809387226464256') {
+                image = "https://cdn.hipwallpaper.com/i/84/46/Fvhz9Q.jpg"
+            }
+            else image = "https://i.imgur.com/5QHCaOQ.png"
             const rank = new canvacord.Rank()
                 .setAvatar(message.author.displayAvatarURL({
                     dynamic: false,
                     format: 'png'
                 }))
-                .setBackground("IMAGE", "https://i.imgur.com/5QHCaOQ.png")
+                .setBackground("IMAGE", image)
                 .setCurrentXP(user.xp)
                 .setRequiredXP(neededXp)
                 .setStatus(message.member.user.presence.status)
@@ -36,13 +41,18 @@ module.exports.run = async (bot, message, args) => {
             if (person.bot) return;
             const user = await Levels.fetch(person.id, message.guild.id);
             const neededXp = Levels.xpFor(parseInt(user.level) + 1)
+            let image = ""
+            if (message.guild.id === '567809387226464256') {
+                image = "https://cdn.hipwallpaper.com/i/84/46/Fvhz9Q.jpg"
+            }
+            else image = "https://i.imgur.com/5QHCaOQ.png"
             const rank = new canvacord.Rank()
                 .setAvatar(person.displayAvatarURL({
                     dynamic: false,
                     format: 'png'
                 }))
                 .setCurrentXP(user.xp)
-                .setBackground("IMAGE", "https://i.imgur.com/5QHCaOQ.png")
+                .setBackground("IMAGE", image)
                 .setRequiredXP(neededXp)
                 .setStatus(person.presence.status)
                 .setProgressBar('#8b73f4', "COLOR")
