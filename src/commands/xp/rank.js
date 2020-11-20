@@ -4,16 +4,19 @@ const canvacord = require('canvacord')
 const data = require('canvacord/src/Plugins')
 const usedCommand = new Set()
 
-module.exports.run = async (bot, message, args) => {
+module.exports.run = async (bot, message, args, delay) => {
 
     if (usedCommand.has(message.author.id)) {
         message.reply('Slow down! You have to wait 2 seconds to use this command again.')
     } else {
         const person = message.mentions.users.first()
+        const gif = new Discord.MessageAttachment('https://i.pinimg.com/originals/90/80/60/9080607321ab98fa3e70dd24b2513a20.gif')
         if (!person) {
             const user = await Levels.fetch(message.author.id, message.guild.id);
             const neededXp = Levels.xpFor(parseInt(user.level) + 1)
             const rank = new canvacord.Rank()
+            const gifsent = await message.channel.send(gif)
+            await delay(1)
                 .setAvatar(message.author.displayAvatarURL({
                     dynamic: false,
                     format: 'png'
@@ -31,12 +34,15 @@ module.exports.run = async (bot, message, args) => {
                 .then(data => {
                     const attachment = new Discord.MessageAttachment(data, 'rank.png')
                     message.channel.send(attachment)
+                    gifsent.delete()
                 })
         } else if (person) {
             if (person.bot) return;
             const user = await Levels.fetch(person.id, message.guild.id);
             const neededXp = Levels.xpFor(parseInt(user.level) + 1)
             const rank = new canvacord.Rank()
+            const gifsent = await message.channel.send(gif)
+            await delay(1)
                 .setAvatar(person.displayAvatarURL({
                     dynamic: false,
                     format: 'png'
@@ -54,6 +60,7 @@ module.exports.run = async (bot, message, args) => {
                 .then(data => {
                     const attachment = new Discord.MessageAttachment(data, 'rank.png')
                     message.channel.send(attachment)
+                    gifsent.delete()
                 });
         }
     }
