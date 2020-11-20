@@ -17,19 +17,19 @@ module.exports.run = async (bot, message, args, delay) => {
             const rank = new canvacord.Rank()
             const gifsent = await message.channel.send(gif)
             await delay(1)
-                .setAvatar(message.author.displayAvatarURL({
+                rank.setAvatar(person.displayAvatarURL({
                     dynamic: false,
                     format: 'png'
                 }))
-                .setBackground("IMAGE", 'https://i.imgur.com/5QHCaOQ.png')
-                .setCurrentXP(user.xp)
-                .setRequiredXP(neededXp)
-                .setStatus(message.member.user.presence.status)
-                .setProgressBar('#8b73f4', "COLOR")
-                .setUsername(message.author.username)
-                .setDiscriminator(message.author.discriminator)
-                .setLevel(user.level)
-                .setRank(0)
+                rank.setCurrentXP(user.xp)
+                rank.setBackground("IMAGE", 'https://i.imgur.com/5QHCaOQ.png')
+                rank.setRequiredXP(neededXp)
+                rank.setStatus(person.presence.status)
+                rank.setProgressBar('#8b73f4', "COLOR")
+                rank.setUsername(person.username)
+                rank.setDiscriminator(person.discriminator)
+                rank.setLevel(user.level)
+                rank.setRank(0)
             rank.build()
                 .then(data => {
                     const attachment = new Discord.MessageAttachment(data, 'rank.png')
@@ -43,19 +43,19 @@ module.exports.run = async (bot, message, args, delay) => {
             const rank = new canvacord.Rank()
             const gifsent = await message.channel.send(gif)
             await delay(1)
-                .setAvatar(person.displayAvatarURL({
+                rank.setAvatar(person.displayAvatarURL({
                     dynamic: false,
                     format: 'png'
                 }))
-                .setCurrentXP(user.xp)
-                .setBackground("IMAGE", 'https://i.imgur.com/5QHCaOQ.png')
-                .setRequiredXP(neededXp)
-                .setStatus(person.presence.status)
-                .setProgressBar('#8b73f4', "COLOR")
-                .setUsername(person.username)
-                .setDiscriminator(person.discriminator)
-                .setLevel(user.level)
-                .setRank(0)
+                rank.setCurrentXP(user.xp)
+                rank.setBackground("IMAGE", 'https://i.imgur.com/5QHCaOQ.png')
+                rank.setRequiredXP(neededXp)
+                rank.setStatus(person.presence.status)
+                rank.setProgressBar('#8b73f4', "COLOR")
+                rank.setUsername(person.username)
+                rank.setDiscriminator(person.discriminator)
+                rank.setLevel(user.level)
+                rank.setRank(0)
             rank.build()
                 .then(data => {
                     const attachment = new Discord.MessageAttachment(data, 'rank.png')
