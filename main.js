@@ -30,7 +30,9 @@ bot.on("ready", () => {
 Levels.setURL(settings.MongooseURL)
 mongoose.connect(settings.MongooseURL, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    connectTimeoutMS: 300000,
+    socketTimeoutMS: 300000
 })
 
 bot.commands = new Discord.Collection();
