@@ -27,12 +27,15 @@ bot.on("ready", () => {
     console.log(`${bot.user.username} is online`)
 })
 
-Levels.setURL(settings.MongooseURL)
+Levels.setURL(settings.MongooseURL, {
+    connectTimeoutMS: 3.154e+11,
+    socketTimeoutMS: 3.154e+11
+})
 mongoose.connect(settings.MongooseURL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    connectTimeoutMS: 300000,
-    socketTimeoutMS: 300000
+    connectTimeoutMS: 3.154e+11,
+    socketTimeoutMS: 3.154e+11
 })
 
 bot.commands = new Discord.Collection();
