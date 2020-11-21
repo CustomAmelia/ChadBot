@@ -27,11 +27,8 @@ bot.on("ready", () => {
     console.log(`${bot.user.username} is online`)
 })
 
-Levels.setURL(settings.MongooseURL, {
-    connectTimeoutMS: 3.154e+11,
-    socketTimeoutMS: 3.154e+11
-})
-mongoose.connect(settings.MongooseURL, {
+Levels.setURL('mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net/test')
+mongoose.connect('mongodb+srv://Brady1290:caniver1234@cluster0.bf245.mongodb.net/tes', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     connectTimeoutMS: 3.154e+11,
